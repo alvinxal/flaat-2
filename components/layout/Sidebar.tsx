@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icons } from "@/components/shared/Icons";
-import { siteContent } from "@/data/content";
 
 const iconMap = {
   home: Icons.Home,
@@ -16,6 +15,22 @@ const iconMap = {
   linkedin: Icons.LinkedIn,
   threads: Icons.Threads,
 } as const;
+
+type IconKey = "home" | "about" | "projects" | "services" | "contact" | "instagram" | "linkedin" | "threads";
+
+const navItems: { label: string; href: string; icon: IconKey }[] = [
+  { label: "Beranda", href: "/", icon: "home" },
+  { label: "Tentang Kami", href: "/#about", icon: "about" },
+  { label: "Portofolio", href: "/#projects", icon: "projects" },
+  { label: "Layanan", href: "/#service", icon: "services" },
+  { label: "Kontak", href: "/#contact", icon: "contact" },
+];
+
+const socialItems: { name: string; href: string; icon: IconKey }[] = [
+  { name: "Instagram", href: "https://instagram.com", icon: "instagram" },
+  { name: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
+  { name: "Threads", href: "https://threads.com", icon: "threads" },
+];
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -39,7 +54,7 @@ const Sidebar = () => {
           href='/'
           className='inline-flex items-center text-gray-700 no-underline font-display text-lg leading-[1.3] font-bold'
         >
-          {siteContent.brand}
+          Flaat Studio
         </Link>
         <button
           type='button'
@@ -72,12 +87,12 @@ const Sidebar = () => {
             href='/'
             className='inline-flex items-center gap-2 text-gray-700 no-underline font-display text-2xl leading-[1.3] font-bold '
           >
-            <span>{siteContent.brand}</span>
+            <span>Flaat Studio</span>
           </Link>
         </div>
 
         <nav className='flex flex-col gap-0.5 w-full'>
-          {siteContent.nav.map((item) => {
+          {navItems.map((item) => {
             const Icon = iconMap[item.icon];
             const isCurrent =
               item.href === "/"
@@ -105,24 +120,24 @@ const Sidebar = () => {
         <div className='mt-auto flex flex-col gap-4 w-full pt-8 border-t border-gray-300 text-gray-800'>
           <div className='flex flex-col gap-1'>
             <p className='font-sans text-base leading-normal tracking-tight'>
-              {siteContent.sidebarCta.eyebrow}
+              Punya ide proyek?
             </p>
             <p className='font-sans text-base leading-normal tracking-tight text-muted'>
-              {siteContent.sidebarCta.text}
+              Jadwalkan diskusi hari ini.
             </p>
           </div>
           <Link
-            href={siteContent.sidebarCta.href}
+            href='/#contact'
             className='inline-flex items-center justify-between gap-4 w-full py-3 border-b border-gray-700 text-gray-700 no-underline font-sans text-base leading-normal tracking-tight'
           >
-            <span>{siteContent.sidebarCta.label}</span>
-            <Icons.Contact size={16} />
+            <span>Hubungi Kami</span>
+            <Icons.WhatsApp size={16} />
           </Link>
         </div>
 
         <div className='flex flex-col gap-4 w-full mt-10'>
           <div className='flex gap-2 flex-wrap'>
-            {siteContent.social.map((item) => {
+            {socialItems.map((item) => {
               const Icon = iconMap[item.icon];
 
               return (
@@ -141,11 +156,6 @@ const Sidebar = () => {
           </div>
 
           <p className='text-muted text-xs tracking-widest whitespace-pre-wrap font-sans'>
-            {/* Created by{" "}
-            <a href={siteContent.createdBy.href} target="_blank" rel="noreferrer" className="text-gray-700 no-underline">
-              {siteContent.createdBy.name}
-            </a> 
-            .<br />*/}
             All rights reserved.
           </p>
         </div>

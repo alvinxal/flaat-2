@@ -13,6 +13,7 @@ import {
   FaChevronRight,
   FaCheck,
   FaHandsHolding,
+  FaWhatsapp,
 } from "react-icons/fa6";
 
 type IconProps = React.SVGProps<SVGSVGElement>;
@@ -28,6 +29,7 @@ export const Icons = {
   Briefcase: FaBriefcase,
   Services: FaHandsHolding,
   Contact: FaEnvelope,
+  WhatsApp: FaWhatsapp,
   ChevronRight: FaChevronRight,
   Check: FaCheck,
 };

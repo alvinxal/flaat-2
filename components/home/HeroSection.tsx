@@ -5,8 +5,8 @@ const content = {
   since: "since 2025",
   status: "Currently Available",
   title:
-    "Modio is a digital studio of branding and packaging to web design and digital campaigns. We craft experiences that resonate.",
-  cta: "Book a call",
+    "Digital partner yang menggabungkan teknologi AI dan strategi marketing untuk mempercepat pertumbuhan bisnis Anda.",
+  cta: "Konsultasi Gratis",
   ctaHref: "/#contact",
 };
 
