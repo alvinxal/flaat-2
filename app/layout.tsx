@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
 import Sidebar from "@/components/layout/Sidebar";
 import "./globals.css";
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-bricolage",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   title: "Flaat Studio",
@@ -15,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${bricolage.variable} ${inter.variable}`} style={{ fontSize: '1.125rem' }}>
         <Sidebar />
         {children}
       </body>

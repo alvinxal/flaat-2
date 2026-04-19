@@ -42,8 +42,8 @@ export const siteContent = {
   },
   nav: [
     { label: "Home", href: "/", icon: "home" },
-    { label: "About", href: "/about", icon: "about" },
-    { label: "Projects", href: "/project", icon: "projects" },
+    { label: "About", href: "/#about", icon: "about" },
+    { label: "Projects", href: "/#projects", icon: "projects" },
     { label: "Services", href: "/#service", icon: "services" },
     { label: "Contact", href: "/#contact", icon: "contact" },
   ] satisfies NavItem[],
@@ -60,7 +60,7 @@ export const siteContent = {
   },
   hero: {
     status: "Accepting Work",
-    since: "since 2017",
+    since: "since 2025",
     title:
       "Modio is a digital studio of branding and packaging to web design and digital campaigns. We craft experiences that resonate.",
     cta: "Book a call",

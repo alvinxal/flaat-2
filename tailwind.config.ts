@@ -12,7 +12,7 @@ const config: Config = {
         desk: '1024px',
       },
       colors: {
-        black: '#000000',
+        black: 'inherit',
         white: '#ffffff',
         gray: {
           50: '#fafafa',
@@ -23,7 +23,7 @@ const config: Config = {
           500: '#605f5f',
           600: '#bdbdbd',
           700: '#aeaeae',
-          800: '#999999',
+          800: '#333333',
           900: '#1a1a1a',
           950: '#0a0a0a',
         },
@@ -37,7 +37,9 @@ const config: Config = {
         border: 'var(--color-border)',
       },
       fontFamily: {
-        sans: ['var(--font-switzer)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-barlow)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'sans-serif'],
+        body: ['var(--font-inter)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
       },
       spacing: {
