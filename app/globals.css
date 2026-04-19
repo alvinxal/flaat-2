@@ -1,0 +1,101 @@
+@import url("https://api.fontshare.com/v2/css?f[]=clash-display@700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-tab: 810px;
+  --breakpoint-desk: 1024px;
+
+  --color-accent: #2eab60;
+  --color-panel: var(--color-panel);
+  --color-panel-strong: var(--color-panel-strong);
+  --color-muted: var(--color-muted);
+  --color-soft: var(--color-soft);
+  --color-inverse: var(--color-inverse);
+  --color-inverse-muted: var(--color-inverse-muted);
+  --color-border: var(--color-border);
+
+  --font-sans: var(--font-switzer), system-ui, sans-serif;
+  --font-mono: var(--font-mono), monospace;
+  --font-display: "Clash Display", sans-serif;
+
+  --spacing-sidebar: 256px;
+  --spacing-section: 64px;
+}
+
+@font-face {
+  font-family: "Switzer";
+  src: url("/assets/fonts/switzer-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Switzer";
+  src: url("/assets/fonts/switzer-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Switzer";
+  src: url("/assets/fonts/switzer-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fragment Mono";
+  src: url("/assets/fonts/fragment-mono-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-switzer: "Switzer", sans-serif;
+  --font-mono: "Fragment Mono", monospace;
+  --color-bg: #ffffff;
+  --color-panel: #f4f4f4;
+  --color-panel-strong: #e6e6e6;
+  --color-text: #000000;
+  --color-muted: #605f5f;
+  --color-soft: #aeaeae;
+  --color-inverse: #ffffff;
+  --color-inverse-muted: rgba(255, 255, 255, 0.7);
+  --color-border: #e6e6e6;
+  --color-accent: #2eab60;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-switzer);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
