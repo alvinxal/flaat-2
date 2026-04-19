@@ -15,10 +15,10 @@ const content = {
     {
       title: "AI & Automation",
       description:
-        "Creative, functional packaging that captures attention and communicates value.",
+        "Otomatisasi workflow, chatbot cerdas, dan AI agent yang bekerja 24/7 untuk efisiensi bisnis. Integrasikan teknologi AI tanpa kerumitan teknis.",
       image:
         "https://images.unsplash.com/photo-1694903110330-cc64b7e1d21d?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Otomatisasi workflow, chatbot cerdas, dan AI agent yang bekerja 24/7 untuk efisiensi bisnis. Integrasikan teknologi AI tanpa kerumitan teknis.",
+      alt: "AI & Automation",
     },
     {
       title: "Digital Marketing",
