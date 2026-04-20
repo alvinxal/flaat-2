@@ -49,6 +49,8 @@ const Sidebar = () => {
     };
   }, [isOpen]);
 
+  if (pathname?.startsWith("/dashboard")) return null;
+
   return (
     <div>
       <div className='fixed top-0 left-0 right-0 z-50 flex h-[72px] items-center justify-between px-10 bg-white border-b border-gray-200 desk:hidden'>
@@ -73,7 +75,7 @@ const Sidebar = () => {
         <button
           type='button'
           aria-label='Close navigation'
-          className='fixed inset-0 z-30 bg-accent/20 desk:hidden'
+          className='fixed inset-0 z-30 desk:hidden'
           onClick={() => setIsOpen(false)}
         />
       )}
@@ -95,57 +97,65 @@ const Sidebar = () => {
           </Link>
         </div>
 
-        <nav className='mt-auto flex flex-col gap-0.5 w-full pt-8'>
-          {navItems.map((item, index) => {
-            const Icon = iconMap[item.icon];
-            const isCurrent =
-              item.href === "/"
-                ? pathname === "/"
-                : item.href.startsWith("/#")
-                  ? pathname === "/"
-                  : pathname.startsWith(item.href);
-
-            return (
-              <Link
-                key={item.label}
-                href={item.href}
-                style={{ transitionDelay: isOpen ? `${(index + 1) * 100}ms` : '0ms' }}
-                className={`group flex items-center justify-between gap-4 w-full py-2 text-accent no-underline font-sans text-lg leading-[1.3] font-medium tracking-[-0.02em] transition-all duration-500 hover:translate-x-1 hover:underline underline-offset-4 
-                  ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 desk:opacity-100 desk:translate-y-0"}
-                `}
-              >
-                <span>{item.label}</span>
-                {/* Hidden icon - uncomment to show */}
-                {/* <Icon
-                  size={16}
-                  className={`flex-none transition-colors duration-200 ${isCurrent ? "text-accent" : "text-accent group-hover:text-accent"}`}
-                /> */}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div 
-          style={{ transitionDelay: isOpen ? `${(navItems.length + 1) * 100}ms` : '0ms' }}
-          className={`flex flex-col gap-6 w-full mt-10 pt-8 border-t border-gray-200 transition-all duration-500 ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 desk:opacity-100 desk:translate-y-0"}`}
-        >
-          <div className='flex justify-center gap-4 flex-wrap'>
-            {socialItems.map((item) => {
+        <div className='flex flex-col flex-1'>
+          <div className='flex flex-1 items-center desk:flex-none desk:mt-auto'>
+            <nav className='flex flex-col gap-0.5 w-full desk:mt-auto desk:pt-8'>
+            {navItems.map((item, index) => {
               const Icon = iconMap[item.icon];
+              const isCurrent =
+                item.href === "/"
+                  ? pathname === "/"
+                  : item.href.startsWith("/#")
+                    ? pathname === "/"
+                    : pathname.startsWith(item.href);
 
               return (
-                <a
-                  key={item.name}
+                <Link
+                  key={item.label}
                   href={item.href}
-                  target='_blank'
-                  rel='noreferrer'
-                  className='inline-flex items-center justify-center p-2 rounded-full text-accent hover:bg-accent/10 transition-colors duration-200'
-                  aria-label={item.name}
+                  style={{
+                    transitionDelay: isOpen ? `${(index + 1) * 100}ms` : "0ms",
+                  }}
+                  className={`group flex items-center justify-between gap-4 w-full py-2 text-accent no-underline font-sans text-2xl desk:text-lg leading-[1.3] font-medium tracking-[-0.02em] transition-all duration-500 hover:translate-x-1 hover:underline underline-offset-4 
+                    ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 desk:opacity-100 desk:translate-y-0"}
+                  `}
                 >
-                  <Icon size={16} />
-                </a>
+                  <span>{item.label}</span>
+                  {/* Hidden icon - uncomment to show */}
+                  {/* <Icon
+                    size={16}
+                    className={`flex-none transition-colors duration-200 ${isCurrent ? "text-accent" : "text-accent group-hover:text-accent"}`}
+                  /> */}
+                </Link>
               );
             })}
+            </nav>
+          </div>
+
+          <div
+            style={{
+              transitionDelay: isOpen ? `${(navItems.length + 1) * 100}ms` : "0ms",
+            }}
+            className={`flex flex-col gap-6 w-full mt-auto border-t border-gray-200 pt-8 desk:mt-10 transition-all duration-500 ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 desk:opacity-100 desk:translate-y-0"}`}
+          >
+            <div className='flex justify-center gap-4 flex-wrap'>
+              {socialItems.map((item) => {
+                const Icon = iconMap[item.icon];
+
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target='_blank'
+                    rel='noreferrer'
+                    className='inline-flex items-center justify-center p-4 desk:p-2 rounded-full text-accent hover:bg-accent/10 transition-colors duration-200'
+                    aria-label={item.name}
+                  >
+                    <Icon className='size-7 desk:size-4' />
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
 

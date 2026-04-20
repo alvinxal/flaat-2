@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Inter, Space_Mono } from "next/font/google";
-import Sidebar from "@/components/layout/Sidebar";
+import ConditionalSidebar from "@/components/layout/ConditionalSidebar";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -33,9 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" />
+
       <body className={`${bricolage.variable} ${inter.variable} ${spaceMono.variable}`} style={{ fontSize: '1.125rem' }}>
-        <Sidebar />
+        <ConditionalSidebar />
         {children}
       </body>
     </html>
