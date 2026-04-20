@@ -19,7 +19,8 @@ This document outlines the visual and interactive design principles for the FLAA
 | Token | Value | Usage |
 |-------|-------|-------|
 | `accent` | `#2eab60` | CTAs, highlights, focal points |
-| `gray-800` | `#333333` | Primary body text |
+| `secondary` | `#2f4157` | Secondary actions, links |
+| `gray-800` | `#2f4157` | Primary body text |
 | `gray-500` | `#605f5f` | Secondary/muted text |
 | `gray-300` | `#e6e6e6` | Borders, dividers |
 | `gray-100` | `#f4f4f4` | Panel backgrounds |
@@ -29,6 +30,7 @@ This document outlines the visual and interactive design principles for the FLAA
 
 ```css
 --color-bg: #ffffff;
+--color-secondary: #2f4157;
 --color-panel: #f4f4f4;
 --color-panel-strong: #e6e6e6;
 --color-text: #333333;
@@ -44,7 +46,8 @@ This document outlines the visual and interactive design principles for the FLAA
 - **Labels & metadata**: `gray-800` with mono font
 - **Borders**: `gray-300` or `border` token
 - **Panel backgrounds**: `bg-panel` (#f4f4f4)
-- **Primary actions**: `accent` (#2eab60)
+- **Primary actions**: `accent` (#2f4157)
+- **Secondary actions**: `secondary` (#2f4157)
 
 ---
 

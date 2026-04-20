@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Inter } from "next/font/google";
+import { Bricolage_Grotesque, Inter, Space_Mono } from "next/font/google";
 import Sidebar from "@/components/layout/Sidebar";
 import "./globals.css";
 
@@ -14,10 +14,16 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
+
 export const metadata: Metadata = {
   title: "Flaat Studio",
   description:
-    "Modio is a modern studio template for branding, packaging, web design, and digital campaigns.",
+    "Digital partner yang memadukan teknologi AI dan strategi pemasaran untuk mengakselerasi pertumbuhan bisnis.",
 };
 
 export default function RootLayout({
@@ -27,7 +33,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bricolage.variable} ${inter.variable}`} style={{ fontSize: '1.125rem' }}>
+      <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" />
+      <body className={`${bricolage.variable} ${inter.variable} ${spaceMono.variable}`} style={{ fontSize: '1.125rem' }}>
         <Sidebar />
         {children}
       </body>

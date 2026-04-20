@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const content = {
-  label: "(003)",
+  label: "SERVICES",
   title: "Layanan",
   services: [
     {
@@ -60,7 +60,7 @@ export default function ServicesSection() {
               <h3 className='m-0 text-lg leading-normal font-medium font-sans'>
                 {service.title}
               </h3>
-              <p className='m-0 text-muted text-lg leading-[1.3] tracking-[-0.02em] font-body xl:pr-40'>
+              <p className='m-0 text-accent text-lg leading-[1.3] tracking-[-0.02em] font-body xl:pr-40'>
                 {service.description}
               </p>
             </div>

@@ -1,5 +1,5 @@
 const content = {
-  label: "(004)",
+  label: "TESTIMONIALS",
   title: "Voices behind our work.",
   author: "Emily Chen / Marketing Director",
   quote:
@@ -16,7 +16,7 @@ export default function TestimonialSection() {
 
       <article className="flex flex-col gap-4 pt-2">
         <p className="m-0 text-lg tracking-[-0.03em] font-medium">{content.author}</p>
-        <blockquote className="m-0 max-w-[38rem] text-muted text-[clamp(1.15rem,2vw,1.45rem)] leading-[1.35] tracking-[-0.02em] font-body">
+        <blockquote className="m-0 max-w-[38rem] text-accent text-[clamp(1.15rem,2vw,1.45rem)] leading-[1.35] tracking-[-0.02em] font-body">
           {content.quote}
         </blockquote>
       </article>

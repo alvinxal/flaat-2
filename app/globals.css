@@ -6,7 +6,7 @@
   --breakpoint-tab: 810px;
   --breakpoint-desk: 1024px;
 
-  --color-accent: #2eab60;
+  --color-accent: #2f4157;
   --color-panel: var(--color-panel);
   --color-panel-strong: var(--color-panel-strong);
   --color-muted: var(--color-muted);
@@ -24,28 +24,19 @@
   --spacing-section: 64px;
 }
 
-@font-face {
-  font-family: "Fragment Mono";
-  src: url("/assets/fonts/fragment-mono-regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
-  --font-mono: "Fragment Mono", monospace;
   --font-inter: "Inter", system-ui, sans-serif;
   --font-bricolage: "Bricolage Grotesque", system-ui, sans-serif;
   --color-bg: #ffffff;
   --color-panel: #f4f4f4;
   --color-panel-strong: #e6e6e6;
-  --color-text: #333333;
+  --color-text: #2f4157;
   --color-muted: #605f5f;
   --color-soft: #aeaeae;
   --color-inverse: #ffffff;
   --color-inverse-muted: rgba(255, 255, 255, 0.7);
   --color-border: #e6e6e6;
-  --color-accent: #2eab60;
+  --color-accent: #2f4157;
 }
 
 * {

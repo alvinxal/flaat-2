@@ -2,8 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 const content = {
-  label: "WORK",
-  title: "Cerita dibalik karya kami",
   projects: [
     {
       slug: "luminor",
@@ -57,20 +55,11 @@ const content = {
   ],
 };
 
-export default function ProjectsSection() {
+export default function ProjectsList() {
   return (
     <section id='projects' className='flex flex-col gap-4'>
-      <div className='flex items-center justify-between gap-4'>
-        <p className='m-0 font-mono text-xs tracking-widest uppercase text-gray-800'>
-          {content.label}
-        </p>
-        <h2 className='m-0 text-xl leading-tight font-semibold font-sans'>
-          {content.title}
-        </h2>
-      </div>
-
       <div className='grid grid-cols-1 gap-x-3 gap-y-6 tab:grid-cols-2 desk:grid-cols-3'>
-        {content.projects.slice(0, 3).map((project) => (
+        {content.projects.map((project) => (
           <Link
             key={project.slug}
             href={`/projects/${project.slug}`}
@@ -95,16 +84,6 @@ export default function ProjectsSection() {
             </div>
           </Link>
         ))}
-      </div>
-
-      <div className='flex justify-end'>
-        <Link
-          href='/projects'
-          className='inline-flex items-center gap-2 text-gray-800 no-underline font-sans text-lg leading-[1.3] tracking-[-0.02em] transition-opacity duration-250 hover:opacity-60'
-        >
-          <span>Lihat Semua Projek</span>
-          <span>→</span>
-        </Link>
       </div>
     </section>
   );

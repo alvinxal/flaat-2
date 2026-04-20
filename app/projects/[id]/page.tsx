@@ -58,6 +58,196 @@ const projects: Record<string, ProjectData> = {
       alt: "Orange Monochrome Perfume Arrangement",
     },
   },
+  orovia: {
+    slug: "orovia",
+    title: "Orovia",
+    description:
+      "Packaging and product design for a premium gourmet chocolate brand.",
+    year: "2024",
+    type: "Packaging Design, Product Design",
+    client: "Orovia Chocolatier",
+    timeline: "6 weeks",
+    heroImage: "/assets/images/orange-monochrome-perfume-arrangement-with-tropica-1.png",
+    heroAlt: "Orange Monochrome Perfume Arrangement",
+    images: [
+      {
+        src: "/assets/images/stylish-modern-wristwatch-2.png",
+        alt: "Detail 1",
+      },
+      {
+        src: "/assets/images/stylish-modern-wristwatch-3.png",
+        alt: "Detail 2",
+      },
+    ],
+    narrative: [
+      {
+        heading: "The Challenge",
+        text: "Create packaging that reflects the premium quality of Orovia's chocolate blends.",
+      },
+      {
+        heading: "The Solution",
+        text: "Elegant packaging design with rich colors and sustainable materials.",
+      },
+    ],
+    nextProject: {
+      slug: "kairo",
+      title: "Kairo",
+      image: "/assets/images/yellow-bottle-on-yellow-background-1.png",
+      alt: "Yellow Bottle",
+    },
+  },
+  kairo: {
+    slug: "kairo",
+    title: "Kairo",
+    description:
+      "Bold rebranding and visual identity system for a modern coffee chain.",
+    year: "2024",
+    type: "Brand Identity, Visual Identity",
+    client: "Kairo Coffee",
+    timeline: "10 weeks",
+    heroImage: "/assets/images/yellow-bottle-on-yellow-background-1.png",
+    heroAlt: "Yellow Bottle on Yellow Background",
+    images: [
+      {
+        src: "/assets/images/stylish-modern-wristwatch-2.png",
+        alt: "Detail 1",
+      },
+      {
+        src: "/assets/images/stylish-modern-wristwatch-3.png",
+        alt: "Detail 2",
+      },
+    ],
+    narrative: [
+      {
+        heading: "The Challenge",
+        text: "Rebrand a coffee chain to attract younger customers while maintaining loyalty.",
+      },
+      {
+        heading: "The Solution",
+        text: "Bold new visual identity with modern typography and vibrant colors.",
+      },
+    ],
+    nextProject: {
+      slug: "vividvr",
+      title: "VividVR",
+      image: "/assets/images/person-with-vr-headset-1.png",
+      alt: "VR Headset",
+    },
+  },
+  vividvr: {
+    slug: "vividvr",
+    title: "VividVR",
+    description:
+      "Immersive VR experience design that engages and inspires users.",
+    year: "2023",
+    type: "VR Experience Design",
+    client: "VividVR Studios",
+    timeline: "12 weeks",
+    heroImage: "/assets/images/person-with-vr-headset-1.png",
+    heroAlt: "Person with VR Headset",
+    images: [
+      {
+        src: "/assets/images/stylish-modern-wristwatch-2.png",
+        alt: "Detail 1",
+      },
+      {
+        src: "/assets/images/stylish-modern-wristwatch-3.png",
+        alt: "Detail 2",
+      },
+    ],
+    narrative: [
+      {
+        heading: "The Challenge",
+        text: "Design an immersive VR experience for a new gaming platform.",
+      },
+      {
+        heading: "The Solution",
+        text: "Interactive VR design with intuitive navigation and stunning visuals.",
+      },
+    ],
+    nextProject: {
+      slug: "velora",
+      title: "Velora",
+      image: "/assets/images/stylish-modern-wristwatch-1.png",
+      alt: "Velora",
+    },
+  },
+  velora: {
+    slug: "velora",
+    title: "Velora",
+    description:
+      "E-commerce platform design for a sustainable fashion brand.",
+    year: "2023",
+    type: "E-commerce, Web Design",
+    client: "Velora Fashion",
+    timeline: "8 weeks",
+    heroImage: "/assets/images/stylish-modern-wristwatch-1.png",
+    heroAlt: "Sustainable Fashion",
+    images: [
+      {
+        src: "/assets/images/stylish-modern-wristwatch-2.png",
+        alt: "Detail 1",
+      },
+      {
+        src: "/assets/images/stylish-modern-wristwatch-3.png",
+        alt: "Detail 2",
+      },
+    ],
+    narrative: [
+      {
+        heading: "The Challenge",
+        text: "Create an e-commerce platform that showcases sustainable fashion.",
+      },
+      {
+        heading: "The Solution",
+        text: "Clean, modern design with emphasis on product photography.",
+      },
+    ],
+    nextProject: {
+      slug: "aurora",
+      title: "Aurora",
+      image: "/assets/images/orange-monochrome-perfume-arrangement-with-tropica-1.png",
+      alt: "Aurora",
+    },
+  },
+  aurora: {
+    slug: "aurora",
+    title: "Aurora",
+    description:
+      "Mobile app design for a wellness and meditation platform.",
+    year: "2023",
+    type: "Mobile App Design",
+    client: "Aurora Wellness",
+    timeline: "6 weeks",
+    heroImage: "/assets/images/orange-monochrome-perfume-arrangement-with-tropica-1.png",
+    heroAlt: "Wellness App",
+    images: [
+      {
+        src: "/assets/images/stylish-modern-wristwatch-2.png",
+        alt: "Detail 1",
+      },
+      {
+        src: "/assets/images/stylish-modern-wristwatch-3.png",
+        alt: "Detail 2",
+      },
+    ],
+    narrative: [
+      {
+        heading: "The Challenge",
+        text: "Design a meditation app that promotes mental wellness.",
+      },
+      {
+        heading: "The Solution",
+        text: "Calming interface with smooth animations and intuitive navigation.",
+      },
+    ],
+    nextProject: {
+      slug: "luminor",
+      title: "Luminor",
+      image: "/assets/images/stylish-modern-wristwatch-1.png",
+      alt: "Luminor",
+    },
+  },
 };
 
 export async function generateMetadata({
@@ -81,7 +271,9 @@ export async function generateMetadata({
 }
 
 export function generateStaticParams() {
-  return [{ id: "luminor" }];
+  return Object.keys(projects).map((slug) => ({
+    id: slug,
+  }));
 }
 
 export default async function ProjectDetailPage({
@@ -168,22 +360,14 @@ export default async function ProjectDetailPage({
             </div>
           </div>
 
-          <aside className='order-1 desk:order-2 desk:sticky desk:top-10 desk:h-[calc(100vh-5rem)]'>
-            <div className='flex h-full flex-col justify-between gap-10 bg-[#fafafa] p-6 tab:p-8'>
+          <aside className='order-1 desk:order-2 desk:sticky desk:top-10 desk:max-h-[calc(100vh-5rem)]'>
+            <div className='flex flex-col gap-10 bg-[#fafafa] p-6 tab:p-8'>
               <div className='flex flex-col gap-8'>
-                <Link
-                  href='/#projects'
-                  className='inline-flex w-fit items-center gap-2 text-gray-800 no-underline font-sans text-lg leading-[1.3] tracking-[-0.02em] transition-opacity duration-250 hover:opacity-60'
-                >
-                  <span>←</span>
-                  <span>View all</span>
-                </Link>
-
                 <div className='flex flex-col gap-4'>
-                  <h1 className='m-0 text-2xl tab:text-3xl desk:text-[3.25rem] leading-[0.96] tracking-tight font-medium font-sans text-gray-800'>
+                  <h1 className='m-0 text-xl leading-tight tracking-tight font-medium font-sans text-gray-800'>
                     {project.title}
                   </h1>
-                  <p className='m-0 max-w-[28ch] text-lg leading-[1.3] tracking-[-0.02em] font-body text-gray-500'>
+                  <p className='m-0 max-w-[28ch] text-base leading-[1.3] tracking-[-0.02em] font-body text-gray-500'>
                     {project.description}
                   </p>
                 </div>
@@ -191,7 +375,7 @@ export default async function ProjectDetailPage({
 
               <div className='flex flex-col'>
                 <div className='grid grid-cols-[1fr_auto] items-center gap-4 border-b border-gray-300 py-3'>
-                  <p className='m-0 font-sans text-lg leading-[1.3] tracking-[-0.02em] text-gray-800'>
+                  <p className='m-0 font-sans text-base leading-[1.3] tracking-[-0.02em] text-gray-800'>
                     Year
                   </p>
                   <p className='m-0 text-right text-base leading-[1.3] tracking-[-0.02em] font-body text-gray-500'>
@@ -200,7 +384,7 @@ export default async function ProjectDetailPage({
                 </div>
 
                 <div className='grid grid-cols-[1fr_auto] items-center gap-4 border-b border-gray-300 py-3'>
-                  <p className='m-0 font-sans text-lg leading-[1.3] tracking-[-0.02em] text-gray-800'>
+                  <p className='m-0 font-sans text-base leading-[1.3] tracking-[-0.02em] text-gray-800'>
                     Type
                   </p>
                   <p className='m-0 text-right text-base leading-[1.3] tracking-[-0.02em] font-body text-gray-500'>
@@ -209,7 +393,7 @@ export default async function ProjectDetailPage({
                 </div>
 
                 <div className='grid grid-cols-[1fr_auto] items-center gap-4 border-b border-gray-300 py-3'>
-                  <p className='m-0 font-sans text-lg leading-[1.3] tracking-[-0.02em] text-gray-800'>
+                  <p className='m-0 font-sans text-base leading-[1.3] tracking-[-0.02em] text-gray-800'>
                     Client
                   </p>
                   <p className='m-0 text-right text-base leading-[1.3] tracking-[-0.02em] font-body text-gray-500'>
@@ -218,7 +402,7 @@ export default async function ProjectDetailPage({
                 </div>
 
                 <div className='grid grid-cols-[1fr_auto] items-center gap-4 border-b border-gray-300 py-3'>
-                  <p className='m-0 font-sans text-lg leading-[1.3] tracking-[-0.02em] text-gray-800'>
+                  <p className='m-0 font-sans text-base leading-[1.3] tracking-[-0.02em] text-gray-800'>
                     Timeline
                   </p>
                   <p className='m-0 text-right text-base leading-[1.3] tracking-[-0.02em] font-body text-gray-500'>
@@ -229,34 +413,6 @@ export default async function ProjectDetailPage({
             </div>
           </aside>
         </div>
-
-        <section className='flex flex-col gap-6 pt-8 border-t border-gray-200'>
-          <p className='m-0 font-mono text-xs tracking-widest uppercase text-gray-800'>
-            Next Project
-          </p>
-          <Link
-            href={`/project/${project.nextProject.slug}`}
-            className='group flex flex-col gap-4 no-underline'
-          >
-            <div className='relative aspect-[1.53056] overflow-hidden bg-panel'>
-              <Image
-                src={project.nextProject.image}
-                alt={project.nextProject.alt}
-                fill
-                sizes='(min-width: 1200px) 50vw, 100vw'
-                className='object-cover transition-transform duration-250 ease-in-out group-hover:scale-[1.02]'
-              />
-            </div>
-            <div className='flex items-center justify-between gap-4'>
-              <h3 className='m-0 text-lg leading-normal font-medium font-sans text-gray-800 group-hover:opacity-60 transition-opacity duration-250'>
-                {project.nextProject.title}
-              </h3>
-              <span className='text-gray-800 group-hover:translate-x-1 transition-transform duration-250'>
-                →
-              </span>
-            </div>
-          </Link>
-        </section>
 
         <HomeFooter />
       </div>
