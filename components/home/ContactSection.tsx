@@ -1,4 +1,6 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
 
 const content = {
   label: "CONTACT",
@@ -13,10 +15,53 @@ const content = {
 };
 
 export default function ContactSection() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const fullname = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+    const website = formData.get("website") as string;
+
+    if (!fullname || !email || !message) {
+      setError("Mohon isi semua kolom");
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fullname, email, message, website }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Gagal mengirim pesan");
+      }
+
+      setIsSuccess(true);
+      (e.target as HTMLFormElement).reset();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Terjadi kesalahan");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <section
       id='contact'
-      className='p-5 bg-[#2f4157] flex flex-col gap-4 desk:p-8'
+      className='p-5 bg-[#2f4157] flex flex-col gap-4 desk:p-8 scroll-mt-[52px] desk:scroll-mt-[80px]'
     >
       <div className='flex items-center justify-between gap-4 mb-8'>
         <p className='m-0 font-mono text-xs tracking-widest uppercase text-inverse'>
@@ -65,7 +110,17 @@ export default function ContactSection() {
           </div>
         </div>
 
-        <form className='flex flex-col gap-5'>
+        <form onSubmit={handleSubmit} className='flex flex-col gap-5'>
+          {isSuccess && (
+            <div className='p-4 bg-[#c7d9e5]/20 border border-[#c7d9e5]/30 text-[#c7d9e5] text-base'>
+              Pesan berhasil dikirim! Kami akan menghubungi Anda segera.
+            </div>
+          )}
+          {error && (
+            <div className='p-4 bg-red-500/10 border border-red-500 text-red-200 text-base'>
+              {error}
+            </div>
+          )}
           <label className='flex flex-col gap-3'>
             <span className='m-0 text-white/60 font-mono text-xs tracking-widest uppercase'>
               Nama
@@ -74,6 +129,7 @@ export default function ContactSection() {
               type='text'
               name='name'
               placeholder='Nama Anda'
+              required
               className='w-full pb-[0.85rem] border-0 border-b border-white/30 bg-transparent text-white text-lg outline-none placeholder:text-white/60'
             />
           </label>
@@ -85,6 +141,7 @@ export default function ContactSection() {
               type='email'
               name='email'
               placeholder='nama@perusahaan.com'
+              required
               className='w-full pb-[0.85rem] border-0 border-b border-white/30 bg-transparent text-white text-lg outline-none placeholder:text-white/60'
             />
           </label>
@@ -96,15 +153,29 @@ export default function ContactSection() {
               name='message'
               rows={5}
               placeholder='Ceritakan kebutuhan & tantangan bisnis Anda...'
+              required
               className='w-full pb-[0.85rem] border-0 border-b border-white/30 bg-transparent text-white text-lg outline-none placeholder:text-white/60 resize-vertical min-h-[6rem]'
             />
           </label>
           <button
-            type='button'
-            className='w-fit px-5 py-[0.9rem] border border-white/30 bg-transparent text-white text-lg'
+            type='submit'
+            disabled={isLoading}
+            className='w-fit px-5 py-[0.9rem] border border-white/30 bg-transparent text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed'
           >
-            Mulai Diskusi
+            {isLoading ? "Mengirim..." : "Mulai Diskusi"}
           </button>
+
+          <div aria-hidden="true" className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden opacity-0">
+            <label>
+              Website
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </label>
+          </div>
         </form>
       </div>
     </section>

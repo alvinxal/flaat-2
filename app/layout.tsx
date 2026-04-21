@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Inter, Space_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import ConditionalSidebar from "@/components/layout/ConditionalSidebar";
 import "./globals.css";
+
+const clashDisplay = localFont({
+  src: "../public/assets/fonts/ClashDisplay-Variable.woff2",
+  variable: "--font-display",
+  display: "swap",
+});
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -32,9 +39,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+      <html lang="en">
 
-      <body className={`${bricolage.variable} ${inter.variable} ${spaceMono.variable}`} style={{ fontSize: '1.125rem' }}>
+<body className={`${bricolage.variable} ${inter.variable} ${spaceMono.variable} ${clashDisplay.variable}`} style={{ fontSize: '1.125rem' }}>
         <ConditionalSidebar />
         {children}
       </body>

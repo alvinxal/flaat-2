@@ -6,7 +6,7 @@ const content = {
 
 export default function AboutSection() {
   return (
-    <section id='about' className='flex flex-col gap-4 relative overflow-hidden'>
+    <section id='about' className='flex flex-col gap-4 relative overflow-hidden scroll-mt-[52px] desk:scroll-mt-[80px]'>
       <div
         className='absolute inset-0 bg-cover bg-center'
         style={{
@@ -17,9 +17,7 @@ export default function AboutSection() {
       />
       <div className='absolute inset-0 bg-black/65' aria-hidden='true' />
 
-      <div className='absolute right-0 bottom-0 w-[2px] h-[48px] bg-accent hidden desk:block' />
-      <div className='absolute right-0 bottom-0 w-[48px] h-[2px] bg-accent hidden desk:block' />
-      <div className='relative flex flex-col justify-between min-h-[24rem] p-6 tab:p-8'>
+      <div className='relative flex flex-col gap-24 tab:gap-48 justify-between min-h-[24rem] p-6 tab:p-8'>
         <div className='flex flex-col gap-12'>
           <div className='flex items-center justify-between gap-4'>
             <p className='m-0 font-mono text-xs tracking-widest uppercase text-white/80'>
@@ -31,7 +29,7 @@ export default function AboutSection() {
           </div>
         </div>
 
-        <h3 className='max-w-[45ch] m-0 text-white text-xl md:text-2xl leading-tight font-reguler'>
+        <h3 className='max-w-[45ch]  m-0 text-white text-xl md:text-2xl leading-tight font-reguler'>
           {content.text}
         </h3>
       </div>

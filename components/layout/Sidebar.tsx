@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Icons } from "@/components/shared/Icons";
 
 const iconMap = {
@@ -36,6 +36,7 @@ const socialItems: { name: string; href: string; icon: IconKey }[] = [
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -48,6 +49,28 @@ const Sidebar = () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  const handleNavClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    event.preventDefault();
+    setIsOpen(false);
+
+    if (href.startsWith("/#")) {
+      const sectionId = href.slice(2);
+
+      window.setTimeout(() => {
+        const section = document.getElementById(sectionId);
+
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          router.push(href);
+        }
+      }, 300);
+      return;
+    }
+
+    router.push(href);
+  };
 
   if (pathname?.startsWith("/dashboard")) return null;
 
@@ -113,6 +136,7 @@ const Sidebar = () => {
                 <Link
                   key={item.label}
                   href={item.href}
+                  onClick={(event) => handleNavClick(event, item.href)}
                   style={{
                     transitionDelay: isOpen ? `${(index + 1) * 100}ms` : "0ms",
                   }}

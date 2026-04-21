@@ -38,7 +38,7 @@ async function ProjectsListFromSanity() {
   });
 
   return (
-    <section id='projects' className='flex flex-col gap-4'>
+    <section id='projects' className='flex flex-col gap-4 scroll-mt-[52px] desk:scroll-mt-[80px]'>
       <div className='grid grid-cols-1 gap-x-3 gap-y-6 tab:grid-cols-2 desk:grid-cols-3'>
         {projects.map((project) => {
           const imageUrl = project.heroImage

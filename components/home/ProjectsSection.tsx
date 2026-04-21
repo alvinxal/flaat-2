@@ -39,7 +39,7 @@ export default async function ProjectsSection() {
   });
 
   return (
-    <section id='projects' className='flex flex-col gap-4'>
+    <section id='projects' className='flex flex-col gap-4 scroll-mt-[52px] desk:scroll-mt-[80px]'>
       <div className='flex items-center justify-between gap-4'>
         <p className='m-0 font-mono text-xs tracking-widest uppercase text-gray-800'>
           {content.label}
