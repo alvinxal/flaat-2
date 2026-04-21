@@ -96,7 +96,9 @@ export default async function ProjectDetailPage({
 
   const ptComponents: PortableTextComponents = {
     types: {
-      image: ({ value }: { value: SanityImageSource & { alt?: string } }) => {
+      image: ({ value }: { value: SanityImageSource & { alt?: string; asset?: unknown } }) => {
+        if (!value.asset) return null;
+
         const imageUrl = urlFor(value)
           .width(1800)
           .quality(85)
