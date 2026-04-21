@@ -33,10 +33,10 @@ const homeProjectsQuery = `
 `;
 
 export default async function ProjectsSection() {
-  const projects = await sanityFetch<HomeProject[]>({
+  const projects = (await sanityFetch<HomeProject[]>({
     query: homeProjectsQuery,
     revalidate,
-  });
+  })) ?? [];
 
   return (
     <section id='projects' className='flex flex-col gap-4 scroll-mt-[52px] desk:scroll-mt-[80px]'>
@@ -50,7 +50,7 @@ export default async function ProjectsSection() {
       </div>
 
       <div className='grid grid-cols-1 gap-x-3 gap-y-6 tab:grid-cols-2 desk:grid-cols-3'>
-        {projects.map((project) => {
+        {projects.length ? projects.map((project) => {
           const imageUrl = project.heroImage
             ? urlFor(project.heroImage).width(1200).quality(80).auto("format").url()
             : null;
@@ -85,9 +85,13 @@ export default async function ProjectsSection() {
                 {project.title}
               </h3>
             </div>
-          </Link>
+            </Link>
           );
-        })}
+        }) : (
+          <p className='m-0 text-base leading-normal font-body text-gray-500'>
+            Belum ada project.
+          </p>
+        )}
       </div>
 
       <div className='flex justify-start'>

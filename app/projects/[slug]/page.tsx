@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextComponents } from "@portabletext/react";
+import type { ReactNode } from "react";
+import type { SanityImageSource } from "@sanity/image-url";
 
 import HomeFooter from "@/components/layout/HomeFooter";
 import { sanityFetch } from "@/sanity/lib/fetch";
@@ -24,8 +26,28 @@ type ProjectDetail = {
   heroAlt?: string;
   types: { title: string; slug?: string }[];
   services?: { title: string; slug?: string }[];
-  body: any;
+  body: ProjectBodyBlock[];
 };
+
+type ProjectBodyBlock =
+  | {
+      _type: "block";
+      _key?: string;
+      style?: string;
+      children: Array<{ _type: "span"; text: string; marks?: string[] }>;
+      markDefs?: Array<{ _key: string; _type: "link"; href: string }>;
+    }
+  | {
+      _type: "image";
+      _key?: string;
+      alt?: string;
+    }
+  | {
+      _type: "codeBlock";
+      _key?: string;
+      language?: string;
+      code?: string;
+    };
 
 async function getProject(slug: string) {
   return sanityFetch<ProjectDetail | null>({
@@ -38,10 +60,10 @@ async function getProject(slug: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { id } = await params;
-  const project = await getProject(id);
+  const { slug } = await params;
+  const project = await getProject(slug);
 
   if (!project) {
     return { title: "Project Not Found - Flaat Studio" };
@@ -56,10 +78,10 @@ export async function generateMetadata({
 export default async function ProjectDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { id } = await params;
-  const project = await getProject(id);
+  const { slug } = await params;
+  const project = await getProject(slug);
 
   if (!project) notFound();
 
@@ -74,24 +96,30 @@ export default async function ProjectDetailPage({
 
   const ptComponents: PortableTextComponents = {
     types: {
-      image: ({ value }) => {
+      image: ({ value }: { value: SanityImageSource & { alt?: string } }) => {
         const imageUrl = urlFor(value)
           .width(1800)
           .quality(85)
           .auto("format")
           .url();
-        const alt = (value as any)?.alt || "";
+        const alt = value.alt || "";
 
         return (
           <div className='relative w-full overflow-hidden bg-panel'>
-            {/* Use img to avoid Next/Image remote config edge cases */}
-            <img src={imageUrl} alt={alt} className='block w-full h-auto' />
+            <Image
+              src={imageUrl}
+              alt={alt}
+              width={1800}
+              height={1200}
+              className='block w-full h-auto'
+              unoptimized
+            />
           </div>
         );
       },
-      codeBlock: ({ value }) => {
-        const language = (value as any)?.language || "text";
-        const code = (value as any)?.code || "";
+      codeBlock: ({ value }: { value: { language?: string; code?: string } }) => {
+        const language = value.language || "text";
+        const code = value.code || "";
 
         return (
           <pre className='m-0 rounded-lg bg-gray-900 text-gray-100 p-4 overflow-x-auto'>
@@ -128,8 +156,8 @@ export default async function ProjectDetailPage({
       ),
     },
     marks: {
-      link: ({ children, value }) => {
-        const href = (value as any)?.href as string | undefined;
+      link: ({ children, value }: { children: ReactNode; value?: { href?: string } }) => {
+        const href = value?.href;
         if (!href) return <>{children}</>;
 
         return (
