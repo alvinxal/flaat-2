@@ -69,3 +69,17 @@ textarea {
 a {
   color: inherit;
 }
+
+@keyframes filter-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-filter-fade-in {
+  animation: filter-fade-in 160ms ease-out;
+}

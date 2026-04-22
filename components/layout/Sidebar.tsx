@@ -22,8 +22,8 @@ type IconKey = "home" | "about" | "projects" | "services" | "contact" | "instagr
 const navItems: { label: string; href: string; icon: IconKey }[] = [
   { label: "Beranda", href: "/", icon: "home" },
   { label: "Tentang Kami", href: "/#about", icon: "about" },
-  { label: "Portofolio", href: "/#projects", icon: "projects" },
   { label: "Layanan", href: "/#service", icon: "services" },
+  { label: "Portofolio", href: "/#projects", icon: "projects" },
   { label: "Kontak", href: "/#contact", icon: "contact" },
 ];
 

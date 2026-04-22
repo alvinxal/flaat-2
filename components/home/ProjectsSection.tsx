@@ -39,7 +39,7 @@ export default async function ProjectsSection() {
   })) ?? [];
 
   return (
-    <section id='projects' className='flex flex-col gap-4 scroll-mt-[52px] desk:scroll-mt-[80px]'>
+    <section id='projects' className='flex flex-col gap-4 scroll-mt-[80px] desk:scroll-mt-[80px]'>
       <div className='flex items-center justify-between gap-4'>
         <p className='m-0 font-mono text-xs tracking-widest uppercase text-gray-800'>
           {content.label}
@@ -97,7 +97,7 @@ export default async function ProjectsSection() {
       <div className='flex justify-start'>
         <Link
           href='/projects'
-          className='inline-flex items-center gap-2 text-gray-800 no-underline font-sans text-lg leading-[1.3] tracking-[-0.02em] transition-opacity duration-250 hover:opacity-60'
+          className='inline-flex items-center gap-3 w-fit pb-[0.3rem] border-b border-accent text-accent no-underline font-sans text-lg leading-[1.3] tracking-[-0.02em] transition-opacity duration-250 hover:opacity-60'
         >
           <span>Lihat Semua Projek</span>
           <span>→</span>

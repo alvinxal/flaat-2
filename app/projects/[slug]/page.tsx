@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { PortableText } from "@portabletext/react";
@@ -7,8 +8,9 @@ import type { ReactNode } from "react";
 import type { SanityImageSource } from "@sanity/image-url";
 
 import HomeFooter from "@/components/layout/HomeFooter";
+import PreviewImage from "@/components/projects/PreviewImage";
 import { sanityFetch } from "@/sanity/lib/fetch";
-import { projectBySlugQuery } from "@/sanity/lib/queries";
+import { projectBySlugQuery, relatedProjectsBySlugQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
 export const revalidate = 60;
@@ -22,6 +24,7 @@ type ProjectDetail = {
   year?: string;
   client?: string;
   timeline?: string;
+  liveUrl?: string;
   heroImage?: unknown;
   heroAlt?: string;
   types: { title: string; slug?: string }[];
@@ -49,12 +52,32 @@ type ProjectBodyBlock =
       code?: string;
     };
 
+type RelatedProject = {
+  _id: string;
+  title: string;
+  slug: string;
+  description?: string;
+  heroImage?: unknown;
+  heroAlt?: string;
+  types?: string[];
+};
+
 async function getProject(slug: string) {
   return sanityFetch<ProjectDetail | null>({
     query: projectBySlugQuery,
     params: { slug },
     revalidate,
   });
+}
+
+async function getRelatedProjects(slug: string) {
+  return (
+    (await sanityFetch<RelatedProject[]>({
+      query: relatedProjectsBySlugQuery,
+      params: { slug },
+      revalidate,
+    })) ?? []
+  );
 }
 
 export async function generateMetadata({
@@ -81,7 +104,10 @@ export default async function ProjectDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = await getProject(slug);
+  const [project, relatedProjects] = await Promise.all([
+    getProject(slug),
+    getRelatedProjects(slug),
+  ]);
 
   if (!project) notFound();
 
@@ -108,13 +134,13 @@ export default async function ProjectDetailPage({
 
         return (
           <div className='relative w-full overflow-hidden bg-panel'>
-            <Image
+            <PreviewImage
               src={imageUrl}
               alt={alt}
               width={1800}
               height={1200}
-              className='block w-full h-auto'
-              unoptimized
+              sizes='(min-width: 1200px) 65vw, 100vw'
+              className='block w-full h-auto max-h-[clamp(14rem,36vw,28rem)] object-contain'
             />
           </div>
         );
@@ -124,7 +150,7 @@ export default async function ProjectDetailPage({
         const code = value.code || "";
 
         return (
-          <pre className='m-0 rounded-lg bg-gray-900 text-gray-100 p-4 overflow-x-auto'>
+          <pre className='my-6 rounded-lg bg-gray-900 text-gray-100 p-4 overflow-x-auto'>
             <code className={`language-${language}`}>{code}</code>
           </pre>
         );
@@ -132,27 +158,32 @@ export default async function ProjectDetailPage({
     },
     block: {
       h1: ({ children }) => (
-        <h1 className='m-0 text-2xl tab:text-3xl leading-tight font-semibold font-sans text-gray-800'>
+        <h1 className='mt-10 mb-4 text-3xl tab:text-4xl leading-tight font-semibold font-sans text-primary'>
           {children}
         </h1>
       ),
       h2: ({ children }) => (
-        <h2 className='m-0 text-xl leading-tight font-semibold font-sans text-gray-800'>
+        <h2 className='mt-8 mb-3 text-2xl leading-tight font-semibold font-sans text-primary'>
           {children}
         </h2>
       ),
       h3: ({ children }) => (
-        <h3 className='m-0 text-lg leading-tight font-semibold font-sans text-gray-800'>
+        <h3 className='mt-6 mb-3 text-xl leading-tight font-semibold font-sans text-primary'>
           {children}
         </h3>
       ),
+      h4: ({ children }) => (
+        <h4 className='mt-5 mb-2 text-lg leading-tight font-semibold font-sans text-primary'>
+          {children}
+        </h4>
+      ),
       normal: ({ children }) => (
-        <p className='m-0 text-lg leading-[1.4] tracking-[-0.02em] font-body text-gray-500'>
+        <p className='mt-0 mb-5 text-lg leading-[1.7] tracking-[-0.01em] font-body text-gray-500'>
           {children}
         </p>
       ),
       blockquote: ({ children }) => (
-        <blockquote className='m-0 border-l-4 border-gray-200 pl-4 text-lg leading-[1.4] tracking-[-0.02em] font-body text-gray-600'>
+        <blockquote className='my-6 border-l-4 border-gray-200 pl-4 text-lg leading-[1.65] tracking-[-0.01em] font-body text-gray-600'>
           {children}
         </blockquote>
       ),
@@ -176,7 +207,7 @@ export default async function ProjectDetailPage({
     },
     list: {
       bullet: ({ children }) => (
-        <ul className='m-0 pl-6 list-disc text-lg leading-[1.4] tracking-[-0.02em] font-body text-gray-500'>
+        <ul className='mt-2 mb-5 pl-6 list-disc space-y-1 text-lg leading-[1.65] tracking-[-0.01em] font-body text-gray-500'>
           {children}
         </ul>
       ),
@@ -192,20 +223,20 @@ export default async function ProjectDetailPage({
         <div className='flex flex-col gap-12 desk:grid desk:grid-cols-[1fr_340px] desk:gap-16'>
           <div className='flex flex-col gap-12 order-2 desk:order-1'>
             {heroUrl ? (
-              <div className='relative aspect-[1.53056] overflow-hidden bg-panel w-full'>
-                <Image
+              <div className='relative w-full overflow-hidden bg-panel'>
+                <PreviewImage
                   src={heroUrl}
                   alt={heroAlt}
-                  fill
+                  width={2000}
+                  height={1307}
                   sizes='(min-width: 1200px) 65vw, 100vw'
-                  className='object-cover'
+                  className='block w-full h-auto max-h-[clamp(16rem,42vw,32rem)] object-contain'
                   priority
-                  unoptimized
                 />
               </div>
             ) : null}
 
-            <div className='flex flex-col gap-6'>
+            <div className='flex flex-col [&>*:first-child]:mt-0 [&>*:last-child]:mb-0'>
               <PortableText value={project.body} components={ptComponents} />
             </div>
           </div>
@@ -214,7 +245,7 @@ export default async function ProjectDetailPage({
             <div className='flex flex-col gap-10 bg-[#fafafa] p-6 tab:p-8'>
               <div className='flex flex-col gap-8'>
                 <div className='flex flex-col gap-4'>
-                  <h1 className='m-0 text-xl leading-tight tracking-tight font-medium font-sans text-gray-800'>
+                  <h1 className='m-0 text-xl leading-tight tracking-tight font-medium font-sans text-primary'>
                     {project.title}
                   </h1>
                   {project.description ? (
@@ -223,6 +254,18 @@ export default async function ProjectDetailPage({
                     </p>
                   ) : null}
                 </div>
+
+                {project.liveUrl ? (
+                  <a
+                    href={project.liveUrl}
+                    target='_blank'
+                    rel='noreferrer'
+                    className='inline-flex w-fit items-center gap-2 border-b border-current text-primary no-underline font-sans text-base leading-[1.3] tracking-[-0.02em] transition-opacity duration-250 hover:opacity-70'
+                  >
+                    <span>Kunjungi Website</span>
+                    <span aria-hidden='true'>↗</span>
+                  </a>
+                ) : null}
               </div>
 
               <div className='flex flex-col'>
@@ -243,6 +286,68 @@ export default async function ProjectDetailPage({
             </div>
           </aside>
         </div>
+
+        {relatedProjects.length ? (
+          <section className='flex flex-col gap-6'>
+            <div aria-hidden='true' className='w-full border-t border-gray-300' />
+            <div className='flex items-center justify-between gap-4'>
+              <p className='m-0 font-mono text-xs tracking-widest uppercase text-gray-800'>
+                NEXT
+              </p>
+              <h2 className='m-0 text-xl leading-tight font-semibold font-sans'>
+                Projek Lainnya
+              </h2>
+            </div>
+
+            <div className='grid grid-cols-1 gap-x-3 gap-y-6 tab:grid-cols-2'>
+              {relatedProjects.map((relatedProject) => {
+                const relatedImageUrl = relatedProject.heroImage
+                  ? urlFor(relatedProject.heroImage).width(1200).quality(80).auto("format").url()
+                  : null;
+                const relatedAlt = relatedProject.heroAlt || relatedProject.title;
+
+                return (
+                  <Link
+                    key={relatedProject._id}
+                    href={`/projects/${relatedProject.slug}`}
+                    className='group flex flex-col gap-1 no-underline'
+                  >
+                    <div className='relative aspect-[1.53056] overflow-hidden bg-panel'>
+                      {relatedImageUrl ? (
+                        <Image
+                          src={relatedImageUrl}
+                          alt={relatedAlt}
+                          fill
+                          sizes='(min-width: 1200px) 44vw, (min-width: 810px) 48vw, 100vw'
+                          className='object-cover transition-transform duration-250 ease-in-out group-hover:scale-[1.02]'
+                          unoptimized
+                        />
+                      ) : null}
+
+                      {relatedProject.description ? (
+                        <p className='m-0 text-lg leading-[1.3] tracking-[-0.02em] font-body opacity-0 transition-opacity duration-250 ease-in-out group-hover:opacity-100 absolute inset-0 flex items-center justify-center bg-accent/70 text-white p-4 text-center'>
+                          {relatedProject.description}
+                        </p>
+                      ) : null}
+                    </div>
+
+                    <div className='flex flex-col gap-0'>
+                      {relatedProject.types?.length ? (
+                        <p className='m-0 py-0.5 text-sm leading-normal font-body text-gray-500'>
+                          {relatedProject.types.join(", ")}
+                        </p>
+                      ) : null}
+
+                      <h3 className='m-0 py-0.5 text-lg leading-normal font-medium font-sans'>
+                        {relatedProject.title}
+                      </h3>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        ) : null}
 
         <HomeFooter />
       </div>

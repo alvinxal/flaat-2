@@ -6,7 +6,7 @@ const content = {
 
 export default function AboutSection() {
   return (
-    <section id='about' className='flex flex-col gap-4 relative overflow-hidden scroll-mt-[52px] desk:scroll-mt-[80px]'>
+    <section id='about' className='flex flex-col gap-4 relative overflow-hidden scroll-mt-[80px] desk:scroll-mt-[80px]'>
       <div
         className='absolute inset-0 bg-cover bg-center'
         style={{

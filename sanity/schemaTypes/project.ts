@@ -40,6 +40,12 @@ export const project = defineType({
       title: "Timeline",
       type: "string",
     }),
+    defineField({
+      name: "liveUrl",
+      title: "Live Url",
+      type: "url",
+      validation: (Rule) => Rule.uri({ scheme: ["http", "https"] }),
+    }),
 
     defineField({
       name: "heroImage",

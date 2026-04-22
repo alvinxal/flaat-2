@@ -3,8 +3,8 @@ import Link from "next/link";
 const navItems = [
   { label: "Beranda", href: "/" },
   { label: "Tentang Kami", href: "/#about" },
-  { label: "Portofolio", href: "/#projects" },
   { label: "Layanan", href: "/#service" },
+  { label: "Portofolio", href: "/#projects" },
   { label: "Kontak", href: "/#contact" },
 ];
 
@@ -15,7 +15,7 @@ const socialItems = [
 
 export default function HomeFooter() {
   return (
-    <footer className='flex flex-col gap-12 w-full p-8 bg-[#fafafa] tab:p-8 tab:gap-12 desk:p-8 desk:gap-12'>
+    <footer className='flex flex-col gap-12 w-full p-5 bg-[#fafafa] tab:p-8 tab:gap-12 desk:p-8 desk:gap-12'>
       <div className='flex flex-col gap-10 w-full tab:flex-row tab:justify-between tab:items-start'>
         <div className='flex flex-col justify-between w-full max-w-[450px] tab:w-[48%] tab:min-w-[240px] min-h-[150px]'>
           <div>
@@ -30,12 +30,11 @@ export default function HomeFooter() {
             <p className='m-0 font-mono text-xs leading-[1.1] uppercase text-muted'>
               Technology & Digital Marketing Agency
             </p>
-            <p className='m-0 font-mono text-xs leading-[1.1] uppercase text-muted'>
-              Based on yogyakarta
-            </p>
-            <p className='m-0 font-mono text-xs leading-[1.1] uppercase text-muted'>
-              ©2025
-            </p>
+            <div className='flex flex-wrap items-center gap-1 font-mono text-xs leading-[1.1] uppercase text-muted'>
+              <span>Based on yogyakarta</span>
+              <span>•</span>
+              <span>2025</span>
+            </div>
           </div>
         </div>
 

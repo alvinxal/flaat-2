@@ -28,19 +28,12 @@ const content = {
         "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "Digital Marketing",
     },
-    // {
-    //   title: "Creative Strategy",
-    //   description:
-    //     "Tailored strategies that align design with business goals and long-term growth.",
-    //   image: "/assets/images/desktop-38.png",
-    //   alt: "Creative strategy mockups",
-    // },
   ],
 };
 
 export default function ServicesSection() {
   return (
-    <section id='service' className='flex flex-col gap-4 scroll-mt-[52px] desk:scroll-mt-[80px]'>
+    <section id='service' className='flex flex-col gap-4 scroll-mt-[80px] desk:scroll-mt-[80px]'>
       <div className='flex items-center justify-between gap-4'>
         <p className='m-0 font-mono text-xs tracking-widest uppercase text-gray-800'>
           {content.label}

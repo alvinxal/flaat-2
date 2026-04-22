@@ -7,11 +7,10 @@ const content = {
   title: "Kontak",
   office: "Yogyakarta, Indonesia",
   phone: "+62 895-1830-1707",
-  phoneHref: "tel:+6289518301707",
+  phoneHref:
+    "https://wa.me/6289518301707?text=Halo%20Flaat%2C%20saya%20ingin%20konsultasi",
   email: "hi@flaat.studio",
   emailHref: "mailto:hi@flaat.studio",
-  image: "/assets/images/contemplative-profile-against-colorful-backdrop-1.png",
-  imageAlt: "Tim Flaat Studio dalam Diskusi",
 };
 
 export default function ContactSection() {
@@ -61,7 +60,7 @@ export default function ContactSection() {
   return (
     <section
       id='contact'
-      className='p-5 bg-[#2f4157] flex flex-col gap-4 desk:p-8 scroll-mt-[52px] desk:scroll-mt-[80px]'
+      className='p-5 bg-[#2f4157] flex flex-col gap-4 desk:p-8 scroll-mt-[80px] desk:scroll-mt-[80px]'
     >
       <div className='flex items-center justify-between gap-4 mb-8'>
         <p className='m-0 font-mono text-xs tracking-widest uppercase text-inverse'>
