@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const content = {
   label: "ABOUT",
   eyebrow: "Tentang Kami",
@@ -7,14 +9,15 @@ const content = {
 export default function AboutSection() {
   return (
     <section id='about' className='flex flex-col gap-4 relative overflow-hidden scroll-mt-[80px] desk:scroll-mt-[80px]'>
-      <div
-        className='absolute inset-0 bg-cover bg-center'
-        style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1603201667141-5a2d4c673378?q=80&w=1496&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
-        }}
-        aria-hidden='true'
-      />
+      <div className='absolute inset-0' aria-hidden='true'>
+        <Image
+          src='https://images.unsplash.com/photo-1603201667141-5a2d4c673378?q=80&w=1496&auto=format&fit=crop'
+          alt=''
+          fill
+          sizes='100vw'
+          className='object-cover'
+        />
+      </div>
       <div className='absolute inset-0 bg-black/65' aria-hidden='true' />
 
       <div className='relative flex flex-col gap-24 tab:gap-48 justify-between min-h-[24rem] p-6 tab:p-8'>

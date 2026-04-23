@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type MouseEvent } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Icons } from "@/components/shared/Icons";
 
 const iconMap = {
@@ -35,13 +35,8 @@ const socialItems: { name: string; href: string; icon: IconKey }[] = [
 ];
 
 const Sidebar = () => {
-  const pathname = usePathname();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -71,8 +66,6 @@ const Sidebar = () => {
 
     router.push(href);
   };
-
-  if (pathname?.startsWith("/dashboard")) return null;
 
   return (
     <div>
@@ -124,14 +117,6 @@ const Sidebar = () => {
           <div className='flex flex-1 items-center desk:flex-none desk:mt-auto'>
             <nav className='flex flex-col gap-0.5 w-full desk:mt-auto desk:pt-8'>
             {navItems.map((item, index) => {
-              const Icon = iconMap[item.icon];
-              const isCurrent =
-                item.href === "/"
-                  ? pathname === "/"
-                  : item.href.startsWith("/#")
-                    ? pathname === "/"
-                    : pathname.startsWith(item.href);
-
               return (
                 <Link
                   key={item.label}

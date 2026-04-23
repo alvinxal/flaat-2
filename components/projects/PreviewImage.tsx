@@ -51,7 +51,6 @@ export default function PreviewImage({
           sizes={sizes}
           className={className}
           priority={priority}
-          unoptimized
         />
       </button>
 
@@ -78,7 +77,6 @@ export default function PreviewImage({
               width={width}
               height={height}
               className='block h-auto max-h-[90vh] w-auto max-w-[94vw] object-contain'
-              unoptimized
             />
           </div>
         </div>

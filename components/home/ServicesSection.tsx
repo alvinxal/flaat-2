@@ -8,24 +8,21 @@ const content = {
       title: "Web Development",
       description:
         "Website berkinerja tinggi, aplikasi web kustom, dan landing page yang dirancang untuk konversi maksimal. Built dengan Next.js, WordPress, atau solusi custom sesuai kebutuhan bisnis Anda.",
-      image:
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "/assets/images/Webdev.webp",
       alt: "Web Development",
     },
     {
       title: "AI & Automation",
       description:
         "Otomatisasi workflow, chatbot cerdas, dan AI agent yang bekerja 24/7 untuk efisiensi bisnis. Integrasikan teknologi AI tanpa kerumitan teknis.",
-      image:
-        "https://images.unsplash.com/photo-1694903110330-cc64b7e1d21d?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "/assets/images/AI.webp",
       alt: "AI & Automation",
     },
     {
       title: "Digital Marketing",
       description:
         "SEO, iklan multi-platform (Meta/Google/TikTok), marketplace, dan optimasi konversi berbasis data. Strategi marketing yang terukur untuk pertumbuhan berkelanjutan.",
-      image:
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "/assets/images/Digmar.webp",
       alt: "Digital Marketing",
     },
   ],

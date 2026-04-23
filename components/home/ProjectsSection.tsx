@@ -70,7 +70,6 @@ export default async function ProjectsSection() {
                   fill
                   sizes='(min-width: 1200px) 26vw, (min-width: 810px) 40vw, 100vw'
                   className='object-cover transition-transform duration-250 ease-in-out group-hover:scale-[1.02]'
-                  unoptimized
                 />
               ) : null}
 

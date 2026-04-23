@@ -1,13 +1,13 @@
-"use client";
-
-import { useMemo, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+
+import ProjectsFilterNav from "@/components/projects/ProjectsFilterNav";
 
 type ProjectFilterType = {
   _id: string;
   title: string;
   slug: string;
+  count: number;
 };
 
 type ProjectCard = {
@@ -23,56 +23,18 @@ type ProjectCard = {
 export default function ProjectsFilterGrid({
   projects,
   filterTypes,
+  activeType,
 }: {
   projects: ProjectCard[];
   filterTypes: ProjectFilterType[];
+  activeType: string;
 }) {
-  const [activeType, setActiveType] = useState("all");
-
-  const filteredProjects = useMemo(() => {
-    if (activeType === "all") return projects;
-    return projects.filter((project) =>
-      project.types?.some((projectType) => projectType.slug === activeType),
-    );
-  }, [activeType, projects]);
-
   return (
     <section id='projects' className='flex flex-col gap-4 scroll-mt-[52px] desk:scroll-mt-[80px]'>
-      <div className='flex flex-wrap items-center gap-x-6 gap-y-2'>
-        <button
-          type='button'
-          onClick={() => setActiveType("all")}
-          className={`inline-flex cursor-pointer pb-[0.25rem] font-sans text-base leading-[1.3] tracking-[-0.02em] border-b transition-opacity duration-250 ${
-            activeType === "all"
-              ? "border-accent text-accent"
-              : "border-gray-300 text-gray-500 hover:opacity-70"
-          }`}
-        >
-          Semua
-        </button>
-
-        {filterTypes.map((filterType) => {
-          const isActive = activeType === filterType.slug;
-
-          return (
-            <button
-              key={filterType._id}
-              type='button'
-              onClick={() => setActiveType(filterType.slug)}
-              className={`inline-flex cursor-pointer pb-[0.25rem] font-sans text-base leading-[1.3] tracking-[-0.02em] border-b transition-opacity duration-250 ${
-                isActive
-                  ? "border-accent text-accent"
-                  : "border-gray-300 text-gray-500 hover:opacity-70"
-              }`}
-            >
-              {filterType.title}
-            </button>
-          );
-        })}
-      </div>
+      <ProjectsFilterNav filterTypes={filterTypes} activeType={activeType} />
 
       <div key={activeType} className='grid grid-cols-1 gap-x-3 gap-y-6 tab:grid-cols-2 desk:grid-cols-3 animate-filter-fade-in'>
-        {filteredProjects.length ? filteredProjects.map((project) => {
+        {projects.length ? projects.map((project) => {
           const alt = project.heroAlt || project.title;
 
           return (
@@ -89,7 +51,6 @@ export default function ProjectsFilterGrid({
                     fill
                     sizes='(min-width: 1200px) 26vw, (min-width: 810px) 40vw, 100vw'
                     className='object-cover transition-transform duration-250 ease-in-out group-hover:scale-[1.02]'
-                    unoptimized
                   />
                 ) : null}
 
