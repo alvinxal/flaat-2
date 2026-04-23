@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { trackEvent } from "@/components/analytics/trackEvent";
+
 const content = {
   label: "CONTACT",
   title: "Kontak",
@@ -49,6 +51,10 @@ export default function ContactSection() {
       }
 
       setIsSuccess(true);
+      trackEvent("generate_lead", {
+        form_name: "contact_section",
+        method: "website_form",
+      });
       (e.target as HTMLFormElement).reset();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Terjadi kesalahan");
@@ -88,6 +94,12 @@ export default function ContactSection() {
               </p>
               <a
                 href={content.phoneHref}
+                onClick={() =>
+                  trackEvent("click_whatsapp", {
+                    location: "contact_section",
+                    label: "contact_whatsapp",
+                  })
+                }
                 className='text-white no-underline text-lg leading-[1.3] tracking-[-0.02em]'
                 style={{ color: "white" }}
               >
@@ -100,6 +112,12 @@ export default function ContactSection() {
               </p>
               <a
                 href={content.emailHref}
+                onClick={() =>
+                  trackEvent("click_email", {
+                    location: "contact_section",
+                    label: content.email,
+                  })
+                }
                 className='text-white no-underline text-lg leading-[1.3] tracking-[-0.02em]'
                 style={{ color: "white" }}
               >

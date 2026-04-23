@@ -3,6 +3,7 @@
 import { useEffect, useState, type MouseEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { trackEvent } from "@/components/analytics/trackEvent";
 import { Icons } from "@/components/shared/Icons";
 
 const iconMap = {
@@ -157,6 +158,29 @@ const Sidebar = () => {
                     href={item.href}
                     target='_blank'
                     rel='noreferrer'
+                    onClick={() => {
+                      if (item.name === "WhatsApp") {
+                        trackEvent("click_whatsapp", {
+                          location: "sidebar_social",
+                          label: item.name,
+                        });
+                        return;
+                      }
+
+                      if (item.name === "Email") {
+                        trackEvent("click_email", {
+                          location: "sidebar_social",
+                          label: item.name,
+                        });
+                        return;
+                      }
+
+                      trackEvent("click_outbound", {
+                        location: "sidebar_social",
+                        label: item.name,
+                        destination: item.href,
+                      });
+                    }}
                     className='inline-flex items-center justify-center p-4 desk:p-2 rounded-full text-accent hover:bg-accent/10 transition-colors duration-200'
                     aria-label={item.name}
                   >

@@ -1,6 +1,10 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { RiWhatsappLine } from "react-icons/ri";
+
+import { trackEvent } from "@/components/analytics/trackEvent";
 
 const content = {
   since: "Home",
@@ -30,6 +34,12 @@ export default function HeroSection() {
 
       <Link
         href={content.ctaHref}
+        onClick={() =>
+          trackEvent("click_whatsapp", {
+            location: "hero_section",
+            label: content.cta,
+          })
+        }
         className='inline-flex items-center gap-3 w-fit pb-[0.3rem] border-b border-accent text-accent no-underline text-lg leading-[1.3] tracking-[-0.02em] font-sans transition-opacity duration-250 hover:opacity-60'
       >
         <span>{content.cta}</span>

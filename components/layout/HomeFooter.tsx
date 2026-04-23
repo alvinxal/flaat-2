@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+
+import { trackEvent } from "@/components/analytics/trackEvent";
 
 const navItems = [
   { label: "Beranda", href: "/" },
@@ -66,6 +70,13 @@ export default function HomeFooter() {
                 href={item.href}
                 target='_blank'
                 rel='noreferrer'
+                onClick={() =>
+                  trackEvent("click_outbound", {
+                    location: "footer_social",
+                    label: item.name,
+                    destination: item.href,
+                  })
+                }
                 className='inline-flex gap-1 py-0.5 font-sans text-lg font-medium leading-[1.3] tracking-[-0.02em] no-underline'
               >
                 {item.name}
@@ -83,12 +94,24 @@ export default function HomeFooter() {
               href='https://wa.me/6289518301707'
               target='_blank'
               rel='noreferrer'
+              onClick={() =>
+                trackEvent("click_whatsapp", {
+                  location: "footer_contact",
+                  label: "footer_whatsapp",
+                })
+              }
               className='inline-flex gap-1 py-0.5 font-sans text-lg font-medium leading-[1.3] tracking-[-0.02em] no-underline'
             >
               WhatsApp
             </a>
             <a
               href='mailto:hi@flaat.studio'
+              onClick={() =>
+                trackEvent("click_email", {
+                  location: "footer_contact",
+                  label: "hi@flaat.studio",
+                })
+              }
               className='inline-flex gap-1 py-0.5 font-sans text-lg font-medium leading-[1.3] tracking-[-0.02em] no-underline'
             >
               Email
