@@ -9,6 +9,7 @@ import type { SanityImageSource } from "@sanity/image-url";
 
 import HomeFooter from "@/components/layout/HomeFooter";
 import PreviewImage from "@/components/projects/PreviewImage";
+import { ogImagePath, siteOrigin } from "@/lib/site";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { projectBySlugQuery, relatedProjectsBySlugQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
@@ -155,7 +156,7 @@ export default async function ProjectDetailPage({
   const typeLabel = project.types?.length
     ? project.types.map((t) => t.title).join(", ")
     : "";
-  const pageUrl = `https://flaat.studio/projects/${project.slug}/`;
+  const pageUrl = `${siteOrigin}/projects/${project.slug}/`;
   const projectJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -166,13 +167,13 @@ export default async function ProjectDetailPage({
             "@type": "ListItem",
             position: 1,
             name: "Beranda",
-            item: "https://flaat.studio/",
+            item: `${siteOrigin}/`,
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Portofolio",
-            item: "https://flaat.studio/projects/",
+            item: `${siteOrigin}/projects/`,
           },
           {
             "@type": "ListItem",
@@ -187,7 +188,7 @@ export default async function ProjectDetailPage({
         name: project.title,
         url: pageUrl,
         description: project.description,
-        image: heroUrl || "https://flaat.studio/assets/images/og-image.webp",
+        image: heroUrl || `${siteOrigin}${ogImagePath}`,
         creator: {
           "@type": "Organization",
           name: "Flaat Studio",

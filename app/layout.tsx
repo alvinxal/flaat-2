@@ -2,21 +2,20 @@ import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Bricolage_Grotesque, Inter, Space_Mono } from "next/font/google";
 import localFont from "next/font/local";
+
+import { ogImagePath, siteName, siteUrl } from "@/lib/site";
 import "./globals.css";
 
-const siteUrl = new URL("https://flaat.studio");
-const siteName = "Flaat Studio";
 const defaultTitle = "Flaat Studio | Web Development, AI, dan Digital Marketing";
 const defaultDescription =
   "Flaat Studio adalah digital partner yang menggabungkan web development, AI, dan digital marketing untuk mendorong pertumbuhan bisnis.";
-const ogImage = "/assets/images/og-image.webp";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: siteName,
   url: siteUrl.toString(),
-  logo: new URL(ogImage, siteUrl).toString(),
+  logo: new URL(ogImagePath, siteUrl).toString(),
   email: "hi@flaat.studio",
   sameAs: [
     "https://www.instagram.com/flaatstudio/",
@@ -92,20 +91,20 @@ export const metadata: Metadata = {
     title: defaultTitle,
     description: defaultDescription,
     images: [
-      {
-        url: ogImage,
-        width: 1200,
-        height: 630,
-        alt: `${siteName} social preview`,
+        {
+          url: ogImagePath,
+          width: 1200,
+          height: 630,
+          alt: `${siteName} social preview`,
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: defaultTitle,
-    description: defaultDescription,
-    images: [ogImage],
-  },
+      card: "summary_large_image",
+      title: defaultTitle,
+      description: defaultDescription,
+      images: [ogImagePath],
+    },
   robots: {
     index: true,
     follow: true,

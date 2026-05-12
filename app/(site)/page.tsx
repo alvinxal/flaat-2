@@ -7,6 +7,7 @@ import AboutSection from "@/components/home/AboutSection";
 import ServicesSection from "@/components/home/ServicesSection";
 // import TestimonialSection from "@/components/home/TestimonialSection";
 import ContactSection from "@/components/home/ContactSection";
+import { ogImagePath, siteOrigin } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Jasa Pembuatan Website, AI, dan Digital Marketing",
@@ -32,8 +33,8 @@ const homeJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "Flaat Studio",
-  url: "https://flaat.studio",
-  image: "https://flaat.studio/assets/images/og-image.webp",
+  url: `${siteOrigin}/`,
+  image: `${siteOrigin}${ogImagePath}`,
   description:
     "Flaat Studio membantu bisnis tumbuh lewat jasa pembuatan website, AI automation, dan strategi digital marketing yang terukur dari Yogyakarta.",
   areaServed: ["Indonesia", "Yogyakarta"],

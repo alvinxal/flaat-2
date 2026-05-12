@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import HomeFooter from "@/components/layout/HomeFooter";
 import ProjectsHero from "@/components/home/ProjectsHero";
 import ProjectsFilterGrid from "@/components/projects/ProjectsFilterGrid";
+import { siteOrigin } from "@/lib/site";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { projectsFilterTypesQuery, projectsIndexQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
@@ -17,7 +18,7 @@ const projectsJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "Portofolio Project Flaat Studio",
-  url: "https://flaat.studio/projects/",
+  url: `${siteOrigin}/projects/`,
   description:
     "Kumpulan project Flaat Studio di bidang web development, AI automation, dan digital marketing.",
 };

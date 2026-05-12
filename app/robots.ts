@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+import { siteOrigin } from "@/lib/site";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
@@ -7,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/dashboard/"],
     },
-    sitemap: "https://flaat.studio/sitemap.xml",
-    host: "https://flaat.studio",
+    sitemap: `${siteOrigin}/sitemap.xml`,
+    host: siteOrigin,
   };
 }

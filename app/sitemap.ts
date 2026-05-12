@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
 
+import { siteOrigin } from "@/lib/site";
 import { sanityFetch } from "@/sanity/lib/fetch";
-
-const siteUrl = "https://flaat.studio";
 
 type ProjectSitemapEntry = {
   slug: string;
@@ -26,19 +25,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: `${siteUrl}/`,
+      url: `${siteOrigin}/`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: `${siteUrl}/projects/`,
+      url: `${siteOrigin}/projects/`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     ...projects.map((project) => ({
-      url: `${siteUrl}/projects/${project.slug}/`,
+      url: `${siteOrigin}/projects/${project.slug}/`,
       lastModified: project._updatedAt ? new Date(project._updatedAt) : now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
