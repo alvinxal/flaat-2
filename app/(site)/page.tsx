@@ -10,22 +10,22 @@ import ContactSection from "@/components/home/ContactSection";
 import { ogImagePath, siteOrigin } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Jasa Pembuatan Website, AI, dan Digital Marketing",
+  title: "Flaat Studio - Jasa Website, AI, dan Digital Marketing",
   description:
-    "Flaat Studio membantu bisnis tumbuh lewat jasa pembuatan website, AI automation, dan strategi digital marketing yang terukur dari Yogyakarta.",
+    "Flaat Studio adalah digital partner yang menggabungkan web development, AI automation, dan strategi digital marketing untuk pertumbuhan bisnis dari Yogyakarta.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Jasa Pembuatan Website, AI, dan Digital Marketing",
+    title: "Flaat Studio - Jasa Website, AI, dan Digital Marketing",
     description:
-      "Flaat Studio membantu bisnis tumbuh lewat jasa pembuatan website, AI automation, dan strategi digital marketing yang terukur dari Yogyakarta.",
+      "Flaat Studio adalah digital partner yang menggabungkan web development, AI automation, dan strategi digital marketing untuk pertumbuhan bisnis dari Yogyakarta.",
     url: "/",
   },
   twitter: {
-    title: "Jasa Pembuatan Website, AI, dan Digital Marketing",
+    title: "Flaat Studio - Jasa Website, AI, dan Digital Marketing",
     description:
-      "Flaat Studio membantu bisnis tumbuh lewat jasa pembuatan website, AI automation, dan strategi digital marketing yang terukur dari Yogyakarta.",
+      "Flaat Studio adalah digital partner yang menggabungkan web development, AI automation, dan strategi digital marketing untuk pertumbuhan bisnis dari Yogyakarta.",
   },
 };
 

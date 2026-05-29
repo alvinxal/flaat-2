@@ -75,6 +75,9 @@ export const metadata: Metadata = {
   },
   description: defaultDescription,
   keywords: [
+    "flaat studio",
+    "flaat studio yogyakarta",
+    "flaat studio digital agency",
     "jasa pembuatan website",
     "jasa AI automation",
     "agency digital marketing",
