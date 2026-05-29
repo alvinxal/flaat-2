@@ -91,7 +91,7 @@ export default function HomeFooter() {
           </p>
           <div className='flex flex-col items-start gap-0'>
             <a
-              href='https://wa.me/6289518301707'
+              href='https://wa.me/6285156652910'
               target='_blank'
               rel='noreferrer'
               onClick={() =>

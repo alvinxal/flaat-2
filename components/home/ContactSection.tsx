@@ -8,9 +8,9 @@ const content = {
   label: "CONTACT",
   title: "Kontak",
   office: "Yogyakarta, Indonesia",
-  phone: "+62 895-1830-1707",
+  phone: "+62 851-5665-2910",
   phoneHref:
-    "https://wa.me/6289518301707?text=Halo%20Flaat%2C%20saya%20ingin%20konsultasi",
+    "https://wa.me/6285156652910?text=Halo%20Flaat%2C%20saya%20ingin%20konsultasi",
   email: "hi@flaat.studio",
   emailHref: "mailto:hi@flaat.studio",
 };

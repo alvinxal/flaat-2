@@ -20,7 +20,7 @@ const organizationJsonLd = {
   sameAs: [
     "https://www.instagram.com/flaatstudio/",
     "https://www.linkedin.com/in/flaat-studio-84ab3b39a/",
-    "https://wa.me/6289518301707",
+    "https://wa.me/6285156652910",
   ],
   address: {
     "@type": "PostalAddress",

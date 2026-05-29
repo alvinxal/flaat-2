@@ -13,7 +13,7 @@ const content = {
     "Digital partner yang menggabungkan teknologi AI dan strategi marketing untuk mempercepat pertumbuhan bisnis Anda.",
   cta: "Konsultasi Gratis",
   ctaHref:
-    "https://wa.me/6289518301707?text=Halo%20Flaat%2C%20saya%20ingin%20konsultasi",
+    "https://wa.me/6285156652910?text=Halo%20Flaat%2C%20saya%20ingin%20konsultasi",
 };
 
 export default function HeroSection() {
