@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 
 import HomeFooter from "@/components/layout/HomeFooter";
+import ContactSection from "@/components/home/ContactSection";
+import ProjectsSection from "@/components/home/ProjectsSection";
 import { siteOrigin } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -160,7 +162,7 @@ const jsonLdFaq = {
   })),
 };
 
-export default function JasaWebsiteTemanggungPage() {
+export default async function JasaWebsiteTemanggungPage() {
   return (
     <main className="min-h-screen px-5 pb-8 pt-[72px] desk:pt-0 desk:pl-[260px] desk:px-10">
       <script
@@ -201,20 +203,6 @@ export default function JasaWebsiteTemanggungPage() {
             </a>
           </div>
 
-          <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-gray-200">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex size-2 rounded-full bg-accent/40" />
-              <span className="font-mono text-xs uppercase text-gray-600">SEO-ready</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="inline-flex size-2 rounded-full bg-accent/40" />
-              <span className="font-mono text-xs uppercase text-gray-600">Mobile-first</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="inline-flex size-2 rounded-full bg-accent/40" />
-              <span className="font-mono text-xs uppercase text-gray-600">WhatsApp-ready</span>
-            </div>
-          </div>
         </section>
 
         {/* MASALAH */}
@@ -382,6 +370,18 @@ export default function JasaWebsiteTemanggungPage() {
             ))}
           </div>
         </section>
+
+        {/* PROJECT */}
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center justify-between gap-4">
+            <p className="m-0 font-mono text-xs tracking-widest uppercase text-gray-800">
+              PROJECT
+            </p>
+          </div>
+          <ProjectsSection />
+        </div>
+
+        <ContactSection />
 
         <HomeFooter />
       </div>
