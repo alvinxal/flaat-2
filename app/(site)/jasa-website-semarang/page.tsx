@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BreadcrumbJsonLd, FAQJsonLd } from "next-seo";
 
 import HomeFooter from "@/components/layout/HomeFooter";
 import ContactSection from "@/components/home/ContactSection";
@@ -96,13 +97,20 @@ const jsonLd = {
   provider: { "@type": "Organization", name: "Flaat Studio", url: siteOrigin },
   serviceType: ["Jasa pembuatan website", "Landing page", "Company profile website", "SEO teknis"],
 };
-const jsonLdFaq = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map(i => ({ "@type": "Question", name: i.q, acceptedAnswer: { "@type": "Answer", text: i.a } })) };
 
 export default async function JasaWebsiteSemarangPage() {
   return (
     <main className="min-h-screen px-5 pb-8 pt-[72px] desk:pt-0 desk:pl-[260px] desk:px-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
+      <FAQJsonLd scriptId="semarang-faq-jsonld" questions={faqItems.map((i) => ({ question: i.q, answer: i.a }))} />
+      <BreadcrumbJsonLd
+        scriptId="semarang-breadcrumb-jsonld"
+        items={[
+          { name: "Beranda", item: `${siteOrigin}/` },
+          { name: "Jasa Website", item: `${siteOrigin}/` },
+          { name: "Semarang", item: `${siteOrigin}/jasa-website-semarang/` },
+        ]}
+      />
       <div className="relative w-full max-w-[1300px] mx-auto flex flex-col gap-[7.5rem] pt-10 px-5 tab:p-8 desk:p-8 desk:border-r desk:border-gray-200">
         <section className="relative flex flex-col gap-8 bg-[#fafafa] p-8 tab:p-12 desk:p-16">
           <p className="m-0 font-mono text-xs tracking-widest uppercase text-gray-800">JASA WEBSITE SEMARANG</p>

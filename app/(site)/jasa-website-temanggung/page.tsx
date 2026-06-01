@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BreadcrumbJsonLd, FAQJsonLd } from "next-seo";
 
 import HomeFooter from "@/components/layout/HomeFooter";
 import ContactSection from "@/components/home/ContactSection";
@@ -149,18 +150,7 @@ const jsonLd = {
   ],
 };
 
-const jsonLdFaq = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.a,
-    },
-  })),
-};
+
 
 export default async function JasaWebsiteTemanggungPage() {
   return (
@@ -169,9 +159,14 @@ export default async function JasaWebsiteTemanggungPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
+      <FAQJsonLd scriptId="temanggung-faq-jsonld" questions={faqItems.map((i) => ({ question: i.q, answer: i.a }))} />
+      <BreadcrumbJsonLd
+        scriptId="temanggung-breadcrumb-jsonld"
+        items={[
+          { name: "Beranda", item: `${siteOrigin}/` },
+          { name: "Jasa Website", item: `${siteOrigin}/` },
+          { name: "Temanggung", item: `${siteOrigin}/jasa-website-temanggung/` },
+        ]}
       />
       <div className="relative w-full max-w-[1300px] mx-auto flex flex-col gap-[7.5rem] pt-10 px-5 tab:p-8 desk:p-8 desk:border-r desk:border-gray-200">
 

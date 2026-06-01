@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { BreadcrumbJsonLd, CreativeWorkJsonLd, JsonLdScript } from "next-seo";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextComponents } from "@portabletext/react";
 import type { ReactNode } from "react";
@@ -157,48 +158,19 @@ export default async function ProjectDetailPage({
     ? project.types.map((t) => t.title).join(", ")
     : "";
   const pageUrl = `${siteOrigin}/projects/${project.slug}/`;
+  const projectKeywords = project.types?.map((type) => type.title) ?? [];
   const projectJsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Beranda",
-            item: `${siteOrigin}/`,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Portofolio",
-            item: `${siteOrigin}/projects/`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: project.title,
-            item: pageUrl,
-          },
-        ],
-      },
-      {
-        "@type": "CreativeWork",
-        name: project.title,
-        url: pageUrl,
-        description: project.description,
-        image: heroUrl || `${siteOrigin}${ogImagePath}`,
-        creator: {
-          "@type": "Organization",
-          name: "Flaat Studio",
-        },
-        datePublished: project.year || undefined,
-        keywords: project.types?.map((type) => type.title),
-      },
-    ],
+    "@type": "CreativeWork",
+    name: project.title,
+    url: pageUrl,
+    description: project.description,
+    image: heroUrl || `${siteOrigin}${ogImagePath}`,
+    creator: { "@type": "Organization", name: "Flaat Studio", url: siteOrigin },
+    publisher: { "@type": "Organization", name: "Flaat Studio", url: siteOrigin },
+    datePublished: project.year || undefined,
+    keywords: projectKeywords.length ? projectKeywords.join(", ") : undefined,
   };
-
   const ptComponents: PortableTextComponents = {
     types: {
       image: ({ value }: { value: SanityImageSource & { alt?: string; asset?: unknown } }) => {
@@ -298,9 +270,26 @@ export default async function ProjectDetailPage({
 
   return (
     <main className='min-h-screen px-5 pb-8 desk:pl-[260px] desk:px-10'>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
+      <BreadcrumbJsonLd
+        scriptId='project-breadcrumb-jsonld'
+        items={[
+          { name: 'Beranda', item: `${siteOrigin}/` },
+          { name: 'Portofolio', item: `${siteOrigin}/projects/` },
+          { name: project.title, item: pageUrl },
+        ]}
+      />
+      <CreativeWorkJsonLd
+        scriptId='project-creative-work-jsonld'
+        name={project.title}
+        url={pageUrl}
+        description={project.description}
+        image={heroUrl || `${siteOrigin}${ogImagePath}`}
+        publisher={{ name: 'Flaat Studio', url: siteOrigin }}
+        datePublished={project.year || undefined}
+      />
+      <JsonLdScript
+        scriptKey='project-creative-work-detail-jsonld'
+        data={projectJsonLd}
       />
       <div className='relative w-full max-w-[1300px] mx-auto flex flex-col gap-[7.5rem] pt-24 px-5 tab:p-8 desk:pt-10 desk:p-8 desk:border-r desk:border-gray-200'>
         <div className='flex flex-col gap-12 desk:grid desk:grid-cols-[1fr_340px] desk:gap-16'>

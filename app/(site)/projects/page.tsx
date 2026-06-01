@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CreativeWorkJsonLd, JsonLdScript } from "next-seo";
 
 import HomeFooter from "@/components/layout/HomeFooter";
 import ProjectsHero from "@/components/home/ProjectsHero";
@@ -21,6 +22,15 @@ const projectsJsonLd = {
   url: `${siteOrigin}/projects/`,
   description:
     "Kumpulan project Flaat Studio di bidang web development, AI automation, dan digital marketing.",
+  isPartOf: { "@type": "WebSite", name: "Flaat Studio", url: siteOrigin },
+  about: ["Web development", "AI automation", "Digital marketing"],
+};
+
+type ProjectFilterType = {
+  _id: string;
+  title: string;
+  slug: string;
+  count: number;
 };
 
 type ProjectCard = {
@@ -32,13 +42,6 @@ type ProjectCard = {
   heroAlt?: string;
   types?: { title: string; slug?: string }[];
   services?: string[];
-};
-
-type ProjectFilterType = {
-  _id: string;
-  title: string;
-  slug: string;
-  count: number;
 };
 
 async function getFilterTypes() {
@@ -140,9 +143,16 @@ export default async function ProjectsPage({
 
   return (
     <main className='min-h-screen px-5 pb-8 pt-[72px] desk:pt-0 desk:pl-[260px] desk:px-10'>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsJsonLd) }}
+      <CreativeWorkJsonLd
+        type='WebPage'
+        scriptId='projects-collection-webpage-jsonld'
+        name='Portofolio Project Flaat Studio'
+        url={`${siteOrigin}/projects/`}
+        description='Kumpulan project Flaat Studio di bidang web development, AI automation, dan digital marketing.'
+      />
+      <JsonLdScript
+        scriptKey='projects-collection-jsonld'
+        data={projectsJsonLd}
       />
       <div className='relative w-full max-w-[1300px] mx-auto flex flex-col gap-[7.5rem] pt-10 px-5 tab:p-8 desk:p-8 desk:border-r desk:border-gray-200'>
         <ProjectsHero />

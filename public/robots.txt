@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /dashboard/
+
+# Host
+Host: https://flaat.studio
+
+# Sitemaps
+Sitemap: https://flaat.studio/sitemap.xml
+Sitemap: https://flaat.studio/server-sitemap.xml

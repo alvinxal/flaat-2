@@ -2,5 +2,61 @@
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
     "rtk"
-  ]
+  ],
+  "formatter": {
+    "prettier": {
+      "command": [
+        "prettier",
+        "--write"
+      ],
+      "extensions": [
+        ".ts",
+        ".tsx",
+        ".js",
+        ".jsx",
+        ".json",
+        ".css",
+        ".md",
+        ".mdx"
+      ]
+    }
+  },
+  "lsp": {
+    "typescript": {
+      "command": [
+        "typescript-language-server",
+        "--stdio"
+      ],
+      "extensions": [
+        ".ts",
+        ".tsx",
+        ".js",
+        ".jsx"
+      ],
+      "env": {}
+    },
+    "eslint": {
+      "command": [
+        "eslint",
+        "--stdio"
+      ],
+      "extensions": [
+        ".ts",
+        ".tsx",
+        ".js",
+        ".jsx"
+      ]
+    },
+    "tailwindcss": {
+      "command": [
+        "tailwindcss-language-server",
+        "--stdio"
+      ],
+      "extensions": [
+        ".css",
+        ".tsx",
+        ".ts"
+      ]
+    }
+  }
 }

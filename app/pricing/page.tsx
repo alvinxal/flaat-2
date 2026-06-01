@@ -177,13 +177,13 @@ export const metadata: Metadata = {
   description:
     "Deck pricing Flaat Studio untuk web development, AI automation, dan digital marketing dalam format presentasi yang siap diunduh ke PDF.",
   alternates: {
-    canonical: "/pricing",
+    canonical: "/pricing/",
   },
   openGraph: {
     title: "Pricing Deck | Flaat Studio",
     description:
       "Deck pricing Flaat Studio untuk web development, AI automation, dan digital marketing dalam format presentasi yang siap diunduh ke PDF.",
-    url: "/pricing",
+    url: "/pricing/",
   },
   twitter: {
     title: "Pricing Deck | Flaat Studio",

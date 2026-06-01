@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { JsonLdScript, LocalBusinessJsonLd } from "next-seo";
 
 import HomeFooter from "@/components/layout/HomeFooter";
 import HeroSection from "@/components/home/HeroSection";
@@ -29,33 +30,58 @@ export const metadata: Metadata = {
   },
 };
 
-const homeJsonLd = {
+const homeServiceEnrichment = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Flaat Studio",
-  url: `${siteOrigin}/`,
-  image: `${siteOrigin}${ogImagePath}`,
-  description:
-    "Flaat Studio membantu bisnis tumbuh lewat jasa pembuatan website, AI automation, dan strategi digital marketing yang terukur dari Yogyakarta.",
-  areaServed: ["Indonesia", "Yogyakarta"],
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Yogyakarta",
-    addressCountry: "ID",
-  },
-  serviceType: [
-    "Jasa pembuatan website",
-    "Jasa AI automation",
-    "Agency digital marketing",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Jasa Pembuatan Website",
+      serviceType: "Jasa pembuatan website",
+      provider: { "@type": "Organization", name: "Flaat Studio", url: siteOrigin },
+      areaServed: [
+        { "@type": "City", name: "Yogyakarta" },
+        { "@type": "City", name: "Semarang" },
+        { "@type": "City", name: "Solo" },
+        { "@type": "City", name: "Purwokerto" },
+        { "@type": "City", name: "Magelang" },
+        { "@type": "City", name: "Salatiga" },
+        { "@type": "City", name: "Temanggung" },
+      ],
+    },
+    {
+      "@type": "Service",
+      name: "AI Automation",
+      serviceType: "AI automation",
+      provider: { "@type": "Organization", name: "Flaat Studio", url: siteOrigin },
+    },
+    {
+      "@type": "Service",
+      name: "Digital Marketing",
+      serviceType: "Digital marketing",
+      provider: { "@type": "Organization", name: "Flaat Studio", url: siteOrigin },
+    },
   ],
 };
 
 export default function HomePage() {
   return (
     <main className='min-h-screen px-5 pb-8 pt-[72px] desk:pt-0 desk:pl-[260px] desk:px-10'>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
+      <LocalBusinessJsonLd
+        type='ProfessionalService'
+        scriptId='home-professional-service-jsonld'
+        name='Flaat Studio'
+        url={`${siteOrigin}/`}
+        image={`${siteOrigin}${ogImagePath}`}
+        description='Flaat Studio membantu bisnis tumbuh lewat jasa pembuatan website, AI automation, dan strategi digital marketing yang terukur dari Yogyakarta.'
+        areaServed={['Indonesia', 'Yogyakarta']}
+        address={{
+          addressLocality: 'Yogyakarta',
+          addressCountry: 'ID',
+        }}
+      />
+      <JsonLdScript
+        scriptKey='home-services-jsonld'
+        data={homeServiceEnrichment}
       />
       <div className='relative w-full max-w-[1300px] mx-auto flex flex-col gap-[7.5rem] pt-10 px-5 tab:p-8 desk:p-8 desk:border-r desk:border-gray-200'>
         <HeroSection />

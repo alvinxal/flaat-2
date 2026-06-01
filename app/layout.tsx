@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Bricolage_Grotesque, Inter, Space_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { JsonLdScript, OrganizationJsonLd } from "next-seo";
 
 import { ogImagePath, siteName, siteUrl } from "@/lib/site";
 import "./globals.css";
@@ -10,31 +11,6 @@ const defaultTitle = "Flaat Studio | Web Development, AI, dan Digital Marketing"
 const defaultDescription =
   "Flaat Studio adalah digital partner yang menggabungkan web development, AI, dan digital marketing untuk mendorong pertumbuhan bisnis.";
 
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: siteName,
-  url: siteUrl.toString(),
-  logo: new URL(ogImagePath, siteUrl).toString(),
-  email: "hi@flaat.studio",
-  sameAs: [
-    "https://www.instagram.com/flaatstudio/",
-    "https://www.linkedin.com/in/flaat-studio-84ab3b39a/",
-    "https://wa.me/6285156652910",
-  ],
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Yogyakarta",
-    addressCountry: "ID",
-  },
-  knowsAbout: [
-    "jasa pembuatan website",
-    "jasa AI automation",
-    "agency digital marketing",
-    "digital agency yogyakarta",
-  ],
-};
-
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -42,6 +18,19 @@ const websiteJsonLd = {
   url: siteUrl.toString(),
   inLanguage: "id-ID",
   description: defaultDescription,
+};
+
+const organizationEnrichment = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteName,
+  url: siteUrl.toString(),
+  knowsAbout: [
+    "jasa pembuatan website",
+    "jasa AI automation",
+    "agency digital marketing",
+    "digital agency yogyakarta",
+  ],
 };
 
 const clashDisplay = localFont({
@@ -129,11 +118,29 @@ export default function RootLayout({
   return (
       <html lang="id">
 <body className={`${bricolage.variable} ${inter.variable} ${spaceMono.variable} ${clashDisplay.variable}`} style={{ fontSize: '1.125rem' }}>
+        <OrganizationJsonLd
+          scriptId='organization-jsonld'
+          name={siteName}
+          url={siteUrl.toString()}
+          logo={new URL(ogImagePath, siteUrl).toString()}
+          email='hi@flaat.studio'
+          sameAs={[
+            "https://www.instagram.com/flaatstudio/",
+            "https://www.linkedin.com/in/flaat-studio-84ab3b39a/",
+            "https://wa.me/6285156652910",
+          ]}
+          address={{
+            addressLocality: "Yogyakarta",
+            addressCountry: "ID",
+          }}
+        />
+        <JsonLdScript
+          scriptKey='organization-knowsabout-jsonld'
+          data={organizationEnrichment}
+        />
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([organizationJsonLd, websiteJsonLd]),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         {children}
       </body>
