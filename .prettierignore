@@ -1,0 +1,8 @@
+node_modules
+.next
+.next-sitemap.config.js
+out
+build
+dist
+coverage
+pnpm-lock.yaml

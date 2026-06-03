@@ -1,34 +1,15 @@
 import Image from "next/image";
+import id from "@/lib/i18n/dictionaries/id";
+import en from "@/lib/i18n/dictionaries/en";
 
-const content = {
-  label: "SERVICES",
-  title: "Layanan",
-  services: [
-    {
-      title: "Web Development",
-      description:
-        "Website berkinerja tinggi, aplikasi web kustom, dan landing page yang dirancang untuk konversi maksimal. Built dengan Next.js, WordPress, atau solusi custom sesuai kebutuhan bisnis Anda.",
-      image: "/assets/images/Webdev.webp",
-      alt: "Web Development",
-    },
-    {
-      title: "AI & Automation",
-      description:
-        "Otomatisasi workflow, chatbot cerdas, dan AI agent yang bekerja 24/7 untuk efisiensi bisnis. Integrasikan teknologi AI tanpa kerumitan teknis.",
-      image: "/assets/images/AI.webp",
-      alt: "AI & Automation",
-    },
-    {
-      title: "Digital Marketing",
-      description:
-        "SEO, iklan multi-platform (Meta/Google/TikTok), marketplace, dan optimasi konversi berbasis data. Strategi marketing yang terukur untuk pertumbuhan berkelanjutan.",
-      image: "/assets/images/Digmar.webp",
-      alt: "Digital Marketing",
-    },
-  ],
-};
+function getDict(locale: string) {
+  return locale === "en" ? en : id;
+}
 
-export default function ServicesSection() {
+export default function ServicesSection({ locale }: { locale: string }) {
+  const dict = getDict(locale);
+  const content = dict.services;
+
   return (
     <section id='service' className='flex flex-col gap-4 scroll-mt-[80px] desk:scroll-mt-[80px]'>
       <div className='flex items-center justify-between gap-4'>
@@ -41,7 +22,7 @@ export default function ServicesSection() {
       </div>
 
       <div className='grid gap-3'>
-        {content.services.map((service) => (
+        {content.items.map((service) => (
           <article
             key={service.title}
             className='grid gap-4 py-5 border-t border-border tab:grid-cols-[1fr_12rem] tab:items-center tab:gap-8 desk:grid-cols-[1fr_12rem] desk:items-center desk:gap-8'

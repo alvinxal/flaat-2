@@ -3,11 +3,12 @@ import Image from "next/image";
 
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { urlFor } from "@/sanity/lib/image";
+import id from "@/lib/i18n/dictionaries/id";
+import en from "@/lib/i18n/dictionaries/en";
 
-const content = {
-  label: "WORK",
-  title: "Karya kami",
-};
+function getDict(l: string) {
+  return l === "en" ? en : id;
+}
 
 export const revalidate = 60;
 
@@ -21,20 +22,26 @@ type HomeProject = {
 };
 
 const homeProjectsQuery = `
-  *[_type == "project" && defined(slug.current)]
+  *[_type == "project" && (
+    ($locale == "id" && defined(slugId.current)) ||
+    ($locale == "en" && defined(slugEn.current) && defined(titleEn) && defined(bodyEn))
+  )]
     | order(coalesce(year, "") desc, _createdAt desc)[0...3] {
       _id,
-      title,
-      "slug": slug.current,
-      description,
+      "title": select($locale == "en" => titleEn, titleId),
+      "slug": select($locale == "en" => slugEn.current, slugId.current),
+      "description": select($locale == "en" => descriptionEn, descriptionId),
       heroImage,
       heroAlt
     }
 `;
 
-export default async function ProjectsSection() {
+export default async function ProjectsSection({ locale }: { locale: string }) {
+  const dict = getDict(locale);
+  const p = locale === "en" ? "/en" : "";
   const projects = (await sanityFetch<HomeProject[]>({
     query: homeProjectsQuery,
+    params: { locale },
     revalidate,
   })) ?? [];
 
@@ -42,10 +49,10 @@ export default async function ProjectsSection() {
     <section id='projects' className='flex flex-col gap-4 scroll-mt-[80px] desk:scroll-mt-[80px]'>
       <div className='flex items-center justify-between gap-4'>
         <p className='m-0 font-mono text-xs tracking-widest uppercase text-gray-800'>
-          {content.label}
+          WORK
         </p>
         <h2 className='m-0 text-xl leading-tight font-semibold font-sans'>
-          {content.title}
+          {dict.projects.title}
         </h2>
       </div>
 
@@ -59,7 +66,7 @@ export default async function ProjectsSection() {
           return (
           <Link
             key={project._id}
-            href={`/projects/${project.slug}`}
+            href={`${p}/projects/${project.slug}`}
             className='group flex flex-col gap-1 no-underline'
           >
             <div className='relative aspect-[1.53056] overflow-hidden bg-panel'>
@@ -88,17 +95,17 @@ export default async function ProjectsSection() {
           );
         }) : (
           <p className='m-0 text-base leading-normal font-body text-gray-500'>
-            Belum ada project.
+            {dict.projects.noProjects}
           </p>
         )}
       </div>
 
       <div className='flex justify-start'>
         <Link
-          href='/projects'
+          href={`${p}/projects`}
           className='inline-flex items-center gap-3 w-fit pb-[0.3rem] border-b border-accent text-accent no-underline font-sans text-lg leading-[1.3] tracking-[-0.02em] transition-opacity duration-250 hover:opacity-60'
         >
-          <span>Lihat Semua Projek</span>
+          <span>{dict.projects.viewAll}</span>
           <span>→</span>
         </Link>
       </div>

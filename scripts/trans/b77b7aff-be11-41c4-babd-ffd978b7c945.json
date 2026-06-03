@@ -1,0 +1,16 @@
+{
+  "0e7619ef7fcc.2ee87aa72e40": "Project Overview",
+  "5d01a9999aed.2ee87aa72e40": "Flaat Studio built an internal platform for Leora that unifies correspondence administration, product & RAB data, marketing management, supply chain, and meeting coordination into one digital system accessible by the entire team.",
+  "17b5f98777f5.a696234f4691": "Challenge & Background",
+  "33f322e8be1a.ba1153d889ab": "The marketing team struggled to collect prospect data from various sources like Instagram and WhatsApp into one place, causing information delays reaching leadership. Additionally, important documents such as letters, memos, and RABs were scattered across multiple locations, hindering cross-divisional collaboration.",
+  "a42161257b94.c9c33cf228ba": "Flaat Studio's Role",
+  "7d9e47fa3d45.2a20961f4d27": "Flaat Studio handled system development from start to finish, ensuring every feature was designed according to business needs and easy for all staff to use, including those less familiar with technology.",
+  "08bdda08b305.c13820a6280a": "Design Approach & User Experience",
+  "b38b2cc953d0.f2bd356f36f1": "We designed a simple, user-friendly interface with mobile-first access priority, since many staff work in the field. Each menu includes visual summaries so important information can be seen at a glance.",
+  "603dd8dbf1e2.1d5c3e1f6ef3": "Technology Solutions Implemented",
+  "22d13e2af621.545c00456186": "The system was built with flexible modern tools, allowing gradual feature development without disrupting operations. Cloud service integration ensures data is stored securely and accessible in real-time from anywhere.",
+  "634bae67c38f.71a8ee71970b": "Obstacles & How We Overcame Them",
+  "f2b4e6b61a89.a1cef6e3cb7a": "Continuously evolving features were managed through a phased development strategy with regular evaluations to maintain system stability. To simplify complex client data input, we built a bulk import feature with live preview, allowing admins to verify data accuracy before saving.",
+  "30fa448ea961.3af2b72450cc": "Results & Learnings",
+  "fc2f0aa7dcdf.19a9796ce641": "Marketing document recap time was drastically reduced from 3 days to just 5 minutes. Client data is accessible in real-time without friction, and meeting minutes are now centralized. Key to success: designing a scalable system, prioritizing ease of use, and always aligning solutions with business needs — not just technology."
+}

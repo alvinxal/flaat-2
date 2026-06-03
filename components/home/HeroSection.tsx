@@ -5,18 +5,12 @@ import Link from "next/link";
 import { RiWhatsappLine } from "react-icons/ri";
 
 import { trackEvent } from "@/components/analytics/trackEvent";
-
-const content = {
-  since: "Home",
-  status: "Technology & Digital Marketing Agency",
-  title:
-    "Digital partner yang menggabungkan teknologi AI dan strategi marketing untuk mempercepat pertumbuhan bisnis Anda.",
-  cta: "Konsultasi Gratis",
-  ctaHref:
-    "https://wa.me/6285156652910?text=Halo%20Flaat%2C%20saya%20ingin%20konsultasi",
-};
+import { useDict } from "@/lib/i18n/locale-context";
 
 export default function HeroSection() {
+  const dict = useDict();
+  const content = dict.hero;
+
   return (
     <div className='relative flex flex-col justify-end gap-6 tab:gap-7 desk:gap-8 w-full h-[24rem] tab:h-[26rem] desk:h-[28rem] pt-20 pb-6'>
       <div className='absolute top-0 left-0 right-0 flex items-start desk:items-center justify-between gap-6 py-3 font-mono text-xs tracking-widest uppercase'>

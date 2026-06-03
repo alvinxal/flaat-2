@@ -1,11 +1,14 @@
 export const projectsIndexQuery = `
-  *[_type == "project" && defined(slug.current)]
+  *[_type == "project" && (
+    ($locale == "id" && defined(slugId.current)) ||
+    ($locale == "en" && defined(slugEn.current) && defined(titleEn) && defined(bodyEn))
+  )]
     | order(coalesce(year, "") desc, _createdAt desc)
     {
       _id,
-      title,
-      "slug": slug.current,
-      description,
+      "title": select($locale == "en" => titleEn, titleId),
+      "slug": select($locale == "en" => slugEn.current, slugId.current),
+      "description": select($locale == "en" => descriptionEn, descriptionId),
       heroImage,
       heroAlt,
       "types": types[]->{title, "slug": slug.current},
@@ -23,11 +26,14 @@ export const projectsFilterTypesQuery = `
 `;
 
 export const projectBySlugQuery = `
-  *[_type == "project" && slug.current == $slug][0] {
+  *[_type == "project" && (
+    ($locale == "id" && slugId.current == $slug) ||
+    ($locale == "en" && slugEn.current == $slug)
+  )][0] {
     _id,
-    title,
-    "slug": slug.current,
-    description,
+    "title": select($locale == "en" => titleEn, titleId),
+    "slug": select($locale == "en" => slugEn.current, slugId.current),
+    "description": select($locale == "en" => descriptionEn, descriptionId),
     year,
     client,
     timeline,
@@ -36,17 +42,20 @@ export const projectBySlugQuery = `
     heroAlt,
     "types": types[]->{title, "slug": slug.current},
     "services": services[]->{title, "slug": slug.current},
-    body
+    "body": select($locale == "en" => bodyEn, bodyId)
   }
 `;
 
 export const relatedProjectsBySlugQuery = `
-  *[_type == "project" && defined(slug.current) && slug.current != $slug]
+  *[_type == "project" && (
+    ($locale == "id" && defined(slugId.current) && slugId.current != $slug) ||
+    ($locale == "en" && defined(slugEn.current) && defined(titleEn) && defined(bodyEn) && slugEn.current != $slug)
+  )]
     | order(coalesce(year, "") desc, _createdAt desc)[0...2] {
       _id,
-      title,
-      "slug": slug.current,
-      description,
+      "title": select($locale == "en" => titleEn, titleId),
+      "slug": select($locale == "en" => slugEn.current, slugId.current),
+      "description": select($locale == "en" => descriptionEn, descriptionId),
       heroImage,
       heroAlt,
       "types": types[]->title

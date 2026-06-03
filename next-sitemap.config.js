@@ -23,5 +23,9 @@ module.exports = {
       `${process.env.NEXT_PUBLIC_SITE_URL || "https://flaat.studio"}/server-sitemap.xml`,
     ],
   },
-  additionalPaths: async () => [{ loc: "/projects/" }],
+  additionalPaths: async () => [
+    { loc: "/projects/" },
+    { loc: "/en/" },
+    { loc: "/en/projects/" },
+  ],
 };

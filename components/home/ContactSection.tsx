@@ -3,19 +3,12 @@
 import { useState } from "react";
 
 import { trackEvent } from "@/components/analytics/trackEvent";
-
-const content = {
-  label: "CONTACT",
-  title: "Kontak",
-  office: "Yogyakarta, Indonesia",
-  phone: "+62 851-5665-2910",
-  phoneHref:
-    "https://wa.me/6285156652910?text=Halo%20Flaat%2C%20saya%20ingin%20konsultasi",
-  email: "hi@flaat.studio",
-  emailHref: "mailto:hi@flaat.studio",
-};
+import { useDict } from "@/lib/i18n/locale-context";
 
 export default function ContactSection() {
+  const dict = useDict();
+  const content = dict.contact;
+
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -32,7 +25,7 @@ export default function ContactSection() {
     const website = formData.get("website") as string;
 
     if (!fullname || !email || !message) {
-      setError("Mohon isi semua kolom");
+      setError(content.errorRequired);
       setIsLoading(false);
       return;
     }
@@ -47,7 +40,7 @@ export default function ContactSection() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || "Gagal mengirim pesan");
+        throw new Error(result.error || content.errorSend);
       }
 
       setIsSuccess(true);
@@ -57,7 +50,7 @@ export default function ContactSection() {
       });
       (e.target as HTMLFormElement).reset();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Terjadi kesalahan");
+      setError(err instanceof Error ? err.message : content.errorGeneric);
     } finally {
       setIsLoading(false);
     }
@@ -82,7 +75,7 @@ export default function ContactSection() {
           <div className='grid gap-4'>
             <div>
               <p className='m-0 text-white/60 font-mono text-xs tracking-widest uppercase'>
-                Lokasi
+                {content.locationLabel}
               </p>
               <span className='m-0 text-white text-lg leading-[1.3] tracking-[-0.02em]'>
                 {content.office}
@@ -130,7 +123,7 @@ export default function ContactSection() {
         <form onSubmit={handleSubmit} className='flex flex-col gap-5'>
           {isSuccess && (
             <div className='p-4 bg-[#c7d9e5]/20 border border-[#c7d9e5]/30 text-[#c7d9e5] text-base'>
-              Pesan berhasil dikirim! Kami akan menghubungi Anda segera.
+              {content.success}
             </div>
           )}
           {error && (
@@ -140,36 +133,36 @@ export default function ContactSection() {
           )}
           <label className='flex flex-col gap-3'>
             <span className='m-0 text-white/60 font-mono text-xs tracking-widest uppercase'>
-              Nama
+              {content.nameLabel}
             </span>
             <input
               type='text'
               name='name'
-              placeholder='Nama Anda'
+              placeholder={content.namePlaceholder}
               required
               className='w-full pb-[0.85rem] border-0 border-b border-white/30 bg-transparent text-white text-lg outline-none placeholder:text-white/60'
             />
           </label>
           <label className='flex flex-col gap-3'>
             <span className='m-0 text-white/60 font-mono text-xs tracking-widest uppercase'>
-              Email
+              {content.emailLabel}
             </span>
             <input
               type='email'
               name='email'
-              placeholder='nama@perusahaan.com'
+              placeholder={content.emailPlaceholder}
               required
               className='w-full pb-[0.85rem] border-0 border-b border-white/30 bg-transparent text-white text-lg outline-none placeholder:text-white/60'
             />
           </label>
           <label className='flex flex-col gap-3'>
             <span className='m-0 text-white/60 font-mono text-xs tracking-widest uppercase'>
-              Pesan
+              {content.messageLabel}
             </span>
             <textarea
               name='message'
               rows={5}
-              placeholder='Ceritakan kebutuhan & tantangan bisnis Anda...'
+              placeholder={content.messagePlaceholder}
               required
               className='w-full pb-[0.85rem] border-0 border-b border-white/30 bg-transparent text-white text-lg outline-none placeholder:text-white/60 resize-vertical min-h-[6rem]'
             />
@@ -179,7 +172,7 @@ export default function ContactSection() {
             disabled={isLoading}
             className='w-fit px-5 py-[0.9rem] border border-white/30 bg-transparent text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed'
           >
-            {isLoading ? "Mengirim..." : "Mulai Diskusi"}
+            {isLoading ? content.sending : content.submit}
           </button>
 
           <div aria-hidden="true" className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden opacity-0">

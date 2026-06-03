@@ -3,41 +3,29 @@
 import { useEffect, useState, type MouseEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { trackEvent } from "@/components/analytics/trackEvent";
 import { Icons } from "@/components/shared/Icons";
+import { SidebarSocialIcons } from "@/components/layout/SidebarSocialIcons";
+import { useDict, useLocale } from "@/lib/i18n/locale-context";
 
-const iconMap = {
-  home: Icons.Home,
-  about: Icons.Info,
-  projects: Icons.Briefcase,
-  services: Icons.Services,
-  contact: Icons.Contact,
-  instagram: Icons.Instagram,
-  linkedin: Icons.LinkedIn,
-  threads: Icons.Threads,
-  whatsapp: Icons.WhatsApp,
-} as const;
+type IconKey = "home" | "about" | "projects" | "services" | "contact";
 
-type IconKey = "home" | "about" | "projects" | "services" | "contact" | "instagram" | "linkedin" | "threads" | "whatsapp";
-
-const navItems: { label: string; href: string; icon: IconKey }[] = [
-  { label: "Beranda", href: "/", icon: "home" },
-  { label: "Tentang Kami", href: "/#about", icon: "about" },
-  { label: "Layanan", href: "/#service", icon: "services" },
-  { label: "Portofolio", href: "/#projects", icon: "projects" },
-  { label: "Kontak", href: "/#contact", icon: "contact" },
-];
-
-const socialItems: { name: string; href: string; icon: IconKey }[] = [
-  { name: "WhatsApp", href: "https://wa.me/6285156652910", icon: "whatsapp" },
-  { name: "Instagram", href: "https://www.instagram.com/flaatstudio/", icon: "instagram" },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/flaat-studio-84ab3b39a/", icon: "linkedin" },
-  { name: "Email", href: "mailto:hi@flaat.studio", icon: "contact" },
-];
+function buildNavItems(dict: ReturnType<typeof useDict>, locale: string): { label: string; href: string; icon: IconKey }[] {
+  const p = locale === "en" ? "/en" : "";
+  return [
+    { label: dict.nav.home, href: `${p}/`, icon: "home" },
+    { label: dict.nav.about, href: `${p}/#about`, icon: "about" },
+    { label: dict.nav.services, href: `${p}/#service`, icon: "services" },
+    { label: dict.nav.projects, href: `${p}/#projects`, icon: "projects" },
+    { label: dict.nav.contact, href: `${p}/#contact`, icon: "contact" },
+  ];
+}
 
 const Sidebar = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const dict = useDict();
+  const locale = useLocale();
+  const items = buildNavItems(dict, locale);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -77,15 +65,30 @@ const Sidebar = () => {
         >
           Flaat Studio
         </Link>
-        <button
-          type='button'
-          aria-expanded={isOpen}
-          aria-controls='site-sidebar'
-          onClick={() => setIsOpen((open) => !open)}
-          className='text-accent'
-        >
-          {isOpen ? <Icons.Close size={24} /> : <Icons.Menu size={24} />}
-        </button>
+        <div className='flex items-center gap-6'>
+          <div className='flex items-center gap-1.5 font-mono text-sm tracking-widest uppercase'>
+            {locale === "id" ? (
+              <span className='text-accent font-bold'>ID</span>
+            ) : (
+              <Link href="/" className='text-gray-500 no-underline hover:text-accent transition-colors'>ID</Link>
+            )}
+            <span className='text-gray-300'>/</span>
+            {locale === "en" ? (
+              <span className='text-accent font-bold'>EN</span>
+            ) : (
+              <Link href="/en/" className='text-gray-500 no-underline hover:text-accent transition-colors'>EN</Link>
+            )}
+          </div>
+          <button
+            type='button'
+            aria-expanded={isOpen}
+            aria-controls='site-sidebar'
+            onClick={() => setIsOpen((open) => !open)}
+            className='text-accent'
+          >
+            {isOpen ? <Icons.Close size={24} /> : <Icons.Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {isOpen && (
@@ -117,7 +120,7 @@ const Sidebar = () => {
         <div className='flex flex-col flex-1'>
           <div className='flex flex-1 items-center desk:flex-none desk:mt-auto'>
             <nav className='flex flex-col gap-0.5 w-full desk:mt-auto desk:pt-8'>
-            {navItems.map((item, index) => {
+            {items.map((item, index) => {
               return (
                 <Link
                   key={item.label}
@@ -142,53 +145,19 @@ const Sidebar = () => {
             </nav>
           </div>
 
-          <div
-            style={{
-              transitionDelay: isOpen ? `${(navItems.length + 1) * 100}ms` : "0ms",
-            }}
-            className={`flex flex-col gap-6 w-full mt-auto border-t border-gray-200 pt-8 desk:mt-10 transition-all duration-500 ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 desk:opacity-100 desk:translate-y-0"}`}
-          >
-            <div className='flex justify-center gap-4 flex-wrap'>
-              {socialItems.map((item) => {
-                const Icon = iconMap[item.icon];
-
-                return (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    target='_blank'
-                    rel='noreferrer'
-                    onClick={() => {
-                      if (item.name === "WhatsApp") {
-                        trackEvent("click_whatsapp", {
-                          location: "sidebar_social",
-                          label: item.name,
-                        });
-                        return;
-                      }
-
-                      if (item.name === "Email") {
-                        trackEvent("click_email", {
-                          location: "sidebar_social",
-                          label: item.name,
-                        });
-                        return;
-                      }
-
-                      trackEvent("click_outbound", {
-                        location: "sidebar_social",
-                        label: item.name,
-                        destination: item.href,
-                      });
-                    }}
-                    className='inline-flex items-center justify-center p-4 desk:p-2 rounded-full text-accent hover:bg-accent/10 transition-colors duration-200'
-                    aria-label={item.name}
-                  >
-                    <Icon className='size-7 desk:size-4' />
-                  </a>
-                );
-              })}
-            </div>
+          <SidebarSocialIcons isOpen={isOpen} totalItems={items.length} />
+          <div className='hidden desk:flex justify-center gap-2 mt-2 pt-4'>
+            {locale === "id" ? (
+              <span className='font-mono text-sm tracking-widest uppercase text-accent font-bold'>ID</span>
+            ) : (
+              <Link href="/" className='font-mono text-sm tracking-widest uppercase text-gray-500 no-underline hover:text-accent transition-colors'>ID</Link>
+            )}
+            <span className='text-gray-300 font-mono text-sm'>/</span>
+            {locale === "en" ? (
+              <span className='font-mono text-sm tracking-widest uppercase text-accent font-bold'>EN</span>
+            ) : (
+              <Link href="/en/" className='font-mono text-sm tracking-widest uppercase text-gray-500 no-underline hover:text-accent transition-colors'>EN</Link>
+            )}
           </div>
         </div>
 

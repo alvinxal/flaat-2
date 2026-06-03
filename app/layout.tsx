@@ -1,37 +1,8 @@
-import type { Metadata } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import type { ReactNode } from "react";
+import { headers } from "next/headers";
 import { Bricolage_Grotesque, Inter, Space_Mono } from "next/font/google";
 import localFont from "next/font/local";
-import { JsonLdScript, OrganizationJsonLd } from "next-seo";
-
-import { ogImagePath, siteName, siteUrl } from "@/lib/site";
 import "./globals.css";
-
-const defaultTitle = "Flaat Studio | Web Development, AI, dan Digital Marketing";
-const defaultDescription =
-  "Flaat Studio adalah digital partner yang menggabungkan web development, AI, dan digital marketing untuk mendorong pertumbuhan bisnis.";
-
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: siteName,
-  url: siteUrl.toString(),
-  inLanguage: "id-ID",
-  description: defaultDescription,
-};
-
-const organizationEnrichment = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: siteName,
-  url: siteUrl.toString(),
-  knowsAbout: [
-    "jasa pembuatan website",
-    "jasa AI automation",
-    "agency digital marketing",
-    "digital agency yogyakarta",
-  ],
-};
 
 const clashDisplay = localFont({
   src: "../public/assets/fonts/ClashDisplay-Variable.woff2",
@@ -56,95 +27,22 @@ const spaceMono = Space_Mono({
   variable: "--font-mono",
 });
 
-export const metadata: Metadata = {
-  metadataBase: siteUrl,
-  title: {
-    default: defaultTitle,
-    template: `%s | ${siteName}`,
-  },
-  description: defaultDescription,
-  keywords: [
-    "flaat studio",
-    "flaat studio yogyakarta",
-    "flaat studio digital agency",
-    "jasa pembuatan website",
-    "jasa AI automation",
-    "agency digital marketing",
-    "digital agency yogyakarta",
-  ],
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    locale: "id_ID",
-    url: siteUrl.toString(),
-    siteName,
-    title: defaultTitle,
-    description: defaultDescription,
-    images: [
-        {
-          url: ogImagePath,
-          width: 1200,
-          height: 630,
-          alt: `${siteName} social preview`,
-      },
-    ],
-  },
-  twitter: {
-      card: "summary_large_image",
-      title: defaultTitle,
-      description: defaultDescription,
-      images: [ogImagePath],
-    },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-};
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const h = await headers();
+  const locale = h.get("x-locale") || "id";
+
   return (
-      <html lang="id">
-<body className={`${bricolage.variable} ${inter.variable} ${spaceMono.variable} ${clashDisplay.variable}`} style={{ fontSize: '1.125rem' }}>
-        <OrganizationJsonLd
-          scriptId='organization-jsonld'
-          name={siteName}
-          url={siteUrl.toString()}
-          logo={new URL(ogImagePath, siteUrl).toString()}
-          email='hi@flaat.studio'
-          sameAs={[
-            "https://www.instagram.com/flaatstudio/",
-            "https://www.linkedin.com/in/flaat-studio-84ab3b39a/",
-            "https://wa.me/6285156652910",
-          ]}
-          address={{
-            addressLocality: "Yogyakarta",
-            addressCountry: "ID",
-          }}
-        />
-        <JsonLdScript
-          scriptKey='organization-knowsabout-jsonld'
-          data={organizationEnrichment}
-        />
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
+    <html lang={locale}>
+      <body
+        className={`${bricolage.variable} ${inter.variable} ${spaceMono.variable} ${clashDisplay.variable}`}
+        style={{ fontSize: "1.125rem" }}
+      >
         {children}
       </body>
-      <GoogleAnalytics gaId='G-GQJSHQGWRM' />
     </html>
   );
 }

@@ -21,14 +21,17 @@ type ProjectCard = {
 };
 
 export default function ProjectsFilterGrid({
+  locale,
   projects,
   filterTypes,
   activeType,
 }: {
+  locale: string;
   projects: ProjectCard[];
   filterTypes: ProjectFilterType[];
   activeType: string;
 }) {
+  const p = locale === "en" ? "/en" : "";
   return (
     <section id='projects' className='flex flex-col gap-4 scroll-mt-[52px] desk:scroll-mt-[80px]'>
       <ProjectsFilterNav filterTypes={filterTypes} activeType={activeType} />
@@ -40,7 +43,7 @@ export default function ProjectsFilterGrid({
           return (
             <Link
               key={project._id}
-              href={`/projects/${project.slug}`}
+              href={`${p}/projects/${project.slug}`}
               className='group flex flex-col gap-1 no-underline'
             >
               <div className='relative aspect-[1.53056] overflow-hidden bg-panel'>

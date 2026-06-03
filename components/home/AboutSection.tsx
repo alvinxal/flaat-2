@@ -1,12 +1,16 @@
 import Image from "next/image";
+import type { Locale } from "@/lib/i18n/config";
+import id from "@/lib/i18n/dictionaries/id";
+import en from "@/lib/i18n/dictionaries/en";
 
-const content = {
-  label: "ABOUT",
-  eyebrow: "Tentang Kami",
-  text: "Flaat Studio adalah hybrid partner digital yang menggabungkan web development, integrasi AI, dan strategi marketing untuk membangun kredibilitas serta mendorong profitabilitas bisnis Anda. Kami percaya kehadiran digital yang hebat bukan hanya soal estetika, tapi tentang sistem yang bekerja otomatis menghasilkan konversi.",
-};
+function getDict(locale: string) {
+  return locale === "en" ? en : id;
+}
 
-export default function AboutSection() {
+export default function AboutSection({ locale }: { locale: string }) {
+  const dict = getDict(locale);
+  const content = dict.about;
+
   return (
     <section id='about' className='flex flex-col gap-4 relative overflow-hidden scroll-mt-[80px] desk:scroll-mt-[80px]'>
       <div className='absolute inset-0' aria-hidden='true'>

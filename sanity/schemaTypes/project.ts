@@ -6,21 +6,40 @@ export const project = defineType({
   type: "document",
   fields: [
     defineField({
-      name: "title",
-      title: "Title",
+      name: "titleId",
+      title: "Title (ID)",
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "slug",
-      title: "Slug",
+      name: "titleEn",
+      title: "Title (EN)",
+      type: "string",
+    }),
+
+    defineField({
+      name: "slugId",
+      title: "Slug (ID)",
       type: "slug",
-      options: { source: "title" },
+      options: { source: "titleId" },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "description",
-      title: "Description",
+      name: "slugEn",
+      title: "Slug (EN)",
+      type: "slug",
+      options: { source: "titleEn" },
+    }),
+
+    defineField({
+      name: "descriptionId",
+      title: "Description (ID)",
+      type: "text",
+      rows: 3,
+    }),
+    defineField({
+      name: "descriptionEn",
+      title: "Description (EN)",
       type: "text",
       rows: 3,
     }),
@@ -77,15 +96,20 @@ export const project = defineType({
     }),
 
     defineField({
-      name: "body",
-      title: "Body",
+      name: "bodyId",
+      title: "Body (ID)",
       type: "blockContent",
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "bodyEn",
+      title: "Body (EN)",
+      type: "blockContent",
     }),
   ],
   preview: {
     select: {
-      title: "title",
+      title: "titleId",
       subtitle: "client",
       media: "heroImage",
     },

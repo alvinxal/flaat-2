@@ -3,6 +3,13 @@
   "plugin": [
     "rtk"
   ],
+  "mcp": {
+    "sanity": {
+      "type": "remote",
+      "url": "https://mcp.sanity.io/developer",
+      "oauth": {}
+    }
+  },
   "formatter": {
     "prettier": {
       "command": [

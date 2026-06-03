@@ -1,9 +1,14 @@
-const content = {
-  label: "Projects",
-  title: "Karya yang telah kami kerjakan untuk berbagai klien dengan penuh dedikasi.",
-};
+import type { Locale } from "@/lib/i18n/config";
+import id from "@/lib/i18n/dictionaries/id";
+import en from "@/lib/i18n/dictionaries/en";
 
-export default function ProjectsHero() {
+function getDict(l: string) {
+  return l === "en" ? en : id;
+}
+
+export default function ProjectsHero({ locale }: { locale: string }) {
+  const dict = getDict(locale);
+  const content = { label: "Projects", title: dict.projects.title };
   return (
     <div className='relative flex flex-col justify-center tab:justify-end gap-6 tab:gap-7 desk:gap-8 w-full h-[24rem] tab:h-[26rem] desk:h-[28rem] pt-20 pb-6'>
       <div className='absolute top-0 left-0 right-0 flex items-start desk:items-center justify-between gap-6 py-3 font-mono text-xs tracking-widest uppercase'>
