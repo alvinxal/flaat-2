@@ -55,6 +55,11 @@ const id = {
     text: "Flaat Studio adalah hybrid partner digital yang menggabungkan web development, integrasi AI, dan strategi marketing untuk membangun kredibilitas serta mendorong profitabilitas bisnis Anda. Kami percaya kehadiran digital yang hebat bukan hanya soal estetika, tapi tentang sistem yang bekerja otomatis menghasilkan konversi.",
   },
 
+  logos: {
+    label: "TRUSTED BY",
+    title: "Klien & Partner",
+  },
+
   services: {
     label: "SERVICES",
     title: "Layanan",

@@ -1,6 +1,7 @@
 import { author } from "./author";
 import { blockContent } from "./blockContent";
 import { category } from "./category";
+import { clientLogo } from "./clientLogo";
 import { post } from "./post";
 import { project } from "./project";
 import { projectType } from "./projectType";
@@ -14,4 +15,5 @@ export const schemaTypes = [
   project,
   projectType,
   service,
+  clientLogo,
 ];

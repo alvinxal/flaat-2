@@ -40,6 +40,11 @@ const en: IDict = {
     text: "Flaat Studio is a hybrid digital partner that combines web development, AI integration, and marketing strategy to build credibility and drive profitability for your business. We believe great digital presence is not just about aesthetics, but about systems that automatically generate conversions.",
   },
 
+  logos: {
+    label: "TRUSTED BY",
+    title: "Partners & Clients",
+  },
+
   services: {
     label: "SERVICES",
     title: "Services",

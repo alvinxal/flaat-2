@@ -6,6 +6,7 @@ import HeroSection from "@/components/home/HeroSection";
 import ProjectsSection from "@/components/home/ProjectsSection";
 import AboutSection from "@/components/home/AboutSection";
 import ServicesSection from "@/components/home/ServicesSection";
+import LogosSection from "@/components/home/LogosSection";
 import ContactSection from "@/components/home/ContactSection";
 import { ogImagePath, siteOrigin } from "@/lib/site";
 import id from "@/lib/i18n/dictionaries/id";
@@ -104,6 +105,7 @@ export default async function HomePage({ params }: Props) {
         <AboutSection locale={locale} />
         <ServicesSection locale={locale} />
         <ProjectsSection locale={locale} />
+        <LogosSection locale={locale} />
         <ContactSection />
         <HomeFooter />
       </div>
