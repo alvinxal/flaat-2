@@ -344,7 +344,7 @@ export default async function ProjectDetailPage({
                     rel='noreferrer'
                     className='inline-flex w-fit items-center gap-2 border-b border-current text-primary no-underline font-sans text-base leading-[1.3] tracking-[-0.02em] transition-opacity duration-250 hover:opacity-70'
                   >
-                    <span>Kunjungi Website</span>
+                    <span>{dict.projects.visitWebsite}</span>
                     <span aria-hidden='true'>↗</span>
                   </a>
                 ) : null}

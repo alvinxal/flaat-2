@@ -140,6 +140,7 @@ const en: IDict = {
     noProjects: "No projects available yet.",
     relatedProjects: "More Projects",
     viewAll: "View All Projects",
+    visitWebsite: "Visit Website",
   },
 
   pricing: {

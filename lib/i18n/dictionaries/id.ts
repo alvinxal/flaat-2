@@ -155,6 +155,7 @@ const id = {
     noProjects: "Belum ada project.",
     relatedProjects: "Project Lainnya",
     viewAll: "Lihat Semua Project",
+    visitWebsite: "Kunjungi Website",
   },
 
   pricing: {

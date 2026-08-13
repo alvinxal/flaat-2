@@ -26,6 +26,7 @@ const Sidebar = () => {
   const dict = useDict();
   const locale = useLocale();
   const items = buildNavItems(dict, locale);
+  const homeHref = locale === "en" ? "/en/" : "/";
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -60,7 +61,7 @@ const Sidebar = () => {
     <div>
       <div className='fixed top-0 left-0 right-0 z-50 flex h-[72px] items-center justify-between px-10 bg-white border-b border-gray-200 desk:hidden'>
         <Link
-          href='/'
+          href={homeHref}
           className='inline-flex items-center text-accent no-underline font-display text-lg leading-[1.3] font-bold'
         >
           Flaat Studio
@@ -110,7 +111,7 @@ const Sidebar = () => {
       >
         <div className='hidden desk:flex mb-10 items-center justify-between'>
           <Link
-            href='/'
+            href={homeHref}
             className='inline-flex items-center gap-2 text-accent no-underline font-display text-2xl leading-[1.3] font-bold '
           >
             <span>Flaat Studio</span>
