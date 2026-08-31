@@ -126,11 +126,11 @@ export default function HomeFooter() {
               WhatsApp
             </a>
             <a
-              href='mailto:hi@flaat.studio'
+              href='mailto:studioflaat@gmail.com'
               onClick={() =>
                 trackEvent("click_email", {
                   location: "footer_contact",
-                  label: "hi@flaat.studio",
+                  label: "studioflaat@gmail.com",
                 })
               }
               className='inline-flex gap-1 py-0.5 font-sans text-lg font-medium leading-[1.3] tracking-[-0.02em] no-underline'

@@ -16,7 +16,7 @@ const socialItems: { name: string; href: string; icon: IconKey }[] = [
   { name: "WhatsApp", href: "https://wa.me/6285156652910", icon: "whatsapp" },
   { name: "Instagram", href: "https://www.instagram.com/flaatstudio/", icon: "instagram" },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/flaat-studio-84ab3b39a/", icon: "linkedin" },
-  { name: "Email", href: "mailto:hi@flaat.studio", icon: "contact" },
+  { name: "Email", href: "mailto:studioflaat@gmail.com", icon: "contact" },
 ];
 
 export const SidebarSocialIcons = ({

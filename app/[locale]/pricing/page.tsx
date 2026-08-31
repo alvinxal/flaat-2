@@ -612,10 +612,10 @@ export default async function PricingDeckPage({
                     <span className='!text-[#2f4157]'>WhatsApp Consultation</span>
                   </a>
                   <a
-                    href='mailto:hi@flaat.studio'
+                    href='mailto:studioflaat@gmail.com'
                     className='inline-flex items-center rounded-full border border-white/24 px-5 py-3 font-body text-sm font-semibold tracking-[-0.02em] text-white no-underline'
                   >
-                    hi@flaat.studio
+                    studioflaat@gmail.com
                   </a>
                 </div>
               </div>

@@ -80,8 +80,8 @@ const en: IDict = {
     phone: "+62 851-5665-2910",
     phoneHref:
       "https://wa.me/6285156652910?text=Hi%20Flaat%2C%20I%27d%20like%20to%20consult%20about%20a%20website",
-    email: "hi@flaat.studio",
-    emailHref: "mailto:hi@flaat.studio",
+    email: "studioflaat@gmail.com",
+    emailHref: "mailto:studioflaat@gmail.com",
     locationLabel: "Location",
     nameLabel: "Name",
     namePlaceholder: "Your Name",

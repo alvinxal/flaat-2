@@ -95,8 +95,8 @@ const id = {
     phone: "+62 851-5665-2910",
     phoneHref:
       "https://wa.me/6285156652910?text=Halo%20Flaat%2C%20saya%20ingin%20konsultasi",
-    email: "hi@flaat.studio",
-    emailHref: "mailto:hi@flaat.studio",
+    email: "studioflaat@gmail.com",
+    emailHref: "mailto:studioflaat@gmail.com",
     locationLabel: "Lokasi",
     nameLabel: "Nama",
     namePlaceholder: "Nama Anda",
