@@ -43,7 +43,7 @@ const id = {
   about: {
     label: "ABOUT",
     eyebrow: "Tentang Kami",
-    text: "Flaat Studio membangun website dan sistem AI yang bekerja untuk bisnis Anda — dari website berkinerja tinggi sampai automation dan AI agent yang menjadi kepanjangan tangan sistem web Anda. Kami percaya kehadiran digital yang hebat bukan hanya soal estetika, tapi tentang sistem yang bekerja otomatis dan siap menghadapi masa depan yang makin melek AI.",
+    text: "Flaat Studio membangun website dan sistem AI yang bekerja untuk bisnis Anda, dari website berkinerja tinggi sampai automation dan AI agent yang menjadi kepanjangan tangan sistem web Anda. Kami percaya kehadiran digital yang hebat bukan hanya soal estetika, tapi tentang sistem yang bekerja otomatis dan siap menghadapi masa depan yang makin melek AI.",
   },
 
   logos: {

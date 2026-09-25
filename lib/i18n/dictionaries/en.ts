@@ -37,7 +37,7 @@ const en: IDict = {
   about: {
     label: "ABOUT",
     eyebrow: "About Us",
-    text: "Flaat Studio builds websites and AI systems that work for your business — from high-performing websites to automation and AI agents that extend your web systems. We believe a great digital presence isn't just about aesthetics, but about systems that work automatically and are ready for an increasingly AI-driven future.",
+    text: "Flaat Studio builds websites and AI systems that work for your business, from high-performing websites to automation and AI agents that extend your web systems. We believe a great digital presence isn't just about aesthetics, but about systems that work automatically and are ready for an increasingly AI-driven future.",
   },
 
   logos: {
