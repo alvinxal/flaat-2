@@ -5,20 +5,11 @@ export type Service = {
   image: string;
   alt: string;
 };
-export type FAQItem = { q: string; a: string };
-export type StepItem = { step: string; title: string; desc: string };
-export type PricingTier = {
-  name: string;
-  price: string;
-  blurb?: string;
-  details: string[];
-};
-export type ServicePillar = { title: string; description: string };
 
 const id = {
   site: {
     name: "Flaat Studio",
-    tagline: "Technology & Digital Marketing Agency",
+    tagline: "Web & AI Systems Studio",
     based: "Based on yogyakarta",
     year: "2025",
   },
@@ -41,9 +32,9 @@ const id = {
 
   hero: {
     since: "Home",
-    status: "Technology & Digital Marketing Agency",
+    status: "Web & AI Systems Studio",
     title:
-      "Digital partner yang menggabungkan teknologi AI dan strategi marketing untuk mempercepat pertumbuhan bisnis Anda.",
+      "Partner digital yang membangun sistem web dan AI andal untuk mempercepat pertumbuhan bisnis Anda.",
     cta: "Konsultasi Gratis",
     ctaHref:
       "https://wa.me/6285156652910?text=Halo%20Flaat%2C%20saya%20ingin%20konsultasi",
@@ -52,7 +43,7 @@ const id = {
   about: {
     label: "ABOUT",
     eyebrow: "Tentang Kami",
-    text: "Flaat Studio adalah hybrid partner digital yang menggabungkan web development, integrasi AI, dan strategi marketing untuk membangun kredibilitas serta mendorong profitabilitas bisnis Anda. Kami percaya kehadiran digital yang hebat bukan hanya soal estetika, tapi tentang sistem yang bekerja otomatis menghasilkan konversi.",
+    text: "Flaat Studio membangun website dan sistem AI yang bekerja untuk bisnis Anda — dari website berkinerja tinggi sampai automation dan AI agent yang menjadi kepanjangan tangan sistem web Anda. Kami percaya kehadiran digital yang hebat bukan hanya soal estetika, tapi tentang sistem yang bekerja otomatis dan siap menghadapi masa depan yang makin melek AI.",
   },
 
   logos: {
@@ -67,14 +58,14 @@ const id = {
       {
         title: "Web Development",
         description:
-          "Website berkinerja tinggi, aplikasi web kustom, dan landing page yang dirancang untuk konversi maksimal. Built dengan Next.js, WordPress, atau solusi custom sesuai kebutuhan bisnis Anda.",
+          "Website dan sistem web yang dirancang untuk operasional bisnis sehari-hari, dari company profile hingga sistem booking dan e-commerce, dibangun agar mudah dikelola sendiri dan siap berkembang sesuai kebutuhan bisnis.",
         image: "/assets/images/Webdev.webp",
         alt: "Web Development",
       },
       {
         title: "AI & Automation",
         description:
-          "Otomatisasi workflow, chatbot cerdas, dan AI agent yang bekerja 24/7 untuk efisiensi bisnis. Integrasikan teknologi AI tanpa kerumitan teknis.",
+          "Automasi yang menggantikan proses manual berulang, dari balas chat hingga pengingat booking dan notifikasi pesanan, meningkatkan efisiensi kerja sekaligus mengurangi ketergantungan pada proses manual.",
         image: "/assets/images/AI.webp",
         alt: "AI & Automation",
       },
@@ -129,153 +120,35 @@ const id = {
 
   metadata: {
     home: {
-      title: "Flaat Studio - Jasa Website, AI, dan Digital Marketing",
+      title: "Flaat Studio - Jasa Website & Sistem AI",
       description:
-        "Flaat Studio adalah digital partner yang menggabungkan web development, AI automation, dan strategi digital marketing untuk pertumbuhan bisnis dari Yogyakarta.",
+        "Flaat Studio adalah studio yang membangun website dan sistem AI untuk pertumbuhan bisnis dari Yogyakarta.",
     },
     root: {
-      title: "Flaat Studio | Web Development, AI, dan Digital Marketing",
+      title: "Flaat Studio | Web Development & AI Systems",
       description:
-        "Flaat Studio adalah digital partner yang menggabungkan web development, AI, dan digital marketing untuk mendorong pertumbuhan bisnis.",
+        "Flaat Studio adalah digital partner yang membangun website dan sistem AI untuk mendorong pertumbuhan bisnis.",
     },
   },
 
   projects: {
     title: "Portofolio Project",
     description:
-      "Lihat portofolio Flaat Studio untuk project web development, AI automation, dan digital marketing yang dirancang untuk pertumbuhan bisnis.",
+      "Lihat portofolio Flaat Studio untuk project web development dan AI automation yang dirancang untuk pertumbuhan bisnis.",
     all: "Semua",
     notFoundTitle: "Project Not Found",
     notFoundDescription: "Project yang Anda cari tidak ditemukan.",
     collectionName: "Portofolio Project Flaat Studio",
     collectionDescription:
-      "Kumpulan project Flaat Studio di bidang web development, AI automation, dan digital marketing.",
+      "Kumpulan project Flaat Studio di bidang web development dan AI automation.",
     defaultProjectDescription:
-      "{title} adalah salah satu project Flaat Studio di bidang web development, AI, dan digital marketing.",
+      "{title} adalah salah satu project Flaat Studio di bidang web development dan AI.",
     noProjects: "Belum ada project.",
     relatedProjects: "Project Lainnya",
     viewAll: "Lihat Semua Project",
     visitWebsite: "Kunjungi Website",
   },
 
-  pricing: {
-    servicePillars: [
-      {
-        title: "Web Development",
-        description:
-          "Website yang rapi, kredibel, dan siap dipakai untuk promosi maupun operasional.",
-      },
-      {
-        title: "AI & Automation",
-        description:
-          "Workflow yang lebih ringan, cepat, dan efisien untuk kebutuhan harian bisnis.",
-      },
-      {
-        title: "Digital Marketing",
-        description:
-          "Strategi growth yang lebih terarah, terukur, dan relevan dengan target bisnis.",
-      },
-    ] satisfies ServicePillar[],
-    webTiers: [
-      {
-        name: "Starter",
-        price: "Rp 1.500.000",
-        details: [
-          "2 halaman: Home + Contact",
-          "Mobile responsive",
-          "Domain .com + hosting setup 1 tahun",
-          "Timeline 1-2 minggu",
-        ],
-      },
-      {
-        name: "Bisnis",
-        price: "Rp 3.500.000",
-        details: [
-          "3-5 halaman website",
-          "CMS untuk edit konten",
-          "Contact form",
-          "Basic SEO",
-          "Timeline 2-3 minggu",
-        ],
-      },
-      {
-        name: "Custom",
-        price: "Mulai Rp 5.000.000",
-        details: [
-          "Web app, ERP, dashboard, atau kebutuhan khusus",
-          "Scope mengikuti kebutuhan bisnis",
-          "Timeline 3-8 minggu",
-        ],
-      },
-    ] satisfies PricingTier[],
-    automationTiers: [
-      {
-        name: "Basic",
-        price: "Rp 1.300.000",
-        details: [
-          "WA reminder, chatbot, atau AI assistant",
-          "1 workflow utama",
-          "Cocok untuk kebutuhan awal automation",
-        ],
-      },
-      {
-        name: "Advance",
-        price: "Rp 2.300.000",
-        details: [
-          "Multi workflow",
-          "Integrasi API",
-          "Custom logic",
-          "Cocok untuk alur kerja yang lebih kompleks",
-        ],
-      },
-      {
-        name: "Enterprise",
-        price: "Mulai Rp 3.500.000",
-        details: [
-          "Full system automation",
-          "Maintenance",
-          "Training 3x",
-          "Cocok untuk implementasi yang lebih menyeluruh",
-        ],
-      },
-    ] satisfies PricingTier[],
-    marketingTiers: [
-      {
-        name: "Starter",
-        price: "Rp 2.000.000 / 2 bulan",
-        details: [
-          "Audit digital",
-          "Strategi konten",
-          "Basic SEO on-page",
-          "Laporan bulanan",
-        ],
-      },
-      {
-        name: "Growth",
-        price: "Rp 3.500.000 / 2 bulan",
-        details: [
-          "Semua di Starter",
-          "Ads management",
-          "Optimasi konversi",
-          "A/B testing",
-        ],
-      },
-      {
-        name: "Scale",
-        price: "Rp 5.500.000 / 3 bulan",
-        details: [
-          "Multi-platform ads",
-        ],
-      },
-    ] satisfies PricingTier[],
-    addonsHeading: "Add-on & Maintenance",
-    addonsText:
-      "Add-ons tersedia untuk membantu bisnis Anda tetap berkembang setelah project utama selesai, tanpa harus memulai ulang dari nol.",
-    printButton: "Cetak Harga",
-    metaTitle: "Harga & Paket | Flaat Studio",
-    metaDescription:
-      "Lihat paket harga layanan web development, AI automation, dan digital marketing dari Flaat Studio.",
-  },
 };
 
 export default id;

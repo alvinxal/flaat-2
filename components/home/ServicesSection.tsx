@@ -9,6 +9,8 @@ function getDict(locale: string) {
 export default function ServicesSection({ locale }: { locale: string }) {
   const dict = getDict(locale);
   const content = dict.services;
+  // Digital Marketing (index 2) is temporarily hidden while we focus on web + AI systems.
+  const visibleItems = content.items.slice(0, 2);
 
   return (
     <section id='service' className='flex flex-col gap-4 scroll-mt-[80px] desk:scroll-mt-[80px]'>
@@ -22,7 +24,7 @@ export default function ServicesSection({ locale }: { locale: string }) {
       </div>
 
       <div className='grid gap-3'>
-        {content.items.map((service) => (
+        {visibleItems.map((service) => (
           <article
             key={service.title}
             className='grid gap-4 py-5 border-t border-border tab:grid-cols-[1fr_12rem] tab:items-center tab:gap-8 desk:grid-cols-[1fr_12rem] desk:items-center desk:gap-8'

@@ -16,9 +16,9 @@ export default function HeroSection() {
       <div className='absolute top-0 left-0 right-0 flex items-start desk:items-center justify-between gap-6 py-3 font-mono text-xs tracking-widest uppercase'>
         <div>{content.since}</div>
         <div className='ml-auto text-right text-gray-500'>
-          <span className='block desk:inline'>Technology &</span>
-          <span className='block desk:inline desk:ml-1'>Digital Marketing</span>
-          <span className='block desk:inline desk:ml-1'>Agency</span>
+          <span className='block desk:inline'>Web &</span>
+          <span className='block desk:inline desk:ml-1'>AI Systems</span>
+          <span className='block desk:inline desk:ml-1'>Studio</span>
         </div>
       </div>
 

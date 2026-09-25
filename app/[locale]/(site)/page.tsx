@@ -72,12 +72,6 @@ export default async function HomePage({ params }: Props) {
         serviceType: dict.services.items[1].title,
         provider: { "@type": "Organization", name: "Flaat Studio", url: siteOrigin },
       },
-      {
-        "@type": "Service",
-        name: dict.services.items[2].title,
-        serviceType: dict.services.items[2].title,
-        provider: { "@type": "Organization", name: "Flaat Studio", url: siteOrigin },
-      },
     ],
   };
 

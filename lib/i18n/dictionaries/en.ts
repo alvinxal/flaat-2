@@ -3,7 +3,7 @@ import type { IDict } from "./id";
 const en: IDict = {
   site: {
     name: "Flaat Studio",
-    tagline: "Technology & Digital Marketing Agency",
+    tagline: "Web & AI Systems Studio",
     based: "Based on yogyakarta",
     year: "2025",
   },
@@ -26,9 +26,9 @@ const en: IDict = {
 
   hero: {
     since: "Home",
-    status: "Technology & Digital Marketing Agency",
+    status: "Web & AI Systems Studio",
     title:
-      "A digital partner that combines AI technology and marketing strategy to accelerate your business growth.",
+      "A digital partner that builds reliable web and AI systems to accelerate your business growth.",
     cta: "Free Consultation",
     ctaHref:
       "https://wa.me/6285156652910?text=Hi%20Flaat%2C%20I%27d%20like%20to%20consult%20about%20a%20website",
@@ -37,7 +37,7 @@ const en: IDict = {
   about: {
     label: "ABOUT",
     eyebrow: "About Us",
-    text: "Flaat Studio is a hybrid digital partner that combines web development, AI integration, and marketing strategy to build credibility and drive profitability for your business. We believe great digital presence is not just about aesthetics, but about systems that automatically generate conversions.",
+    text: "Flaat Studio builds websites and AI systems that work for your business — from high-performing websites to automation and AI agents that extend your web systems. We believe a great digital presence isn't just about aesthetics, but about systems that work automatically and are ready for an increasingly AI-driven future.",
   },
 
   logos: {
@@ -52,14 +52,14 @@ const en: IDict = {
       {
         title: "Web Development",
         description:
-          "High-performance websites, custom web applications, and landing pages designed for maximum conversion. Built with Next.js, WordPress, or custom solutions tailored to your business needs.",
+          "Websites and web systems built for daily business operations, from booking systems for hospitality to e-commerce and corporate websites, designed to be easy to manage and ready to grow with your business.",
         image: "/assets/images/Webdev.webp",
         alt: "Web Development",
       },
       {
         title: "AI & Automation",
         description:
-          "Workflow automation, smart chatbots, and AI agents working 24/7 for business efficiency. Integrate AI technology without technical complexity.",
+          "Automation that replaces repetitive manual processes, from guest chat replies to booking reminders and order notifications, improving efficiency while reducing dependence on manual work.",
         image: "/assets/images/AI.webp",
         alt: "AI & Automation",
       },
@@ -114,152 +114,33 @@ const en: IDict = {
 
   metadata: {
     home: {
-      title: "Flaat Studio - Web Development, AI & Digital Marketing Agency",
+      title: "Flaat Studio - Web Development & AI Systems Studio",
       description:
-        "Flaat Studio is a digital partner that combines web development, AI automation, and digital marketing strategies for business growth.",
+        "Flaat Studio is a digital partner that builds websites and AI systems for business growth.",
     },
     root: {
-      title: "Flaat Studio | Web Development, AI & Digital Marketing",
+      title: "Flaat Studio | Web Development & AI Systems",
       description:
-        "Flaat Studio is a digital partner that combines web development, AI, and digital marketing to drive business growth.",
+        "Flaat Studio is a digital partner that builds websites and AI systems to drive business growth.",
     },
   },
 
   projects: {
     title: "Project Portfolio",
     description:
-      "Explore Flaat Studio's portfolio of web development, AI automation, and digital marketing projects designed for business growth.",
+      "Explore Flaat Studio's portfolio of web development and AI automation projects designed for business growth.",
     all: "All",
     notFoundTitle: "Project Not Found",
     notFoundDescription: "The project you're looking for was not found.",
     collectionName: "Flaat Studio Project Portfolio",
     collectionDescription:
-      "A collection of Flaat Studio projects in web development, AI automation, and digital marketing.",
+      "A collection of Flaat Studio projects in web development and AI automation.",
     defaultProjectDescription:
-      "{title} is one of Flaat Studio's projects in web development, AI, and digital marketing.",
+      "{title} is one of Flaat Studio's projects in web development and AI.",
     noProjects: "No projects available yet.",
     relatedProjects: "More Projects",
     viewAll: "View All Projects",
     visitWebsite: "Visit Website",
-  },
-
-  pricing: {
-    servicePillars: [
-      {
-        title: "Web Development",
-        description:
-          "Clean, credible websites ready for promotion and daily operations.",
-      },
-      {
-        title: "AI & Automation",
-        description:
-          "Streamlined workflows that are faster and more efficient for your daily business needs.",
-      },
-      {
-        title: "Digital Marketing",
-        description:
-          "Focused, measurable growth strategies that align with your business goals.",
-      },
-    ],
-    webTiers: [
-      {
-        name: "Starter",
-        price: "Rp 1,500,000",
-        details: [
-          "2 pages: Home + Contact",
-          "Mobile responsive",
-          "Domain .com + hosting setup 1 year",
-          "Timeline 1-2 weeks",
-        ],
-      },
-      {
-        name: "Business",
-        price: "Rp 3,500,000",
-        details: [
-          "3-5 page website",
-          "CMS for content editing",
-          "Contact form",
-          "Basic SEO",
-          "Timeline 2-3 weeks",
-        ],
-      },
-      {
-        name: "Custom",
-        price: "Starting Rp 5,000,000",
-        details: [
-          "Web app, ERP, dashboard, or custom requirements",
-          "Scope follows business needs",
-          "Timeline 3-8 weeks",
-        ],
-      },
-    ],
-    automationTiers: [
-      {
-        name: "Basic",
-        price: "Rp 1,300,000",
-        details: [
-          "WA reminder, chatbot, or AI assistant",
-          "1 main workflow",
-          "Ideal for getting started with automation",
-        ],
-      },
-      {
-        name: "Advance",
-        price: "Rp 2,300,000",
-        details: [
-          "Multi workflow",
-          "API integration",
-          "Custom logic",
-          "Ideal for more complex workflows",
-        ],
-      },
-      {
-        name: "Enterprise",
-        price: "Starting Rp 3,500,000",
-        details: [
-          "Full system automation",
-          "Maintenance",
-          "Training 3x",
-          "Ideal for comprehensive implementation",
-        ],
-      },
-    ],
-    marketingTiers: [
-      {
-        name: "Starter",
-        price: "Rp 2,000,000 / 2 months",
-        details: [
-          "Digital audit",
-          "Content strategy",
-          "Basic on-page SEO",
-          "Monthly report",
-        ],
-      },
-      {
-        name: "Growth",
-        price: "Rp 3,500,000 / 2 months",
-        details: [
-          "Everything in Starter",
-          "Ads management",
-          "Conversion optimization",
-          "A/B testing",
-        ],
-      },
-      {
-        name: "Scale",
-        price: "Rp 5,500,000 / 3 months",
-        details: [
-          "Multi-platform ads",
-        ],
-      },
-    ],
-    addonsHeading: "Add-on & Maintenance",
-    addonsText:
-      "Add-ons are available to help your business keep growing after the main project is complete, without starting from scratch.",
-    printButton: "Print Prices",
-    metaTitle: "Pricing & Packages | Flaat Studio",
-    metaDescription:
-      "View pricing packages for web development, AI automation, and digital marketing services from Flaat Studio.",
   },
 };
 

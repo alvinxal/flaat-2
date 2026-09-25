@@ -33,7 +33,6 @@ export async function generateMetadata({
       "flaat studio yogyakarta",
       "jasa pembuatan website",
       "jasa AI automation",
-      "agency digital marketing",
       "digital agency yogyakarta",
     ],
     alternates: {
@@ -117,7 +116,6 @@ export default async function LocaleLayout({
           knowsAbout: [
             "jasa pembuatan website",
             "jasa AI automation",
-            "agency digital marketing",
             "digital agency yogyakarta",
           ],
         }}
