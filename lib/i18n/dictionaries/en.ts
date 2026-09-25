@@ -61,7 +61,7 @@ const en: IDict = {
         title: "AI & Automation",
         description:
           "Automation that replaces repetitive manual processes, from guest chat replies to booking reminders and order notifications, improving efficiency while reducing dependence on manual work.",
-        tags: ["Auto-reply Chat", "Booking Reminders", "Order Notifications", "Workflow Automation", "Custom Solution"],
+        tags: ["Workflow Automation", "Auto-reply Chat", "Booking Reminders", "Order Notifications", "Custom Solution"],
         image: "/assets/images/AI.webp",
         alt: "AI & Automation",
       },

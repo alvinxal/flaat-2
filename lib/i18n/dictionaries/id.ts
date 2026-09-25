@@ -68,7 +68,7 @@ const id = {
         title: "AI & Automation",
         description:
           "Automasi yang menggantikan proses manual berulang, dari balas chat hingga pengingat booking dan notifikasi pesanan, meningkatkan efisiensi kerja sekaligus mengurangi ketergantungan pada proses manual.",
-        tags: ["Auto-reply Chat", "Pengingat Booking", "Notifikasi Pesanan", "Otomatisasi Workflow", "Custom Solution"],
+        tags: ["Otomatisasi Workflow", "Auto-reply Chat", "Pengingat Booking", "Notifikasi Pesanan", "Custom Solution"],
         image: "/assets/images/AI.webp",
         alt: "AI & Automation",
       },
