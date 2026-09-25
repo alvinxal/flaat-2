@@ -49,17 +49,19 @@ export default async function LogosSection({ locale }: { locale: string }) {
         </h2>
       </div>
 
-      <div className='flex flex-wrap items-center justify-center gap-x-10 gap-y-6 tab:justify-start'>
+      <div className='mx-auto flex w-full flex-wrap items-center justify-center gap-x-8 gap-y-6 max-w-[18rem] desk:gap-x-12 desk:gap-y-8 desk:max-w-[56rem]'>
         {logos.map((item) => {
           const imageUrl = urlFor(item.logo).height(160).quality(90).auto("format").url();
           const image = (
-            <Image
-              src={imageUrl}
-              alt={item.name}
-              width={320}
-              height={80}
-              className='h-16 w-auto object-contain grayscale opacity-70 transition-all duration-250 ease-in-out hover:grayscale-0 hover:opacity-100'
-            />
+            <div className='relative h-20 w-32 desk:h-24 desk:w-40'>
+              <Image
+                src={imageUrl}
+                alt={item.name}
+                fill
+                sizes='(min-width: 1024px) 160px, 128px'
+                className='object-contain grayscale opacity-90 transition-all duration-250 ease-in-out hover:grayscale-0 hover:opacity-100'
+              />
+            </div>
           );
 
           return item.url ? (

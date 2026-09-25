@@ -2,6 +2,7 @@ export type NavItem = { label: string; href: string };
 export type Service = {
   title: string;
   description: string;
+  tags: string[];
   image: string;
   alt: string;
 };
@@ -9,7 +10,7 @@ export type Service = {
 const id = {
   site: {
     name: "Flaat Studio",
-    tagline: "Web & AI Systems Studio",
+    tagline: "Tech & Marketing Studio",
     based: "Based on yogyakarta",
     year: "2025",
   },
@@ -32,9 +33,9 @@ const id = {
 
   hero: {
     since: "Home",
-    status: "Web & AI Systems Studio",
+    status: "Tech & Marketing Studio",
     title:
-      "Partner digital yang membangun sistem web dan AI andal untuk mempercepat pertumbuhan bisnis Anda.",
+      "Partner digital yang membangun website, sistem AI, dan strategi marketing untuk mempercepat pertumbuhan bisnis Anda.",
     cta: "Konsultasi Gratis",
     ctaHref:
       "https://wa.me/6285156652910?text=Halo%20Flaat%2C%20saya%20ingin%20konsultasi",
@@ -43,7 +44,7 @@ const id = {
   about: {
     label: "ABOUT",
     eyebrow: "Tentang Kami",
-    text: "Flaat Studio membangun website dan sistem AI yang bekerja untuk bisnis Anda, dari website berkinerja tinggi sampai automation dan AI agent yang menjadi kepanjangan tangan sistem web Anda. Kami percaya kehadiran digital yang hebat bukan hanya soal estetika, tapi tentang sistem yang bekerja otomatis dan siap menghadapi masa depan yang makin melek AI.",
+    text: "Flaat Studio membangun website, sistem AI, dan strategi marketing yang bekerja untuk bisnis Anda, mulai dari sistem web yang efisien dan otomatisasi, sampai kampanye marketing yang terukur dan mendatangkan pelanggan.",
   },
 
   logos: {
@@ -59,6 +60,7 @@ const id = {
         title: "Web Development",
         description:
           "Website dan sistem web yang dirancang untuk operasional bisnis sehari-hari, dari company profile hingga sistem booking dan e-commerce, dibangun agar mudah dikelola sendiri dan siap berkembang sesuai kebutuhan bisnis.",
+        tags: ["Company Profile", "Booking System", "Web Commerce", "Custom Solution"],
         image: "/assets/images/Webdev.webp",
         alt: "Web Development",
       },
@@ -66,6 +68,7 @@ const id = {
         title: "AI & Automation",
         description:
           "Automasi yang menggantikan proses manual berulang, dari balas chat hingga pengingat booking dan notifikasi pesanan, meningkatkan efisiensi kerja sekaligus mengurangi ketergantungan pada proses manual.",
+        tags: ["Auto-reply Chat", "Pengingat Booking", "Notifikasi Pesanan", "Otomatisasi Workflow", "Custom Solution"],
         image: "/assets/images/AI.webp",
         alt: "AI & Automation",
       },
@@ -73,6 +76,7 @@ const id = {
         title: "Digital Marketing",
         description:
           "SEO, iklan multi-platform (Meta/Google/TikTok), marketplace, dan optimasi konversi berbasis data. Strategi marketing yang terukur untuk pertumbuhan berkelanjutan.",
+        tags: ["Meta/Google/TikTok Ads", "Marketplace", "Optimasi Konversi", "Analisis Marketing", "Konsultasi"],
         image: "/assets/images/Digmar.webp",
         alt: "Digital Marketing",
       },

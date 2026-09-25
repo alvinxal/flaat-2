@@ -3,7 +3,7 @@ import type { IDict } from "./id";
 const en: IDict = {
   site: {
     name: "Flaat Studio",
-    tagline: "Web & AI Systems Studio",
+    tagline: "Tech & Marketing Studio",
     based: "Based on yogyakarta",
     year: "2025",
   },
@@ -26,9 +26,9 @@ const en: IDict = {
 
   hero: {
     since: "Home",
-    status: "Web & AI Systems Studio",
+    status: "Tech & Marketing Studio",
     title:
-      "A digital partner that builds reliable web and AI systems to accelerate your business growth.",
+      "A digital partner that builds websites, AI systems, and marketing strategies to accelerate your business growth.",
     cta: "Free Consultation",
     ctaHref:
       "https://wa.me/6285156652910?text=Hi%20Flaat%2C%20I%27d%20like%20to%20consult%20about%20a%20website",
@@ -37,7 +37,7 @@ const en: IDict = {
   about: {
     label: "ABOUT",
     eyebrow: "About Us",
-    text: "Flaat Studio builds websites and AI systems that work for your business, from high-performing websites to automation and AI agents that extend your web systems. We believe a great digital presence isn't just about aesthetics, but about systems that work automatically and are ready for an increasingly AI-driven future.",
+    text: "Flaat Studio builds websites, AI systems, and marketing strategies that work for your business, from efficient web systems and automation to measurable marketing campaigns that bring in customers.",
   },
 
   logos: {
@@ -53,6 +53,7 @@ const en: IDict = {
         title: "Web Development",
         description:
           "Websites and web systems built for daily business operations, from booking systems for hospitality to e-commerce and corporate websites, designed to be easy to manage and ready to grow with your business.",
+        tags: ["Company Profile", "Booking System", "Web Commerce", "Custom Solution"],
         image: "/assets/images/Webdev.webp",
         alt: "Web Development",
       },
@@ -60,6 +61,7 @@ const en: IDict = {
         title: "AI & Automation",
         description:
           "Automation that replaces repetitive manual processes, from guest chat replies to booking reminders and order notifications, improving efficiency while reducing dependence on manual work.",
+        tags: ["Auto-reply Chat", "Booking Reminders", "Order Notifications", "Workflow Automation", "Custom Solution"],
         image: "/assets/images/AI.webp",
         alt: "AI & Automation",
       },
@@ -67,6 +69,7 @@ const en: IDict = {
         title: "Digital Marketing",
         description:
           "SEO, multi-platform ads (Meta/Google/TikTok), marketplace, and data-driven conversion optimization. Measurable marketing strategies for sustainable growth.",
+        tags: ["Meta/Google/TikTok Ads", "Marketplace", "Conversion Optimization", "Marketing Analysis", "Consultation"],
         image: "/assets/images/Digmar.webp",
         alt: "Digital Marketing",
       },

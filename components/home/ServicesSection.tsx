@@ -9,8 +9,6 @@ function getDict(locale: string) {
 export default function ServicesSection({ locale }: { locale: string }) {
   const dict = getDict(locale);
   const content = dict.services;
-  // Digital Marketing (index 2) is temporarily hidden while we focus on web + AI systems.
-  const visibleItems = content.items.slice(0, 2);
 
   return (
     <section id='service' className='flex flex-col gap-4 scroll-mt-[80px] desk:scroll-mt-[80px]'>
@@ -24,7 +22,7 @@ export default function ServicesSection({ locale }: { locale: string }) {
       </div>
 
       <div className='grid gap-3'>
-        {visibleItems.map((service) => (
+        {content.items.map((service) => (
           <article
             key={service.title}
             className='grid gap-4 py-5 border-t border-border tab:grid-cols-[1fr_12rem] tab:items-center tab:gap-8 desk:grid-cols-[1fr_12rem] desk:items-center desk:gap-8'
@@ -33,9 +31,19 @@ export default function ServicesSection({ locale }: { locale: string }) {
               <h3 className='m-0 text-lg leading-normal font-medium font-sans'>
                 {service.title}
               </h3>
-              <p className='m-0 text-accent text-lg leading-[1.3] tracking-[-0.02em] font-body xl:pr-40'>
+              <p className='m-0 text-gray-500 text-lg leading-[1.3] tracking-[-0.02em] font-body xl:pr-40'>
                 {service.description}
               </p>
+              <ul className='m-0 mt-2 flex flex-wrap gap-1.5 list-none p-0'>
+                {service.tags.map((tag) => (
+                  <li
+                    key={tag}
+                    className='bg-accent px-2.5 py-1 font-sans text-xs font-medium leading-none capitalize text-white'
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className='relative min-h-[10rem] overflow-hidden bg-panel tab:min-h-[7rem] desk:min-h-[7rem]'>
               <Image
