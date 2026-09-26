@@ -54,6 +54,7 @@ export function proxy(req: NextRequest) {
     "/manifest.webmanifest",
     "/robots.txt",
     "/sitemap.xml",
+    "/llms.txt",
     "/favicon.ico",
     "/assets/",
   ];
