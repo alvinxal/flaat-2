@@ -16,6 +16,11 @@ Flaat Studio is based in Yogyakarta and serves businesses across Indonesia remot
 - [Contact](https://flaat.studio/contact/): Get in touch for a consultation.
 - [Portfolio](https://flaat.studio/projects/): Case studies of web development and AI automation projects.
 
+## Hospitality vertical
+
+- [Jasa Website & Sistem Booking Hotel/Villa (Indonesian)](https://flaat.studio/jasa-website-hotel-villa/): Websites and booking systems for hotels, villas, and homestays.
+- [Hospitality Website & Booking Systems (English)](https://flaat.studio/en/hospitality-website/): English version, aimed at property owners based abroad.
+
 ## Local services (Indonesian)
 
 - [Jasa Website Yogyakarta](https://flaat.studio/jasa-website-yogyakarta/)

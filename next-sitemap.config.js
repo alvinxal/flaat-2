@@ -32,6 +32,6 @@ module.exports = {
     { loc: "/en/" },
     { loc: "/en/projects/" },
     { loc: "/en/contact/" },
-    { loc: "/en/jasa-website-hotel-villa/" },
+    { loc: "/en/hospitality-website/" },
   ],
 };

@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { trackEvent } from "@/components/analytics/trackEvent";
 import { useDict, useLocale } from "@/lib/i18n/locale-context";
+import { getLocaleSwitchHref } from "@/lib/i18n/locale-path";
 
 function buildNavItems(dict: ReturnType<typeof useDict>, locale: string) {
   const p = locale === "en" ? "/en" : "";
@@ -25,7 +27,10 @@ const socialItems = [
 export default function HomeFooter() {
   const dict = useDict();
   const locale = useLocale();
+  const pathname = usePathname();
   const navItems = buildNavItems(dict, locale);
+  const idHref = getLocaleSwitchHref(pathname, "id");
+  const enHref = getLocaleSwitchHref(pathname, "en");
 
   return (
     <footer className='flex flex-col gap-12 w-full p-5 bg-[#fafafa] tab:p-8 tab:gap-12 desk:p-8 desk:gap-12'>
@@ -70,13 +75,13 @@ export default function HomeFooter() {
             {locale === "id" ? (
               <span className='py-0.5 font-sans text-sm font-medium leading-[1.3] tracking-[-0.02em] text-accent font-bold'>ID</span>
             ) : (
-              <Link href="/" className='py-0.5 font-sans text-sm font-medium leading-[1.3] tracking-[-0.02em] no-underline text-gray-500 hover:text-accent transition-colors'>ID</Link>
+              <Link href={idHref} className='py-0.5 font-sans text-sm font-medium leading-[1.3] tracking-[-0.02em] no-underline text-gray-500 hover:text-accent transition-colors'>ID</Link>
             )}
             <span className='text-gray-300 font-sans text-sm'>/</span>
             {locale === "en" ? (
               <span className='py-0.5 font-sans text-sm font-medium leading-[1.3] tracking-[-0.02em] text-accent font-bold'>EN</span>
             ) : (
-              <Link href="/en/" className='py-0.5 font-sans text-sm font-medium leading-[1.3] tracking-[-0.02em] no-underline text-gray-500 hover:text-accent transition-colors'>EN</Link>
+              <Link href={enHref} className='py-0.5 font-sans text-sm font-medium leading-[1.3] tracking-[-0.02em] no-underline text-gray-500 hover:text-accent transition-colors'>EN</Link>
             )}
           </div>
         </div>

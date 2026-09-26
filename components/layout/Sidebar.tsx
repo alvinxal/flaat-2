@@ -2,10 +2,11 @@
 
 import { useEffect, useState, type MouseEvent } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Icons } from "@/components/shared/Icons";
 import { SidebarSocialIcons } from "@/components/layout/SidebarSocialIcons";
 import { useDict, useLocale } from "@/lib/i18n/locale-context";
+import { getLocaleSwitchHref } from "@/lib/i18n/locale-path";
 
 type IconKey = "home" | "about" | "projects" | "services" | "contact";
 
@@ -22,11 +23,14 @@ function buildNavItems(dict: ReturnType<typeof useDict>, locale: string): { labe
 
 const Sidebar = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const dict = useDict();
   const locale = useLocale();
   const items = buildNavItems(dict, locale);
   const homeHref = locale === "en" ? "/en/" : "/";
+  const idHref = getLocaleSwitchHref(pathname, "id");
+  const enHref = getLocaleSwitchHref(pathname, "en");
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -71,13 +75,13 @@ const Sidebar = () => {
             {locale === "id" ? (
               <span className='text-accent font-bold'>ID</span>
             ) : (
-              <Link href="/" className='text-gray-500 no-underline hover:text-accent transition-colors'>ID</Link>
+              <Link href={idHref} className='text-gray-500 no-underline hover:text-accent transition-colors'>ID</Link>
             )}
             <span className='text-gray-300'>/</span>
             {locale === "en" ? (
               <span className='text-accent font-bold'>EN</span>
             ) : (
-              <Link href="/en/" className='text-gray-500 no-underline hover:text-accent transition-colors'>EN</Link>
+              <Link href={enHref} className='text-gray-500 no-underline hover:text-accent transition-colors'>EN</Link>
             )}
           </div>
           <button
@@ -151,13 +155,13 @@ const Sidebar = () => {
             {locale === "id" ? (
               <span className='font-mono text-sm tracking-widest uppercase text-accent font-bold'>ID</span>
             ) : (
-              <Link href="/" className='font-mono text-sm tracking-widest uppercase text-gray-500 no-underline hover:text-accent transition-colors'>ID</Link>
+              <Link href={idHref} className='font-mono text-sm tracking-widest uppercase text-gray-500 no-underline hover:text-accent transition-colors'>ID</Link>
             )}
             <span className='text-gray-300 font-mono text-sm'>/</span>
             {locale === "en" ? (
               <span className='font-mono text-sm tracking-widest uppercase text-accent font-bold'>EN</span>
             ) : (
-              <Link href="/en/" className='font-mono text-sm tracking-widest uppercase text-gray-500 no-underline hover:text-accent transition-colors'>EN</Link>
+              <Link href={enHref} className='font-mono text-sm tracking-widest uppercase text-gray-500 no-underline hover:text-accent transition-colors'>EN</Link>
             )}
           </div>
         </div>
