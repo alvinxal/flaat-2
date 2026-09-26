@@ -16,7 +16,7 @@ function buildNavItems(dict: ReturnType<typeof useDict>, locale: string): { labe
     { label: dict.nav.about, href: `${p}/#about`, icon: "about" },
     { label: dict.nav.services, href: `${p}/#service`, icon: "services" },
     { label: dict.nav.projects, href: `${p}/#projects`, icon: "projects" },
-    { label: dict.nav.contact, href: `${p}/#contact`, icon: "contact" },
+    { label: dict.nav.contact, href: `${p}/contact/`, icon: "contact" },
   ];
 }
 

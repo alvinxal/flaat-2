@@ -12,13 +12,14 @@ function buildNavItems(dict: ReturnType<typeof useDict>, locale: string) {
     { label: dict.nav.about, href: `${p}/#about` },
     { label: dict.nav.services, href: `${p}/#service` },
     { label: dict.nav.projects, href: `${p}/#projects` },
-    { label: dict.nav.contact, href: `${p}/#contact` },
+    { label: dict.nav.contact, href: `${p}/contact/` },
   ];
 }
 
 const socialItems = [
   { name: "Instagram", href: "https://www.instagram.com/flaatstudio/" },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/flaat-studio-84ab3b39a/" },
+  { name: "Threads", href: "https://www.threads.com/@flaatstudio?hl=en" },
 ];
 
 export default function HomeFooter() {

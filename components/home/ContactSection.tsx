@@ -5,7 +5,12 @@ import { useState } from "react";
 import { trackEvent } from "@/components/analytics/trackEvent";
 import { useDict } from "@/lib/i18n/locale-context";
 
-export default function ContactSection() {
+type ContactSectionProps = {
+  heading?: string;
+  description?: string;
+};
+
+export default function ContactSection({ heading, description }: ContactSectionProps = {}) {
   const dict = useDict();
   const content = dict.contact;
 
@@ -61,14 +66,30 @@ export default function ContactSection() {
       id='contact'
       className='p-5 bg-[#2f4157] flex flex-col gap-4 desk:p-8 scroll-mt-[80px] desk:scroll-mt-[80px]'
     >
-      <div className='flex items-center justify-between gap-4 mb-8'>
-        <p className='m-0 font-mono text-xs tracking-widest uppercase text-inverse'>
-          {content.label}
-        </p>
-        <h2 className='m-0 text-inverse text-xl leading-tight font-semibold font-sans'>
-          {content.title}
-        </h2>
-      </div>
+      {heading ? (
+        <div className='flex flex-col gap-4 mb-16 max-w-[60ch]'>
+          <p className='m-0 font-mono text-xs tracking-widest uppercase text-inverse'>
+            {content.label}
+          </p>
+          <h1 className='m-0 text-white text-3xl tab:text-4xl desk:text-5xl leading-tight tracking-tight font-medium font-sans'>
+            {heading}
+          </h1>
+          {description ? (
+            <p className='m-0 text-white/70 text-lg leading-[1.7] tracking-[-0.01em] font-body max-w-[55ch]'>
+              {description}
+            </p>
+          ) : null}
+        </div>
+      ) : (
+        <div className='flex items-center justify-between gap-4 mb-8'>
+          <p className='m-0 font-mono text-xs tracking-widest uppercase text-inverse'>
+            {content.label}
+          </p>
+          <h2 className='m-0 text-inverse text-xl leading-tight font-semibold font-sans'>
+            {content.title}
+          </h2>
+        </div>
+      )}
 
       <div className='grid gap-6 tab:grid-cols-2 desk:grid-cols-2'>
         <div className='flex flex-col gap-5'>

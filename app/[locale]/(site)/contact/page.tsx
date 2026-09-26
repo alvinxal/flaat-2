@@ -13,19 +13,17 @@ type Props = {
 
 const copy = {
   id: {
-    eyebrow: "KONTAK",
     title: "Diskusikan kebutuhan website & sistem AI Anda",
     description:
-      "Ceritakan tantangan bisnis Anda, dan kami bantu rekomendasikan solusi web dan AI yang paling relevan — tanpa komitmen.",
+      "Ceritakan tantangan bisnis Anda, dan kami bantu rekomendasikan solusi web dan AI yang paling relevan, tanpa komitmen.",
     metaTitle: "Kontak | Flaat Studio",
     metaDescription:
       "Hubungi Flaat Studio untuk konsultasi jasa pembuatan website dan sistem AI untuk bisnis Anda.",
   },
   en: {
-    eyebrow: "CONTACT",
     title: "Let's discuss your web & AI systems needs",
     description:
-      "Tell us about your business challenges, and we'll help recommend the most relevant web and AI solution — no commitment required.",
+      "Tell us about your business challenges, and we'll help recommend the most relevant web and AI solution, no commitment required.",
     metaTitle: "Contact | Flaat Studio",
     metaDescription:
       "Get in touch with Flaat Studio for a consultation on website development and AI systems for your business.",
@@ -79,21 +77,7 @@ export default async function ContactPage({ params }: Props) {
         ]}
       />
       <div className='relative w-full max-w-[1300px] mx-auto flex flex-col gap-[7.5rem] pt-10 px-5 tab:p-8 desk:p-8 desk:border-r desk:border-gray-200'>
-        <section className='relative flex flex-col gap-8 bg-[#fafafa] p-8 tab:p-12 desk:p-16'>
-          <p className='m-0 font-mono text-xs tracking-widest uppercase text-gray-800'>
-            {c.eyebrow}
-          </p>
-          <div className='flex flex-col gap-6 max-w-[55ch]'>
-            <h1 className='m-0 text-3xl tab:text-4xl desk:text-5xl leading-tight tracking-tight font-medium font-sans text-accent'>
-              {c.title}
-            </h1>
-            <p className='m-0 text-lg leading-[1.7] tracking-[-0.01em] font-body text-gray-500'>
-              {c.description}
-            </p>
-          </div>
-        </section>
-
-        <ContactSection />
+        <ContactSection heading={c.title} description={c.description} />
         <HomeFooter />
       </div>
     </main>
