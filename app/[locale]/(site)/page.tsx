@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { JsonLdScript, LocalBusinessJsonLd } from "next-seo";
+import { FAQJsonLd, JsonLdScript, LocalBusinessJsonLd } from "next-seo";
 
 import HomeFooter from "@/components/layout/HomeFooter";
 import HeroSection from "@/components/home/HeroSection";
@@ -7,6 +7,7 @@ import ProjectsSection from "@/components/home/ProjectsSection";
 import AboutSection from "@/components/home/AboutSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import LogosSection from "@/components/home/LogosSection";
+import FAQSection from "@/components/home/FAQSection";
 import ContactSection from "@/components/home/ContactSection";
 import { ogImagePath, siteOrigin } from "@/lib/site";
 import id from "@/lib/i18n/dictionaries/id";
@@ -100,12 +101,17 @@ export default async function HomePage({ params }: Props) {
         scriptKey='home-services-jsonld'
         data={homeServiceEnrichment}
       />
+      <FAQJsonLd
+        scriptId='home-faq-jsonld'
+        questions={dict.faq.items.map((item) => ({ question: item.q, answer: item.a }))}
+      />
       <div className='relative w-full max-w-[1300px] mx-auto flex flex-col gap-[7.5rem] pt-10 px-5 tab:p-8 desk:p-8 desk:border-r desk:border-gray-200'>
         <HeroSection />
         <AboutSection locale={locale} />
         <ServicesSection locale={locale} />
         <ProjectsSection locale={locale} />
         <LogosSection locale={locale} />
+        <FAQSection locale={locale} />
         <ContactSection />
         <HomeFooter />
       </div>

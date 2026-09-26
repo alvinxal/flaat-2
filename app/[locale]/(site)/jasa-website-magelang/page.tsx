@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
   title: "Jasa Website Magelang",
   description:
-    "Flaat Studio melayani jasa pembuatan website untuk bisnis di Magelang, termasuk company profile, landing page, website custom, SEO basic, dan integrasi WhatsApp.",
+    "Flaat Studio melayani jasa pembuatan website untuk bisnis di Magelang, termasuk company profile, landing page, website custom, dan integrasi WhatsApp.",
   alternates: {
     canonical: "/jasa-website-magelang/",
   },
@@ -44,10 +44,6 @@ const services = [
     desc: "Website untuk menampilkan produk atau jasa secara rapi, lengkap dengan gambar, harga, dan deskripsi.",
   },
   {
-    title: "SEO Teknis",
-    desc: "Optimasi struktur website agar lebih mudah ditemukan di Google, termasuk metadata, sitemap, dan kecepatan.",
-  },
-  {
     title: "Integrasi WhatsApp",
     desc: "Tombol chat dan form kontak yang terhubung langsung ke WhatsApp bisnis Anda.",
   },
@@ -70,7 +66,7 @@ const processSteps = [
   { step: "01", title: "Pahami", desc: "Diskusi kebutuhan bisnis dan target audiens di Magelang." },
   { step: "02", title: "Rencana", desc: "Susun struktur halaman dan konten yang jelas sesuai brand Anda." },
   { step: "03", title: "Buat", desc: "Desain dan develop website sesuai kebutuhan bisnis lokal." },
-  { step: "04", title: "Optimasi", desc: "SEO teknis: metadata, canonical, sitemap, kecepatan, mobile." },
+  { step: "04", title: "Optimasi", desc: "Optimasi teknis: kecepatan, tampilan mobile, dan struktur halaman." },
   { step: "05", title: "Launch", desc: "Uji, pastikan semua berjalan, dan publikasikan website Anda." },
   { step: "06", title: "Support", desc: "Bantuan maintenance dan update setelah website live." },
 ];
@@ -78,7 +74,6 @@ const processSteps = [
 const benefits = [
   "Strategi digital yang disesuaikan dengan bisnis lokal Magelang",
   "Website cepat, ringan, dan nyaman diakses dari HP",
-  "SEO teknis bawaan supaya lebih mudah ditemukan di Google",
   "Integrasi WhatsApp dan form kontak yang siap dipakai",
   "Support setelah launch, bukan sekadar serah terima",
 ];
@@ -87,7 +82,6 @@ const faqItems = [
   { q: "Apakah Flaat Studio melayani jasa website di Magelang?", a: "Ya. Flaat Studio melayani pembuatan website untuk bisnis di Magelang dan berbagai kota lain seperti Yogyakarta, Semarang, Solo, Temanggung, Purwokerto, dan Salatiga." },
   { q: "Apakah bisa konsultasi online?", a: "Bisa. Diskusi awal bisa lewat WhatsApp atau meeting online sebelum project dimulai." },
   { q: "Berapa biaya pembuatan website?", a: "Biaya menyesuaikan kebutuhan, mulai dari landing page sederhana sampai website custom dengan fitur lebih lengkap." },
-  { q: "Apakah bisa sekalian SEO?", a: "Bisa. Website dibuat dengan struktur teknis SEO dasar, termasuk metadata, heading, canonical, sitemap, dan optimasi performa." },
   { q: "Apakah ada layanan maintenance setelah website selesai?", a: "Ada. Kami bisa bantu maintenance, update konten, dan perbaikan kecil setelah website launch." },
 ];
 
@@ -96,10 +90,10 @@ const jsonLd = {
   "@type": "ProfessionalService",
   name: "Flaat Studio - Jasa Website Magelang",
   url: `${siteOrigin}/jasa-website-magelang/`,
-  description: "Flaat Studio melayani jasa pembuatan website untuk bisnis di Magelang, termasuk company profile, landing page, website custom, SEO basic, dan integrasi WhatsApp.",
+  description: "Flaat Studio melayani jasa pembuatan website untuk bisnis di Magelang, termasuk company profile, landing page, website custom, dan integrasi WhatsApp.",
   areaServed: { "@type": "City", name: "Magelang" },
   provider: { "@type": "Organization", name: "Flaat Studio", url: siteOrigin },
-  serviceType: ["Jasa pembuatan website", "Landing page", "Company profile website", "SEO teknis"],
+  serviceType: ["Jasa pembuatan website", "Landing page", "Company profile website"],
 };
 
 export default async function JasaWebsiteMagelangPage({ params }: { params: Promise<{ locale: string }> }) {

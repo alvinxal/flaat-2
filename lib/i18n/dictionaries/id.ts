@@ -52,6 +52,33 @@ const id = {
     title: "Klien & Partner",
   },
 
+  faq: {
+    label: "FAQ",
+    title: "Pertanyaan Umum",
+    items: [
+      {
+        q: "Apa saja layanan Flaat Studio?",
+        a: "Flaat Studio melayani tiga layanan utama: Web Development (website dan sistem web), AI & Automation (chatbot dan otomatisasi proses bisnis), dan Digital Marketing (ads, marketplace, dan optimasi konversi).",
+      },
+      {
+        q: "Berapa biaya untuk membuat website atau sistem AI?",
+        a: "Flaat Studio bekerja berbasis konsultasi, bukan paket harga tetap. Biaya menyesuaikan scope dan kebutuhan bisnis Anda, jadi diskusikan dulu lewat WhatsApp atau form kontak untuk mendapatkan penawaran yang sesuai.",
+      },
+      {
+        q: "Apakah Flaat Studio hanya melayani Yogyakarta?",
+        a: "Flaat Studio berbasis di Yogyakarta dan bisa melayani bisnis di seluruh Indonesia secara jarak jauh.",
+      },
+      {
+        q: "Apakah Flaat Studio bisa melayani klien di luar negeri?",
+        a: "Bisa. Seluruh proses kerja Flaat Studio dilakukan secara remote, jadi klien di luar Indonesia juga bisa konsultasi dan bekerja sama tanpa kendala jarak.",
+      },
+      {
+        q: "Apakah bisa konsultasi dulu sebelum mulai project?",
+        a: "Bisa. Konsultasi awal gratis dan bisa dilakukan lewat WhatsApp atau form kontak untuk membahas kebutuhan bisnis Anda sebelum menentukan scope project.",
+      },
+    ],
+  },
+
   services: {
     label: "SERVICES",
     title: "Layanan",
@@ -75,7 +102,7 @@ const id = {
       {
         title: "Digital Marketing",
         description:
-          "SEO, iklan multi-platform (Meta/Google/TikTok), marketplace, dan optimasi konversi berbasis data. Strategi marketing yang terukur untuk pertumbuhan berkelanjutan.",
+          "Iklan multi-platform (Meta/Google/TikTok), marketplace, dan optimasi konversi berbasis data. Strategi marketing yang terukur untuk pertumbuhan berkelanjutan.",
         tags: ["Meta/Google/TikTok Ads", "Marketplace", "Optimasi Konversi", "Analisis Marketing", "Konsultasi"],
         image: "/assets/images/Digmar.webp",
         alt: "Digital Marketing",

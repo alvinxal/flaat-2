@@ -45,6 +45,33 @@ const en: IDict = {
     title: "Partners & Clients",
   },
 
+  faq: {
+    label: "FAQ",
+    title: "Frequently Asked Questions",
+    items: [
+      {
+        q: "What services does Flaat Studio offer?",
+        a: "Flaat Studio offers three core services: Web Development (websites and web systems), AI & Automation (chatbots and business process automation), and Digital Marketing (ads, marketplace, and conversion optimization).",
+      },
+      {
+        q: "How much does it cost to build a website or AI system?",
+        a: "Flaat Studio works on a consultation basis rather than fixed packages. Cost depends on the scope and needs of your business, so reach out via WhatsApp or the contact form to discuss a quote that fits.",
+      },
+      {
+        q: "Does Flaat Studio only serve Yogyakarta?",
+        a: "Flaat Studio is based in Yogyakarta and can serve businesses across Indonesia remotely.",
+      },
+      {
+        q: "Can Flaat Studio work with international clients?",
+        a: "Yes. Flaat Studio's entire workflow is remote-friendly, so clients outside Indonesia can consult and collaborate without any distance barrier.",
+      },
+      {
+        q: "Can we have a consultation before starting a project?",
+        a: "Yes. An initial consultation is free and can be done via WhatsApp or the contact form to discuss your business needs before defining the project scope.",
+      },
+    ],
+  },
+
   services: {
     label: "SERVICES",
     title: "Services",
@@ -68,7 +95,7 @@ const en: IDict = {
       {
         title: "Digital Marketing",
         description:
-          "SEO, multi-platform ads (Meta/Google/TikTok), marketplace, and data-driven conversion optimization. Measurable marketing strategies for sustainable growth.",
+          "Multi-platform ads (Meta/Google/TikTok), marketplace, and data-driven conversion optimization. Measurable marketing strategies for sustainable growth.",
         tags: ["Meta/Google/TikTok Ads", "Marketplace", "Conversion Optimization", "Marketing Analysis", "Consultation"],
         image: "/assets/images/Digmar.webp",
         alt: "Digital Marketing",

@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
   title: "Jasa Website Temanggung",
   description:
-    "Flaat Studio melayani jasa pembuatan website untuk bisnis di Temanggung, termasuk company profile, landing page, website custom, SEO basic, dan integrasi WhatsApp.",
+    "Flaat Studio melayani jasa pembuatan website untuk bisnis di Temanggung, termasuk company profile, landing page, website custom, dan integrasi WhatsApp.",
   alternates: {
     canonical: "/jasa-website-temanggung/",
   },
@@ -42,10 +42,6 @@ const services = [
   {
     title: "Katalog Online",
     desc: "Website untuk menampilkan produk atau jasa secara rapi, lengkap dengan gambar, harga, dan deskripsi.",
-  },
-  {
-    title: "SEO Teknis",
-    desc: "Optimasi struktur website agar lebih mudah ditemukan di Google, termasuk metadata, sitemap, dan kecepatan.",
   },
   {
     title: "Integrasi WhatsApp",
@@ -85,7 +81,7 @@ const processSteps = [
   {
     step: "04",
     title: "Optimasi",
-    desc: "SEO teknis: metadata, canonical, sitemap, kecepatan, mobile.",
+    desc: "Optimasi teknis: kecepatan, tampilan mobile, dan struktur halaman.",
   },
   {
     step: "05",
@@ -102,7 +98,6 @@ const processSteps = [
 const benefits = [
   "Strategi digital yang disesuaikan dengan bisnis lokal Temanggung",
   "Website cepat, ringan, dan nyaman diakses dari HP",
-  "SEO teknis bawaan supaya lebih mudah ditemukan di Google",
   "Integrasi WhatsApp dan form kontak yang siap dipakai",
   "Support setelah launch, bukan sekadar serah terima",
 ];
@@ -121,10 +116,6 @@ const faqItems = [
     a: "Biaya menyesuaikan kebutuhan, mulai dari landing page sederhana sampai website custom dengan fitur lebih lengkap.",
   },
   {
-    q: "Apakah bisa sekalian SEO?",
-    a: "Bisa. Website dibuat dengan struktur teknis SEO dasar, termasuk metadata, heading, canonical, sitemap, dan optimasi performa.",
-  },
-  {
     q: "Apakah ada layanan maintenance setelah website selesai?",
     a: "Ada. Kami bisa bantu maintenance, update konten, dan perbaikan kecil setelah website launch.",
   },
@@ -136,7 +127,7 @@ const jsonLd = {
   name: "Flaat Studio - Jasa Website Temanggung",
   url: `${siteOrigin}/jasa-website-temanggung/`,
   description:
-    "Flaat Studio melayani jasa pembuatan website untuk bisnis di Temanggung, termasuk company profile, landing page, website custom, SEO basic, dan integrasi WhatsApp.",
+    "Flaat Studio melayani jasa pembuatan website untuk bisnis di Temanggung, termasuk company profile, landing page, website custom, dan integrasi WhatsApp.",
   areaServed: {
     "@type": "City",
     name: "Temanggung",
@@ -150,7 +141,6 @@ const jsonLd = {
     "Jasa pembuatan website",
     "Landing page",
     "Company profile website",
-    "SEO teknis",
   ],
 };
 

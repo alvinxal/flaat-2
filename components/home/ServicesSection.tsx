@@ -28,7 +28,7 @@ export default function ServicesSection({ locale }: { locale: string }) {
             className='grid gap-4 py-5 border-t border-border tab:grid-cols-[1fr_12rem] tab:items-center tab:gap-8 desk:grid-cols-[1fr_12rem] desk:items-center desk:gap-8'
           >
             <div className='flex flex-col gap-2'>
-              <h3 className='m-0 text-lg leading-normal font-medium font-sans'>
+              <h3 className='m-0 text-2xl leading-normal font-medium font-sans'>
                 {service.title}
               </h3>
               <p className='m-0 text-gray-500 text-lg leading-[1.3] tracking-[-0.02em] font-body xl:pr-40'>

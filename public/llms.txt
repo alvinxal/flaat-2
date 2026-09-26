@@ -1,0 +1,33 @@
+# Flaat Studio
+
+> Flaat Studio is a technology and marketing studio based in Yogyakarta, Indonesia. It builds websites, AI systems, and marketing strategies for businesses, working on a consultation basis rather than fixed packages.
+
+Flaat Studio's core services are:
+- **Web Development** — websites and web systems for daily business operations, from corporate websites and booking systems to e-commerce platforms.
+- **AI & Automation** — automation that replaces repetitive manual processes, such as chat replies, booking reminders, and order notifications.
+- **Digital Marketing** — multi-platform ads (Meta/Google/TikTok), marketplace optimization, and data-driven conversion optimization.
+
+Flaat Studio also serves businesses in several cities in Central Java and Yogyakarta with localized web development services.
+
+## Pages
+
+- [Homepage (Indonesian)](https://flaat.studio/): Overview of services, portfolio, and contact.
+- [Homepage (English)](https://flaat.studio/en/): English version of the homepage.
+- [Contact](https://flaat.studio/contact/): Get in touch for a consultation.
+- [Portfolio](https://flaat.studio/projects/): Case studies of web development and AI automation projects.
+
+## Local services (Indonesian)
+
+- [Jasa Website Yogyakarta](https://flaat.studio/jasa-website-yogyakarta/)
+- [Jasa Website Solo](https://flaat.studio/jasa-website-solo/)
+- [Jasa Website Semarang](https://flaat.studio/jasa-website-semarang/)
+- [Jasa Website Purwokerto](https://flaat.studio/jasa-website-purwokerto/)
+- [Jasa Website Magelang](https://flaat.studio/jasa-website-magelang/)
+- [Jasa Website Salatiga](https://flaat.studio/jasa-website-salatiga/)
+- [Jasa Website Temanggung](https://flaat.studio/jasa-website-temanggung/)
+
+## Contact
+
+- WhatsApp: +62 851-5665-2910
+- Email: studioflaat@gmail.com
+- Location: Yogyakarta, Indonesia
