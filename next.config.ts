@@ -19,6 +19,9 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   trailingSlash: true,
+  experimental: {
+    globalNotFound: true,
+  },
   async redirects() {
     return ["solo", "semarang", "purwokerto", "magelang", "salatiga", "temanggung"].map((city) => ({
       source: `/jasa-website-${city}`,
