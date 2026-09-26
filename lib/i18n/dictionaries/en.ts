@@ -144,14 +144,14 @@ const en: IDict = {
 
   metadata: {
     home: {
-      title: "Flaat Studio - Web Development & AI Systems Studio",
+      title: "Flaat Studio - Web Development, AI & Digital Marketing Studio",
       description:
-        "Flaat Studio is a digital partner that builds websites and AI systems for business growth.",
+        "Flaat Studio is a tech & marketing studio based in Yogyakarta, Indonesia, building websites, AI systems, and marketing strategies for businesses in Indonesia and abroad.",
     },
     root: {
-      title: "Flaat Studio | Web Development & AI Systems",
+      title: "Flaat Studio | Web Development, AI & Digital Marketing",
       description:
-        "Flaat Studio is a digital partner that builds websites and AI systems to drive business growth.",
+        "Flaat Studio is a digital partner that builds websites, AI systems, and marketing strategies to drive business growth.",
     },
   },
 

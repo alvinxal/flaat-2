@@ -24,8 +24,12 @@ module.exports = {
     ],
   },
   additionalPaths: async () => [
+    { loc: "/" },
     { loc: "/projects/" },
+    { loc: "/contact/" },
+    { loc: "/jasa-website-yogyakarta/" },
     { loc: "/en/" },
     { loc: "/en/projects/" },
+    { loc: "/en/contact/" },
   ],
 };

@@ -151,14 +151,14 @@ const id = {
 
   metadata: {
     home: {
-      title: "Flaat Studio - Jasa Website & Sistem AI",
+      title: "Flaat Studio - Jasa Website, Sistem AI & Digital Marketing",
       description:
-        "Flaat Studio adalah studio yang membangun website dan sistem AI untuk pertumbuhan bisnis dari Yogyakarta.",
+        "Flaat Studio adalah tech & marketing studio dari Yogyakarta yang membangun website, sistem AI, dan strategi marketing untuk pertumbuhan bisnis di seluruh Indonesia.",
     },
     root: {
-      title: "Flaat Studio | Web Development & AI Systems",
+      title: "Flaat Studio | Web Development, AI & Digital Marketing",
       description:
-        "Flaat Studio adalah digital partner yang membangun website dan sistem AI untuk mendorong pertumbuhan bisnis.",
+        "Flaat Studio adalah digital partner yang membangun website, sistem AI, dan strategi marketing untuk mendorong pertumbuhan bisnis.",
     },
   },
 

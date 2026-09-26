@@ -55,17 +55,7 @@ export default async function HomePage({ params }: Props) {
         name: dict.services.items[0].title,
         serviceType: dict.services.items[0].title,
         provider: { "@type": "Organization", name: "Flaat Studio", url: siteOrigin },
-        areaServed: locale === "en"
-          ? undefined
-          : [
-              { "@type": "City", name: "Yogyakarta" },
-              { "@type": "City", name: "Semarang" },
-              { "@type": "City", name: "Solo" },
-              { "@type": "City", name: "Purwokerto" },
-              { "@type": "City", name: "Magelang" },
-              { "@type": "City", name: "Salatiga" },
-              { "@type": "City", name: "Temanggung" },
-            ],
+        areaServed: { "@type": "Country", name: "Indonesia" },
       },
       {
         "@type": "Service",

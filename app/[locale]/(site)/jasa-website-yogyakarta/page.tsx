@@ -79,7 +79,7 @@ const benefits = [
 ];
 
 const faqItems = [
-  { q: "Apakah Flaat Studio melayani jasa website di Yogyakarta?", a: "Ya. Flaat Studio melayani pembuatan website untuk bisnis di Yogyakarta dan berbagai kota lain seperti Temanggung, Semarang, Solo, Purwokerto, Magelang, dan Salatiga." },
+  { q: "Apakah Flaat Studio melayani jasa website di Yogyakarta?", a: "Ya. Flaat Studio berbasis di Yogyakarta dan melayani pembuatan website untuk bisnis di Yogyakarta, serta bisnis di seluruh Indonesia secara jarak jauh." },
   { q: "Apakah bisa konsultasi online?", a: "Bisa. Diskusi awal bisa lewat WhatsApp atau meeting online sebelum project dimulai." },
   { q: "Berapa biaya pembuatan website?", a: "Biaya menyesuaikan kebutuhan, mulai dari landing page sederhana sampai website custom dengan fitur lebih lengkap." },
   { q: "Apakah ada layanan maintenance setelah website selesai?", a: "Ada. Kami bisa bantu maintenance, update konten, dan perbaikan kecil setelah website launch." },
