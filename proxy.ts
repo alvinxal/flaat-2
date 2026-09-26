@@ -52,7 +52,6 @@ export function proxy(req: NextRequest) {
     "/_next/",
     "/api/",
     "/manifest.webmanifest",
-    "/server-sitemap.xml",
     "/robots.txt",
     "/sitemap.xml",
     "/favicon.ico",
