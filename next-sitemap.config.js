@@ -28,8 +28,10 @@ module.exports = {
     { loc: "/projects/" },
     { loc: "/contact/" },
     { loc: "/jasa-website-yogyakarta/" },
+    { loc: "/jasa-website-hotel-villa/" },
     { loc: "/en/" },
     { loc: "/en/projects/" },
     { loc: "/en/contact/" },
+    { loc: "/en/jasa-website-hotel-villa/" },
   ],
 };

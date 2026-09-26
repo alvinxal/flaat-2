@@ -9,9 +9,22 @@ function getDict(locale: string) {
   return locale === "en" ? en : id;
 }
 
-export default function FAQSection({ locale }: { locale: string }) {
+type FAQItem = { q: string; a: string };
+
+type FAQSectionProps = {
+  locale: string;
+  label?: string;
+  title?: string;
+  items?: FAQItem[];
+};
+
+export default function FAQSection({ locale, label, title, items }: FAQSectionProps) {
   const dict = getDict(locale);
-  const content = dict.faq;
+  const content = {
+    label: label ?? dict.faq.label,
+    title: title ?? dict.faq.title,
+    items: items ?? dict.faq.items,
+  };
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
