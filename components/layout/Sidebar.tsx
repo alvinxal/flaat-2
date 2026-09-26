@@ -147,7 +147,7 @@ const Sidebar = () => {
           </div>
 
           <SidebarSocialIcons isOpen={isOpen} totalItems={items.length} />
-          <div className='hidden desk:flex justify-center gap-2 mt-2 pt-4'>
+          <div className='hidden desk:flex justify-start gap-2 mt-2 pt-4'>
             {locale === "id" ? (
               <span className='font-mono text-sm tracking-widest uppercase text-accent font-bold'>ID</span>
             ) : (

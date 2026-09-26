@@ -7,15 +7,17 @@ const iconMap = {
   contact: Icons.Contact,
   instagram: Icons.Instagram,
   linkedin: Icons.LinkedIn,
+  threads: Icons.Threads,
   whatsapp: Icons.WhatsApp,
 } as const;
 
-type IconKey = "contact" | "instagram" | "linkedin" | "whatsapp";
+type IconKey = "contact" | "instagram" | "linkedin" | "threads" | "whatsapp";
 
 const socialItems: { name: string; href: string; icon: IconKey }[] = [
   { name: "WhatsApp", href: "https://wa.me/6285156652910", icon: "whatsapp" },
   { name: "Instagram", href: "https://www.instagram.com/flaatstudio/", icon: "instagram" },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/flaat-studio-84ab3b39a/", icon: "linkedin" },
+  { name: "Threads", href: "https://www.threads.com/@flaatstudio?hl=en", icon: "threads" },
   { name: "Email", href: "mailto:studioflaat@gmail.com", icon: "contact" },
 ];
 
@@ -33,7 +35,7 @@ export const SidebarSocialIcons = ({
       }}
       className={`flex flex-col gap-6 w-full mt-auto border-t border-b border-gray-200 py-2 desk:mt-10 transition-all duration-500 ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 desk:opacity-100 desk:translate-y-0"}`}
     >
-      <div className='flex justify-center gap-4 flex-wrap'>
+      <div className='flex justify-between gap-2 desk:gap-1'>
         {socialItems.map((item) => {
           const Icon = iconMap[item.icon];
 
@@ -66,7 +68,7 @@ export const SidebarSocialIcons = ({
                   destination: item.href,
                 });
               }}
-              className='inline-flex items-center justify-center p-4 desk:p-2 rounded-full text-accent hover:bg-accent/10 transition-colors duration-200'
+              className='inline-flex items-center justify-center p-4 desk:p-1.5 rounded-full text-accent hover:bg-accent/10 transition-colors duration-200'
               aria-label={item.name}
             >
               <Icon className='size-7 desk:size-4' />
