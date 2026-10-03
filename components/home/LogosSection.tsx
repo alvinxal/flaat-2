@@ -49,11 +49,11 @@ export default async function LogosSection({ locale }: { locale: string }) {
         </h2>
       </div>
 
-      <div className='mx-auto flex w-full flex-wrap items-center justify-center gap-x-8 gap-y-6 max-w-[18rem] desk:gap-x-12 desk:gap-y-8 desk:max-w-[56rem]'>
+      <div className='mx-auto flex w-full flex-wrap items-center justify-center gap-x-8 gap-y-6 max-w-[18rem] desk:flex-nowrap desk:gap-x-8 desk:max-w-none'>
         {logos.map((item) => {
           const imageUrl = urlFor(item.logo).height(160).quality(90).auto("format").url();
           const image = (
-            <div className='relative h-20 w-32 desk:h-24 desk:w-40'>
+            <div className='relative h-20 w-32 desk:h-24 desk:w-full'>
               <Image
                 src={imageUrl}
                 alt={item.name}
@@ -71,11 +71,12 @@ export default async function LogosSection({ locale }: { locale: string }) {
               target='_blank'
               rel='noopener noreferrer'
               aria-label={item.name}
+              className='desk:min-w-0 desk:flex-1'
             >
               {image}
             </a>
           ) : (
-            <span key={item._id} aria-label={item.name}>
+            <span key={item._id} aria-label={item.name} className='desk:min-w-0 desk:flex-1'>
               {image}
             </span>
           );
