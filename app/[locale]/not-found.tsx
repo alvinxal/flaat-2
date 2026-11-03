@@ -1,10 +1,12 @@
-import { headers } from "next/headers";
+"use client";
+
+import { usePathname } from "next/navigation";
 
 import NotFoundBody from "@/components/layout/NotFoundBody";
 
-export default async function NotFound() {
-  const h = await headers();
-  const locale = h.get("x-locale") || "id";
+export default function NotFound() {
+  const pathname = usePathname();
+  const locale = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "id";
 
   return <NotFoundBody locale={locale} />;
 }

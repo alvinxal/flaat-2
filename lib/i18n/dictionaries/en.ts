@@ -83,6 +83,9 @@ const en: IDict = {
         tags: ["Company Profile", "Booking System", "Web Commerce", "Custom Solution"],
         image: "/assets/images/Webdev.webp",
         alt: "Web Development",
+        links: [
+          { label: "Websites & Booking Systems for Hotels, Villas, and Homestays", href: "/en/hospitality-website/" },
+        ],
       },
       {
         title: "AI & Automation",
@@ -131,6 +134,7 @@ const en: IDict = {
     navigation: "navigation",
     social: "social media",
     contact: "contact",
+    services: "services",
   },
 
   notFound: {

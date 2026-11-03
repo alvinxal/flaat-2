@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import id from "@/lib/i18n/dictionaries/id";
 import en from "@/lib/i18n/dictionaries/en";
 
@@ -34,6 +35,20 @@ export default function ServicesSection({ locale }: { locale: string }) {
               <p className='m-0 text-gray-500 text-lg leading-[1.3] tracking-[-0.02em] font-body xl:pr-40'>
                 {service.description}
               </p>
+              {service.links && (
+                <ul className='m-0 mt-1 flex flex-col gap-1 list-none p-0'>
+                  {service.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className='font-sans text-base font-medium text-accent underline underline-offset-4'
+                      >
+                        {link.label} →
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
               <ul className='m-0 mt-2 flex flex-wrap gap-1.5 list-none p-0'>
                 {service.tags.map((tag) => (
                   <li

@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import HospitalityBody, {
   type HospitalityContent,
 } from "@/components/hospitality/HospitalityBody";
-import { siteOrigin } from "@/lib/site";
+import { siteName, siteOrigin, openGraphDefaults, twitterDefaults } from "@/lib/site";
 import id from "@/lib/i18n/dictionaries/id";
 
 type Props = {
@@ -111,7 +111,7 @@ const content: HospitalityContent & {
       a: "Bisa. Seluruh proses kerja dilakukan secara remote, jadi pemilik properti yang tinggal di luar negeri tetap bisa berkonsultasi dan memantau progres tanpa kendala jarak.",
     },
   ],
-  metaTitle: "Jasa Website & Sistem Booking Hotel, Villa, Homestay | Flaat Studio",
+  metaTitle: "Jasa Website & Sistem Booking Hotel, Villa, Homestay",
   metaDescription:
     "Flaat Studio membangun website dan sistem booking online untuk hotel, villa, dan homestay, lengkap dengan manajemen kamar, pembayaran online, dan AI auto-reply untuk tamu.",
   ogDescription:
@@ -134,12 +134,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: content.metaTitle,
+      ...openGraphDefaults(locale),
+      title: `${content.metaTitle} | ${siteName}`,
       description: content.ogDescription,
       url: `/${SLUG}/`,
     },
     twitter: {
-      title: content.metaTitle,
+      ...twitterDefaults,
+      title: `${content.metaTitle} | ${siteName}`,
       description: content.ogDescription,
     },
   };

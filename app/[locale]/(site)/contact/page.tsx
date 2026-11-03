@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd } from "next-seo";
 
 import HomeFooter from "@/components/layout/HomeFooter";
 import ContactSection from "@/components/home/ContactSection";
-import { siteOrigin } from "@/lib/site";
+import { siteName, siteOrigin, openGraphDefaults, twitterDefaults } from "@/lib/site";
 import id from "@/lib/i18n/dictionaries/id";
 import en from "@/lib/i18n/dictionaries/en";
 
@@ -16,7 +16,7 @@ const copy = {
     title: "Diskusikan kebutuhan website & sistem AI Anda",
     description:
       "Ceritakan tantangan bisnis Anda, dan kami bantu rekomendasikan solusi web dan AI yang paling relevan, tanpa komitmen.",
-    metaTitle: "Kontak | Flaat Studio",
+    metaTitle: "Kontak",
     metaDescription:
       "Hubungi Flaat Studio untuk konsultasi jasa pembuatan website dan sistem AI untuk bisnis Anda.",
   },
@@ -24,7 +24,7 @@ const copy = {
     title: "Let's discuss your web & AI systems needs",
     description:
       "Tell us about your business challenges, and we'll help recommend the most relevant web and AI solution, no commitment required.",
-    metaTitle: "Contact | Flaat Studio",
+    metaTitle: "Contact",
     metaDescription:
       "Get in touch with Flaat Studio for a consultation on website development and AI systems for your business.",
   },
@@ -50,12 +50,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: c.metaTitle,
+      ...openGraphDefaults(locale),
+      title: `${c.metaTitle} | ${siteName}`,
       description: c.metaDescription,
       url: `${p}/contact/`,
     },
     twitter: {
-      title: c.metaTitle,
+      ...twitterDefaults,
+      title: `${c.metaTitle} | ${siteName}`,
       description: c.metaDescription,
     },
   };

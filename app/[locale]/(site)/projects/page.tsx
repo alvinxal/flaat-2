@@ -4,7 +4,7 @@ import { CreativeWorkJsonLd, JsonLdScript } from "next-seo";
 import HomeFooter from "@/components/layout/HomeFooter";
 import ProjectsHero from "@/components/home/ProjectsHero";
 import ProjectsFilterGrid from "@/components/projects/ProjectsFilterGrid";
-import { siteOrigin } from "@/lib/site";
+import { siteOrigin, openGraphDefaults, twitterDefaults } from "@/lib/site";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { projectsFilterTypesQuery, projectsIndexQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
@@ -70,11 +70,13 @@ export async function generateMetadata({
         },
       },
       openGraph: {
+        ...openGraphDefaults(locale),
         title: dict.projects.title,
         description: dict.projects.description,
         url: `${p}/projects/`,
       },
       twitter: {
+        ...twitterDefaults,
         title: dict.projects.title,
         description: dict.projects.description,
       },
@@ -95,11 +97,13 @@ export async function generateMetadata({
       follow: true,
     },
     openGraph: {
+      ...openGraphDefaults(locale),
       title: filteredTitle,
       description: filteredDescription,
       url: `${p}/projects/?type=${activeFilter.slug}`,
     },
     twitter: {
+      ...twitterDefaults,
       title: filteredTitle,
       description: filteredDescription,
     },

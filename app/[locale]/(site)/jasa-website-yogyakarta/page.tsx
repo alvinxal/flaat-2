@@ -5,7 +5,7 @@ import HomeFooter from "@/components/layout/HomeFooter";
 import ContactSection from "@/components/home/ContactSection";
 import ProjectsSection from "@/components/home/ProjectsSection";
 import { notFound } from "next/navigation";
-import { siteOrigin } from "@/lib/site";
+import { siteOrigin, openGraphDefaults, twitterDefaults } from "@/lib/site";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -18,12 +18,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     canonical: "/jasa-website-yogyakarta/",
   },
   openGraph: {
+    ...openGraphDefaults(locale),
     title: "Jasa Website Yogyakarta | Flaat Studio",
     description:
       "Bangun website profesional untuk bisnis di Yogyakarta bersama Flaat Studio.",
     url: "/jasa-website-yogyakarta/",
   },
   twitter: {
+    ...twitterDefaults,
     title: "Jasa Website Yogyakarta | Flaat Studio",
     description:
       "Bangun website profesional untuk bisnis di Yogyakarta bersama Flaat Studio.",

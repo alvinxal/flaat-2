@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { trackEvent } from "@/components/analytics/trackEvent";
+import type { Service } from "@/lib/i18n/dictionaries/id";
 import { useDict, useLocale } from "@/lib/i18n/locale-context";
 import { getLocaleSwitchHref } from "@/lib/i18n/locale-path";
 
@@ -29,6 +30,9 @@ export default function HomeFooter() {
   const locale = useLocale();
   const pathname = usePathname();
   const navItems = buildNavItems(dict, locale);
+  const serviceLinks = dict.services.items.flatMap(
+    (service: Service) => service.links ?? [],
+  );
   const idHref = getLocaleSwitchHref(pathname, "id");
   const enHref = getLocaleSwitchHref(pathname, "en");
 
@@ -71,6 +75,24 @@ export default function HomeFooter() {
               </Link>
             ))}
           </nav>
+          {serviceLinks.length > 0 && (
+            <>
+              <p className='m-0 mt-4 font-mono text-xs leading-[1.1] uppercase text-gray-800'>
+                {dict.footer.services}
+              </p>
+              <nav className='flex flex-col items-start gap-0'>
+                {serviceLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className='inline-flex gap-1 py-0.5 font-sans text-lg font-medium leading-[1.3] tracking-[-0.02em] no-underline'
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </>
+          )}
           <div className='flex gap-2 mt-2'>
             {locale === "id" ? (
               <span className='py-0.5 font-sans text-sm font-medium leading-[1.3] tracking-[-0.02em] text-accent font-bold'>ID</span>

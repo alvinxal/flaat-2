@@ -5,6 +5,7 @@ export type Service = {
   tags: string[];
   image: string;
   alt: string;
+  links?: { label: string; href: string }[];
 };
 
 const id = {
@@ -90,6 +91,10 @@ const id = {
         tags: ["Company Profile", "Booking System", "Web Commerce", "Custom Solution"],
         image: "/assets/images/Webdev.webp",
         alt: "Web Development",
+        links: [
+          { label: "Jasa Website Yogyakarta", href: "/jasa-website-yogyakarta/" },
+          { label: "Website & Sistem Booking Hotel, Villa, Homestay", href: "/jasa-website-hotel-villa/" },
+        ],
       },
       {
         title: "AI & Automation",
@@ -138,6 +143,7 @@ const id = {
     navigation: "navigasi",
     social: "sosial media",
     contact: "kontak",
+    services: "layanan",
   },
 
   notFound: {

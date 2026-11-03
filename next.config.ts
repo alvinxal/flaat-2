@@ -22,13 +22,6 @@ const nextConfig: NextConfig = {
   experimental: {
     globalNotFound: true,
   },
-  async redirects() {
-    return ["solo", "semarang", "purwokerto", "magelang", "salatiga", "temanggung"].map((city) => ({
-      source: `/jasa-website-${city}`,
-      destination: "/",
-      permanent: true,
-    }));
-  },
 };
 
 export default nextConfig;

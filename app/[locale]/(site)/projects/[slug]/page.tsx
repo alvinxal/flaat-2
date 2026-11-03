@@ -10,7 +10,7 @@ import type { SanityImageSource } from "@sanity/image-url";
 
 import HomeFooter from "@/components/layout/HomeFooter";
 import PreviewImage from "@/components/projects/PreviewImage";
-import { ogImagePath, siteOrigin } from "@/lib/site";
+import { ogImagePath, siteOrigin, openGraphDefaults, twitterDefaults } from "@/lib/site";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { projectBySlugQuery, relatedProjectsBySlugQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
@@ -126,6 +126,7 @@ export async function generateMetadata({
       canonical: `${p}/projects/${project.slug}/`,
     },
     openGraph: {
+      ...openGraphDefaults(locale),
       type: "article",
       title: project.title,
       description,
@@ -138,6 +139,7 @@ export async function generateMetadata({
       ],
     },
     twitter: {
+      ...twitterDefaults,
       title: project.title,
       description,
       images: [image],

@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import HospitalityBody, {
   type HospitalityContent,
 } from "@/components/hospitality/HospitalityBody";
-import { siteOrigin } from "@/lib/site";
+import { siteName, siteOrigin, openGraphDefaults, twitterDefaults } from "@/lib/site";
 import en from "@/lib/i18n/dictionaries/en";
 
 type Props = {
@@ -111,7 +111,7 @@ const content: HospitalityContent & {
       a: "Yes. The entire workflow is remote-friendly, so property owners based abroad can still consult and follow progress without any distance barrier.",
     },
   ],
-  metaTitle: "Hotel, Villa & Homestay Booking Website Development | Flaat Studio",
+  metaTitle: "Hotel, Villa & Homestay Booking Website Development",
   metaDescription:
     "Flaat Studio builds websites and online booking systems for hotels, villas, and homestays, complete with room management, online payments, and AI auto-reply for guests.",
   ogDescription:
@@ -134,12 +134,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: content.metaTitle,
+      ...openGraphDefaults(locale),
+      title: `${content.metaTitle} | ${siteName}`,
       description: content.ogDescription,
       url: `/en/${SLUG}/`,
     },
     twitter: {
-      title: content.metaTitle,
+      ...twitterDefaults,
+      title: `${content.metaTitle} | ${siteName}`,
       description: content.ogDescription,
     },
   };

@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
-import { headers } from "next/headers";
 import { Bricolage_Grotesque, Inter, Space_Mono } from "next/font/google";
 import localFont from "next/font/local";
-import "./globals.css";
+
+import "../../app/globals.css";
 
 const clashDisplay = localFont({
-  src: "../public/assets/fonts/ClashDisplay-Variable.woff2",
+  src: "../../public/assets/fonts/ClashDisplay-Variable.woff2",
   variable: "--font-display",
   display: "swap",
 });
@@ -27,16 +27,15 @@ const spaceMono = Space_Mono({
   variable: "--font-mono",
 });
 
-export default async function RootLayout({
+export default function RootHtml({
+  lang,
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const h = await headers();
-  const locale = h.get("x-locale") || "id";
-
+}: {
+  lang: string;
+  children: ReactNode;
+}) {
   return (
-    <html lang={locale}>
+    <html lang={lang}>
       <body
         className={`${bricolage.variable} ${inter.variable} ${spaceMono.variable} ${clashDisplay.variable}`}
         style={{ fontSize: "1.125rem" }}

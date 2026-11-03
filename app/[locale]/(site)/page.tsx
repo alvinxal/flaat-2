@@ -9,7 +9,7 @@ import ServicesSection from "@/components/home/ServicesSection";
 import LogosSection from "@/components/home/LogosSection";
 import FAQSection from "@/components/home/FAQSection";
 import ContactSection from "@/components/home/ContactSection";
-import { ogImagePath, siteOrigin } from "@/lib/site";
+import { ogImagePath, siteOrigin, openGraphDefaults, twitterDefaults } from "@/lib/site";
 import id from "@/lib/i18n/dictionaries/id";
 import en from "@/lib/i18n/dictionaries/en";
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dict = locale === "en" ? en : id;
 
   return {
-    title: dict.metadata.home.title,
+    title: { absolute: dict.metadata.home.title },
     description: dict.metadata.home.description,
     alternates: {
       canonical: locale === "en" ? "/en/" : "/",
@@ -32,11 +32,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     openGraph: {
+      ...openGraphDefaults(locale),
       title: dict.metadata.home.title,
       description: dict.metadata.home.description,
       url: locale === "en" ? "/en/" : "/",
     },
     twitter: {
+      ...twitterDefaults,
       title: dict.metadata.home.title,
       description: dict.metadata.home.description,
     },

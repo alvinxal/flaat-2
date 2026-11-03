@@ -12,6 +12,12 @@ function unauthorized() {
   });
 }
 
+// City landing pages that were discontinued with no equivalent replacement.
+const goneCities = ["solo", "semarang", "purwokerto", "magelang", "salatiga", "temanggung"];
+const gonePaths = new Set(
+  goneCities.flatMap((city) => [`/jasa-website-${city}`, `/jasa-website-${city}/`]),
+);
+
 function getLocale(pathname: string) {
   const segments = pathname.split("/").filter(Boolean);
   const first = segments[0];
@@ -45,6 +51,17 @@ export function proxy(req: NextRequest) {
       if (givenUser !== user || givenPass !== pass) return unauthorized();
     }
     return NextResponse.next();
+  }
+
+  // --- Discontinued pages ---
+  if (gonePaths.has(pathname)) {
+    return new NextResponse("410 Gone", {
+      status: 410,
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "X-Robots-Tag": "noindex",
+      },
+    });
   }
 
   // --- Locale routing ---
