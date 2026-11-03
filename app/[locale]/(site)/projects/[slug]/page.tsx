@@ -23,6 +23,7 @@ type ProjectDetail = {
   _id: string;
   title: string;
   slug: string;
+  translations?: { id: string | null; en: string | null };
   description?: string;
   year?: string;
   client?: string;
@@ -124,6 +125,16 @@ export async function generateMetadata({
     description,
     alternates: {
       canonical: `${p}/projects/${project.slug}/`,
+      // Only emit hreflang when both language versions exist; the pair comes
+      // from the same Sanity document, so slugs differ per language.
+      ...(project.translations?.id && project.translations.en
+        ? {
+            languages: {
+              id: `/projects/${project.translations.id}/`,
+              en: `/en/projects/${project.translations.en}/`,
+            },
+          }
+        : {}),
     },
     openGraph: {
       ...openGraphDefaults(locale),

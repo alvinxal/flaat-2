@@ -33,6 +33,10 @@ export const projectBySlugQuery = `
     _id,
     "title": select($locale == "en" => titleEn, titleId),
     "slug": select($locale == "en" => slugEn.current, slugId.current),
+    "translations": {
+      "id": select(defined(slugId.current) => slugId.current),
+      "en": select(defined(slugEn.current) && defined(titleEn) && defined(bodyEn) => slugEn.current)
+    },
     "description": select($locale == "en" => descriptionEn, descriptionId),
     year,
     client,
