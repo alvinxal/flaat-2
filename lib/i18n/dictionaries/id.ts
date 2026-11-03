@@ -92,6 +92,7 @@ const id = {
         image: "/assets/images/Webdev.webp",
         alt: "Web Development",
         links: [
+          { label: "Jasa Pembuatan Website", href: "/jasa-pembuatan-website/" },
           { label: "Jasa Website Yogyakarta", href: "/jasa-website-yogyakarta/" },
           { label: "Website & Sistem Booking Hotel, Villa, Homestay", href: "/jasa-website-hotel-villa/" },
         ],
@@ -103,6 +104,7 @@ const id = {
         tags: ["Otomatisasi Workflow", "Auto-reply Chat", "Pengingat Booking", "Notifikasi Pesanan", "Custom Solution"],
         image: "/assets/images/AI.webp",
         alt: "AI & Automation",
+        links: [{ label: "Jasa AI Automation", href: "/jasa-ai-automation/" }],
       },
       {
         title: "Digital Marketing",
@@ -111,6 +113,7 @@ const id = {
         tags: ["Meta/Google/TikTok Ads", "Marketplace", "Optimasi Konversi", "Analisis Marketing", "Konsultasi"],
         image: "/assets/images/Digmar.webp",
         alt: "Digital Marketing",
+        links: [{ label: "Jasa Digital Marketing", href: "/jasa-digital-marketing/" }],
       },
     ] satisfies Service[],
   },

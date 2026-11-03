@@ -84,6 +84,7 @@ const en: IDict = {
         image: "/assets/images/Webdev.webp",
         alt: "Web Development",
         links: [
+          { label: "Website Development Services", href: "/en/website-development-services/" },
           { label: "Websites & Booking Systems for Hotels, Villas, and Homestays", href: "/en/hospitality-website/" },
         ],
       },
@@ -94,6 +95,7 @@ const en: IDict = {
         tags: ["Workflow Automation", "Auto-reply Chat", "Booking Reminders", "Order Notifications", "Custom Solution"],
         image: "/assets/images/AI.webp",
         alt: "AI & Automation",
+        links: [{ label: "AI Automation Services", href: "/en/ai-automation-services/" }],
       },
       {
         title: "Digital Marketing",
@@ -102,6 +104,7 @@ const en: IDict = {
         tags: ["Meta/Google/TikTok Ads", "Marketplace", "Conversion Optimization", "Marketing Analysis", "Consultation"],
         image: "/assets/images/Digmar.webp",
         alt: "Digital Marketing",
+        links: [{ label: "Digital Marketing Services", href: "/en/digital-marketing-services/" }],
       },
     ],
   },

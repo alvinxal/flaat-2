@@ -27,10 +27,16 @@ const staticPaths = [
   "/contact/",
   "/jasa-website-yogyakarta/",
   "/jasa-website-hotel-villa/",
+  "/jasa-pembuatan-website/",
+  "/jasa-ai-automation/",
+  "/jasa-digital-marketing/",
   "/en/",
   "/en/projects/",
   "/en/contact/",
   "/en/hospitality-website/",
+  "/en/website-development-services/",
+  "/en/ai-automation-services/",
+  "/en/digital-marketing-services/",
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
