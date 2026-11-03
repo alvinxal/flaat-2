@@ -12,7 +12,11 @@ import HomeFooter from "@/components/layout/HomeFooter";
 import PreviewImage from "@/components/projects/PreviewImage";
 import { ogImagePath, siteOrigin, openGraphDefaults, twitterDefaults } from "@/lib/site";
 import { sanityFetch } from "@/sanity/lib/fetch";
-import { projectBySlugQuery, relatedProjectsBySlugQuery } from "@/sanity/lib/queries";
+import {
+  projectBySlugQuery,
+  projectSlugsQuery,
+  relatedProjectsBySlugQuery,
+} from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import id from "@/lib/i18n/dictionaries/id";
 import en from "@/lib/i18n/dictionaries/en";
@@ -68,6 +72,19 @@ type RelatedProject = {
 
 function getDict(locale: string) {
   return locale === "en" ? en : id;
+}
+
+export async function generateStaticParams() {
+  const slugs =
+    (await sanityFetch<{ id: string; en: string | null }[]>({
+      query: projectSlugsQuery,
+      revalidate,
+    })) ?? [];
+
+  return slugs.flatMap(({ id: slugId, en: slugEn }) => [
+    { locale: "id", slug: slugId },
+    ...(slugEn ? [{ locale: "en", slug: slugEn }] : []),
+  ]);
 }
 
 async function getProject(slug: string, locale: string) {

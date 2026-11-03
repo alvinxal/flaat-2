@@ -1,7 +1,7 @@
 "use client";
 
 import { useTransition } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 type ProjectFilterType = {
   _id: string;
@@ -19,20 +19,10 @@ export default function ProjectsFilterNav({
 }) {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
 
   const navigateToType = (type: string) => {
-    const nextParams = new URLSearchParams(searchParams.toString());
-
-    if (type === "all") {
-      nextParams.delete("type");
-    } else {
-      nextParams.set("type", type);
-    }
-
-    const query = nextParams.toString();
-    const href = query ? `${pathname}?${query}` : pathname;
+    const href = type === "all" ? pathname : `${pathname}?type=${encodeURIComponent(type)}`;
 
     startTransition(() => {
       router.push(href, { scroll: false });

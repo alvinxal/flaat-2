@@ -31,21 +31,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       template: `%s | ${siteName}`,
     },
     description: dict.metadata.root.description,
-    keywords: [
-      "flaat studio",
-      "flaat studio yogyakarta",
-      "jasa pembuatan website",
-      "jasa AI automation",
-      "jasa digital marketing",
-      "digital agency yogyakarta",
-    ],
-    alternates: {
-      canonical: locale === "en" ? "/en/" : "/",
-      languages: {
-        id: "/",
-        en: "/en/",
-      },
-    },
     openGraph: {
       type: "website",
       locale: locale === "en" ? "en_US" : "id_ID",

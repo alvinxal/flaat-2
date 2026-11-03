@@ -65,3 +65,10 @@ export const relatedProjectsBySlugQuery = `
       "types": types[]->title
     }
 `;
+
+export const projectSlugsQuery = `
+  *[_type == "project" && defined(slugId.current)] {
+    "id": slugId.current,
+    "en": select(defined(slugEn.current) && defined(titleEn) && defined(bodyEn) => slugEn.current)
+  }
+`;
