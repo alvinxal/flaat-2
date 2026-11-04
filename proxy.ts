@@ -79,6 +79,12 @@ export function proxy(req: NextRequest) {
     return NextResponse.next();
   }
 
+  // The default locale is served unprefixed; /id/* duplicates it, so send it to the canonical URL.
+  if (pathname === `/${defaultLocale}` || pathname.startsWith(`/${defaultLocale}/`)) {
+    req.nextUrl.pathname = pathname.slice(defaultLocale.length + 1) || "/";
+    return NextResponse.redirect(req.nextUrl, 308);
+  }
+
   const locale = getLocale(pathname);
 
   if (locale !== defaultLocale) {

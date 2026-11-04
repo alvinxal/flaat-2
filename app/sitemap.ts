@@ -25,6 +25,7 @@ const staticPaths = [
   "/",
   "/projects/",
   "/contact/",
+  "/tentang/",
   "/jasa-website-yogyakarta/",
   "/jasa-website-hotel-villa/",
   "/jasa-pembuatan-website/",
@@ -33,6 +34,7 @@ const staticPaths = [
   "/en/",
   "/en/projects/",
   "/en/contact/",
+  "/en/about/",
   "/en/hospitality-website/",
   "/en/website-development-services/",
   "/en/ai-automation-services/",
@@ -40,11 +42,10 @@ const staticPaths = [
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
-
+  // Static pages have no real revision date, so omit lastModified rather than
+  // report the build time as a change on every deploy.
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
     url: `${siteOrigin}${path}`,
-    lastModified: now,
   }));
 
   const projects =
@@ -54,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })) ?? [];
 
   const projectEntries: MetadataRoute.Sitemap = projects.flatMap((project) => {
-    const lastModified = project._updatedAt ? new Date(project._updatedAt) : now;
+    const lastModified = project._updatedAt ? new Date(project._updatedAt) : undefined;
     const entries: MetadataRoute.Sitemap = [
       {
         url: `${siteOrigin}/projects/${project.slugId}/`,
