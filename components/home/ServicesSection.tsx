@@ -23,32 +23,35 @@ export default function ServicesSection({ locale }: { locale: string }) {
       </div>
 
       <div className='grid gap-3'>
-        {content.items.map((service) => (
+        {content.items.map((service) => {
+          const primaryHref = service.links?.[0]?.href;
+          return (
           <article
             key={service.title}
-            className='grid gap-4 py-5 border-t border-border tab:grid-cols-[1fr_12rem] tab:items-center tab:gap-8 desk:grid-cols-[1fr_12rem] desk:items-center desk:gap-8'
+            className='group relative grid gap-4 py-5 border-t border-border tab:grid-cols-[1fr_12rem] tab:items-center tab:gap-8 desk:grid-cols-[1fr_12rem] desk:items-center desk:gap-8'
           >
             <div className='flex flex-col gap-2'>
               <h3 className='m-0 text-2xl leading-normal font-medium font-sans'>
-                {service.title}
+                {primaryHref ? (
+                  <Link
+                    href={primaryHref}
+                    className='text-inherit no-underline after:absolute after:inset-0 after:content-[""]'
+                  >
+                    {service.title}
+                    <span
+                      aria-hidden='true'
+                      className='ml-2 inline-block transition-transform duration-200 group-hover:translate-x-1'
+                    >
+                      →
+                    </span>
+                  </Link>
+                ) : (
+                  service.title
+                )}
               </h3>
               <p className='m-0 text-gray-500 text-lg leading-[1.3] tracking-[-0.02em] font-body xl:pr-40'>
                 {service.description}
               </p>
-              {service.links && (
-                <ul className='m-0 mt-1 flex flex-col gap-1 list-none p-0'>
-                  {service.links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className='font-sans text-base font-medium text-accent underline underline-offset-4'
-                      >
-                        {link.label} →
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
               <ul className='m-0 mt-2 flex flex-wrap gap-1.5 list-none p-0'>
                 {service.tags.map((tag) => (
                   <li
@@ -66,11 +69,12 @@ export default function ServicesSection({ locale }: { locale: string }) {
                 alt={service.alt}
                 fill
                 sizes='(min-width: 1200px) 18vw, (min-width: 810px) 22vw, 100vw'
-                className='object-cover'
+                className='object-cover transition-transform duration-300 group-hover:scale-105'
               />
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

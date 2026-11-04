@@ -12,7 +12,7 @@ function buildNavItems(dict: ReturnType<typeof useDict>, locale: string) {
   const p = locale === "en" ? "/en" : "";
   return [
     { label: dict.nav.home, href: `${p}/` },
-    { label: dict.nav.about, href: `${p}/#about` },
+    { label: dict.nav.about, href: locale === "en" ? "/en/about/" : "/tentang/" },
     { label: dict.nav.services, href: `${p}/#service` },
     { label: dict.nav.projects, href: `${p}/#projects` },
     { label: dict.nav.contact, href: `${p}/contact/` },
@@ -39,7 +39,7 @@ export default function HomeFooter() {
   return (
     <footer className='flex flex-col gap-12 w-full p-5 bg-[#fafafa] tab:p-8 tab:gap-12 desk:p-8 desk:gap-12'>
       <div className='flex flex-col gap-10 w-full tab:flex-row tab:justify-between tab:items-start'>
-        <div className='flex flex-col justify-between w-full max-w-[450px] tab:w-[48%] tab:min-w-[240px] min-h-[150px]'>
+        <div className='flex flex-col justify-between w-full max-w-[450px] tab:w-[24%] tab:shrink-0 tab:min-w-[200px] min-h-[150px]'>
           <div>
             <Link
               href='/'
@@ -60,7 +60,7 @@ export default function HomeFooter() {
           </div>
         </div>
 
-        <div className='flex flex-col gap-2 w-full tab:w-[26%]'>
+        <div className='flex flex-col gap-2 w-full tab:flex-1'>
           <p className='m-0 font-mono text-xs leading-[1.1] uppercase text-gray-800'>
             {dict.footer.navigation}
           </p>
@@ -75,24 +75,6 @@ export default function HomeFooter() {
               </Link>
             ))}
           </nav>
-          {serviceLinks.length > 0 && (
-            <>
-              <p className='m-0 mt-4 font-mono text-xs leading-[1.1] uppercase text-gray-800'>
-                {dict.footer.services}
-              </p>
-              <nav className='flex flex-col items-start gap-0'>
-                {serviceLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className='inline-flex gap-1 py-0.5 font-sans text-lg font-medium leading-[1.3] tracking-[-0.02em] no-underline'
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-            </>
-          )}
           <div className='flex gap-2 mt-2'>
             {locale === "id" ? (
               <span className='py-0.5 font-sans text-sm font-medium leading-[1.3] tracking-[-0.02em] text-accent font-bold'>ID</span>
@@ -108,7 +90,26 @@ export default function HomeFooter() {
           </div>
         </div>
 
-        <div className='flex flex-col gap-2 w-full tab:w-[26%]'>
+        {serviceLinks.length > 0 && (
+          <div className='flex flex-col gap-2 w-full tab:flex-1'>
+            <p className='m-0 font-mono text-xs leading-[1.1] uppercase text-gray-800'>
+              {dict.footer.services}
+            </p>
+            <nav className='flex flex-col items-start gap-0'>
+              {serviceLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className='inline-flex gap-1 py-0.5 font-sans text-lg font-medium leading-[1.3] tracking-[-0.02em] no-underline'
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        )}
+
+        <div className='flex flex-col gap-2 w-full tab:flex-1'>
           <p className='m-0 font-mono text-xs leading-[1.1] uppercase text-gray-800'>
             {dict.footer.social}
           </p>
@@ -134,7 +135,7 @@ export default function HomeFooter() {
           </div>
         </div>
 
-        <div className='flex flex-col gap-2 w-full tab:w-[26%]'>
+        <div className='flex flex-col gap-2 w-full tab:flex-1'>
           <p className='m-0 font-mono text-xs leading-[1.1] uppercase text-gray-800'>
             {dict.footer.contact}
           </p>
