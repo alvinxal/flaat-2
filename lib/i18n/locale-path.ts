@@ -11,9 +11,11 @@ const LOCALIZED_SLUG_PREFIXES = ["/projects/"];
 // (e.g. Indonesian phrasing doesn't belong in an English URL).
 const CROSS_LOCALE_ID_TO_EN: Record<string, string> = {
   "/jasa-website-hotel-villa/": "/en/hospitality-website/",
+  "/tentang/": "/en/about/",
 };
 const CROSS_LOCALE_EN_TO_ID: Record<string, string> = {
   "/hospitality-website/": "/jasa-website-hotel-villa/",
+  "/about/": "/tentang/",
 };
 
 function stripLocalePrefix(pathname: string): string {
